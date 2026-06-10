@@ -143,6 +143,13 @@
   "editorCircle": { "message": "円" },
   "editorFreehand": { "message": "フリーハンド" },
   "editorFormatting": { "message": "書式" },
+  "editorFormatHint": {
+    "message": "色と太さはここで設定 — 描画前、または図形選択後に変更できます。"
+  },
+  "editorFormatApplies": { "message": "有効" },
+  "editorCropHint": { "message": "画像上でクリック＆ドラッグして切り抜きます。" },
+  "editorHighlightHint": { "message": "クリック＆ドラッグでハイライトを追加します。" },
+  "editorTextHint": { "message": "画像をクリックしてテキストを入力します。" },
   "editorColor": { "message": "色" },
   "editorSize": { "message": "サイズ" },
   "editorUrlBrowser": { "message": "URLとブラウザー" },

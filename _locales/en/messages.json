@@ -143,6 +143,13 @@
   "editorCircle": { "message": "Circle" },
   "editorFreehand": { "message": "Freehand" },
   "editorFormatting": { "message": "Formatting" },
+  "editorFormatHint": {
+    "message": "Set color and thickness here — before drawing or after selecting a shape."
+  },
+  "editorFormatApplies": { "message": "Active" },
+  "editorCropHint": { "message": "Click and drag on the image to crop." },
+  "editorHighlightHint": { "message": "Click and drag to add a highlight box." },
+  "editorTextHint": { "message": "Click on the image, then enter your text." },
   "editorColor": { "message": "Color" },
   "editorSize": { "message": "Size" },
   "editorUrlBrowser": { "message": "URL & Browser" },

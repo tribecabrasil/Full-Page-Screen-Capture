@@ -8,7 +8,7 @@ body {
   align-items: center;
   gap: 10px;
   padding: 14px 16px;
-  background: linear-gradient(135deg, var(--header-bg) 0%, #1e3a5f 100%);
+  background: linear-gradient(135deg, var(--black) 0%, var(--gray-900) 100%);
   color: var(--header-text);
 }
 
@@ -55,9 +55,13 @@ body {
 .progress-bar {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, var(--accent), #60a5fa);
+  background: linear-gradient(90deg, var(--black), var(--gray-700));
   border-radius: 999px;
   transition: width 0.2s ease;
+}
+
+[data-theme='dark'] .progress-bar {
+  background: linear-gradient(90deg, var(--white), var(--gray-300));
 }
 
 .dots {
@@ -70,8 +74,12 @@ body {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--accent);
+  background: var(--black);
   animation: pulse 1.2s infinite ease-in-out;
+}
+
+[data-theme='dark'] .dots span {
+  background: var(--white);
 }
 
 .dots span:nth-child(2) { animation-delay: 0.1s; }

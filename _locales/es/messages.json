@@ -143,6 +143,13 @@
   "editorCircle": { "message": "Círculo" },
   "editorFreehand": { "message": "Mano alzada" },
   "editorFormatting": { "message": "Formato" },
+  "editorFormatHint": {
+    "message": "Define color y grosor aquí — antes de dibujar o después de seleccionar una forma."
+  },
+  "editorFormatApplies": { "message": "Activo" },
+  "editorCropHint": { "message": "Haz clic y arrastra en la imagen para recortar." },
+  "editorHighlightHint": { "message": "Haz clic y arrastra para añadir un resaltado." },
+  "editorTextHint": { "message": "Haz clic en la imagen e introduce el texto." },
   "editorColor": { "message": "Color" },
   "editorSize": { "message": "Tamaño" },
   "editorUrlBrowser": { "message": "URL y navegador" },

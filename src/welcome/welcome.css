@@ -1,14 +1,10 @@
 body {
   min-height: 100vh;
-  background:
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.22), transparent 34%),
-    linear-gradient(160deg, var(--header-bg) 0%, #1e3a5f 48%, var(--bg) 100%);
+  background: linear-gradient(160deg, var(--black) 0%, var(--gray-900) 52%, var(--gray-950) 100%);
 }
 
-[data-theme='dark'] body {
-  background:
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.16), transparent 36%),
-    linear-gradient(160deg, #020617 0%, #0f172a 52%, var(--bg) 100%);
+[data-theme='light'] body {
+  background: linear-gradient(160deg, var(--black) 0%, var(--gray-900) 48%, var(--gray-800) 100%);
 }
 
 .wrap {
@@ -24,8 +20,9 @@ body {
   margin-bottom: 18px;
   padding: 8px 12px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--gray-200);
   font-size: 13px;
   font-weight: 500;
 }
@@ -35,7 +32,7 @@ h1 {
   font-size: clamp(32px, 5vw, 44px);
   font-weight: 700;
   letter-spacing: -0.03em;
-  color: #f8fafc;
+  color: var(--white);
 }
 
 .lead {
@@ -43,22 +40,22 @@ h1 {
   max-width: 640px;
   font-size: 17px;
   line-height: 1.6;
-  color: #cbd5e1;
+  color: var(--gray-300);
 }
 
 .card {
   padding: 24px;
   margin-top: 24px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  color: #e2e8f0;
+  color: var(--gray-200);
 }
 
 .card h2 {
   margin: 0 0 14px;
   font-size: 18px;
-  color: #f8fafc;
+  color: var(--white);
 }
 
 .card ul {
@@ -72,11 +69,11 @@ li {
 }
 
 .card a {
-  color: #93c5fd;
+  color: var(--white);
 }
 
 .card a:hover {
-  color: #bfdbfe;
+  color: var(--gray-200);
 }
 
 .developer {

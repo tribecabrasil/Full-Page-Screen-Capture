@@ -143,6 +143,13 @@
   "editorCircle": { "message": "वृत्त" },
   "editorFreehand": { "message": "फ्रीहैंड" },
   "editorFormatting": { "message": "फ़ॉर्मेटिंग" },
+  "editorFormatHint": {
+    "message": "रंग और मोटाई यहाँ सेट करें — बनाने से पहले या आकृति चुनने के बाद।"
+  },
+  "editorFormatApplies": { "message": "सक्रिय" },
+  "editorCropHint": { "message": "क्रॉप करने के लिए छवि पर क्लिक करें और खींचें।" },
+  "editorHighlightHint": { "message": "हाइलाइट जोड़ने के लिए क्लिक करें और खींचें।" },
+  "editorTextHint": { "message": "छवि पर क्लिक करें, फिर टेक्स्ट दर्ज करें।" },
   "editorColor": { "message": "रंग" },
   "editorSize": { "message": "आकार" },
   "editorUrlBrowser": { "message": "URL और ब्राउज़र" },

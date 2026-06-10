@@ -143,6 +143,13 @@
   "editorCircle": { "message": "圆形" },
   "editorFreehand": { "message": "自由绘制" },
   "editorFormatting": { "message": "格式" },
+  "editorFormatHint": {
+    "message": "在此设置颜色和粗细 — 可在绘制前或选中形状后调整。"
+  },
+  "editorFormatApplies": { "message": "已启用" },
+  "editorCropHint": { "message": "在图片上点击并拖动以裁剪。" },
+  "editorHighlightHint": { "message": "点击并拖动以添加高亮区域。" },
+  "editorTextHint": { "message": "点击图片，然后输入文字。" },
   "editorColor": { "message": "颜色" },
   "editorSize": { "message": "大小" },
   "editorUrlBrowser": { "message": "URL 与浏览器" },

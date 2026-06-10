@@ -143,6 +143,13 @@
   "editorCircle": { "message": "Cerchio" },
   "editorFreehand": { "message": "Mano libera" },
   "editorFormatting": { "message": "Formattazione" },
+  "editorFormatHint": {
+    "message": "Imposta colore e spessore qui — prima di disegnare o dopo aver selezionato una forma."
+  },
+  "editorFormatApplies": { "message": "Attivo" },
+  "editorCropHint": { "message": "Clicca e trascina sull'immagine per ritagliare." },
+  "editorHighlightHint": { "message": "Clicca e trascina per aggiungere un'evidenziazione." },
+  "editorTextHint": { "message": "Clicca sull'immagine, poi inserisci il testo." },
   "editorColor": { "message": "Colore" },
   "editorSize": { "message": "Dimensione" },
   "editorUrlBrowser": { "message": "URL e browser" },

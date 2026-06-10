@@ -4,68 +4,83 @@
 [data-theme='light'] {
   color-scheme: light;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --bg: #f4f6fb;
-  --bg-elevated: #ffffff;
-  --bg-muted: #eef2f8;
-  --bg-inset: #e8edf5;
-  --text: #0f172a;
-  --text-muted: #64748b;
-  --text-subtle: #94a3b8;
-  --border: #dbe3ef;
-  --border-strong: #c5d0e0;
-  --accent: #2563eb;
-  --accent-hover: #1d4ed8;
-  --accent-soft: rgba(37, 99, 235, 0.12);
-  --header-bg: #0f172a;
-  --header-text: #f8fafc;
-  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
-  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
-  --shadow-lg: 0 18px 40px rgba(15, 23, 42, 0.12);
+  --black: #000000;
+  --gray-950: #0a0a0a;
+  --gray-900: #111111;
+  --gray-850: #141414;
+  --gray-800: #1a1a1a;
+  --gray-700: #2a2a2a;
+  --gray-600: #404040;
+  --gray-500: #525252;
+  --gray-400: #737373;
+  --gray-300: #a3a3a3;
+  --gray-200: #d4d4d4;
+  --gray-100: #e5e5e5;
+  --gray-50: #f5f5f5;
+  --white: #ffffff;
+  --bg: var(--gray-50);
+  --bg-elevated: var(--white);
+  --bg-muted: #ececec;
+  --bg-inset: var(--gray-100);
+  --text: var(--black);
+  --text-muted: var(--gray-600);
+  --text-subtle: var(--gray-500);
+  --border: var(--gray-100);
+  --border-strong: var(--gray-200);
+  --accent: var(--black);
+  --accent-hover: var(--gray-900);
+  --accent-soft: rgba(0, 0, 0, 0.08);
+  --header-bg: var(--black);
+  --header-text: var(--white);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.14);
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
-  --success-bg: #ecfdf3;
-  --success-text: #166534;
+  --success-bg: #f0fdf4;
+  --success-text: #14532d;
   --success-border: #bbf7d0;
   --warning-bg: #fffbeb;
-  --warning-text: #92400e;
+  --warning-text: #78350f;
   --warning-border: #fde68a;
   --error-bg: #fef2f2;
-  --error-text: #b91c1c;
+  --error-text: #991b1b;
   --error-border: #fecaca;
-  --canvas-bg: #e2e8f0;
-  --focus-ring: 0 0 0 3px rgba(37, 99, 235, 0.28);
+  --canvas-bg: var(--gray-100);
+  --focus-ring: 0 0 0 3px rgba(0, 0, 0, 0.18);
 }
 
 [data-theme='dark'] {
   color-scheme: dark;
-  --bg: #0b1120;
-  --bg-elevated: #111827;
-  --bg-muted: #1a2332;
-  --bg-inset: #0f172a;
-  --text: #f1f5f9;
-  --text-muted: #94a3b8;
-  --text-subtle: #64748b;
-  --border: #2b3648;
-  --border-strong: #3b4a61;
-  --accent: #3b82f6;
-  --accent-hover: #60a5fa;
-  --accent-soft: rgba(59, 130, 246, 0.18);
-  --header-bg: #020617;
-  --header-text: #f8fafc;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
-  --shadow-md: 0 10px 28px rgba(0, 0, 0, 0.35);
-  --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.45);
-  --success-bg: rgba(22, 101, 52, 0.18);
+  --bg: var(--black);
+  --bg-elevated: var(--gray-950);
+  --bg-muted: var(--gray-900);
+  --bg-inset: var(--gray-850);
+  --text: var(--white);
+  --text-muted: var(--gray-300);
+  --text-subtle: var(--gray-400);
+  --border: var(--gray-800);
+  --border-strong: var(--gray-700);
+  --accent: var(--white);
+  --accent-hover: var(--gray-200);
+  --accent-soft: rgba(255, 255, 255, 0.1);
+  --header-bg: var(--black);
+  --header-text: var(--white);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 10px 28px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.65);
+  --success-bg: rgba(20, 83, 45, 0.2);
   --success-text: #86efac;
-  --success-border: rgba(34, 197, 94, 0.35);
-  --warning-bg: rgba(146, 64, 14, 0.2);
+  --success-border: rgba(34, 197, 94, 0.3);
+  --warning-bg: rgba(120, 53, 15, 0.22);
   --warning-text: #fcd34d;
-  --warning-border: rgba(251, 191, 36, 0.35);
-  --error-bg: rgba(185, 28, 28, 0.18);
+  --warning-border: rgba(251, 191, 36, 0.3);
+  --error-bg: rgba(153, 27, 27, 0.22);
   --error-text: #fca5a5;
-  --error-border: rgba(248, 113, 113, 0.35);
-  --canvas-bg: #1e293b;
+  --error-border: rgba(248, 113, 113, 0.3);
+  --canvas-bg: var(--gray-950);
+  --focus-ring: 0 0 0 3px rgba(255, 255, 255, 0.16);
 }
 
 *,
@@ -89,11 +104,17 @@ body {
 }
 
 a {
-  color: var(--accent);
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 a:hover {
-  color: var(--accent-hover);
+  color: var(--text-muted);
+}
+
+[data-theme='dark'] a:hover {
+  color: var(--gray-200);
 }
 
 button,
@@ -129,12 +150,16 @@ button:disabled {
 
 .btn-primary {
   background: var(--accent);
-  color: #fff;
+  color: var(--header-bg);
   font-weight: 600;
 }
 
 .btn-primary:hover {
   background: var(--accent-hover);
+}
+
+[data-theme='dark'] .btn-primary {
+  color: var(--black);
 }
 
 .btn-ghost {
@@ -173,12 +198,17 @@ button:disabled {
 }
 
 .toolbar .btn-primary {
-  background: var(--accent);
-  color: #fff;
+  background: var(--white);
+  color: var(--black);
 }
 
 .toolbar .btn-primary:hover {
-  background: var(--accent-hover);
+  background: var(--gray-200);
+}
+
+[data-theme='light'] .toolbar .btn-primary {
+  background: var(--white);
+  color: var(--black);
 }
 
 .surface,
@@ -224,13 +254,17 @@ select:focus,
 input:focus,
 textarea:focus {
   outline: none;
-  border-color: var(--accent);
+  border-color: var(--border-strong);
   box-shadow: var(--focus-ring);
 }
 
 input[type='range'] {
   width: 100%;
-  accent-color: var(--accent);
+  accent-color: var(--black);
+}
+
+[data-theme='dark'] input[type='range'] {
+  accent-color: var(--white);
 }
 
 input[type='color'] {
@@ -253,7 +287,7 @@ dialog {
 }
 
 dialog::backdrop {
-  background: rgba(15, 23, 42, 0.45);
+  background: rgba(0, 0, 0, 0.55);
 }
 
 .status-success {

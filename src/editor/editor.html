@@ -10,71 +10,119 @@
     <header class="toolbar">
       <div class="left">
         <span class="brand" data-i18n="editorBrand"></span>
-        <button class="tab active" data-panel="editor" type="button" data-i18n="editorTabEditor"></button>
-        <button class="tab" data-panel="shapes" type="button" data-i18n="editorTabShapes"></button>
-        <button class="tab" data-panel="format" type="button" data-i18n="editorTabFormat"></button>
-        <button id="undo" type="button" data-i18n="editorUndo"></button>
-        <button id="redo" type="button" data-i18n="editorRedo"></button>
+        <p id="tool-status" class="tool-status" data-i18n="editorSelectHint"></p>
       </div>
       <div class="right">
-        <button id="zoom-out" type="button">−</button>
+        <button id="undo" type="button" data-i18n="editorUndo"></button>
+        <button id="redo" type="button" data-i18n="editorRedo"></button>
+        <button id="zoom-out" type="button" aria-label="Zoom out">−</button>
         <span id="zoom-label">100%</span>
-        <button id="zoom-in" type="button">+</button>
+        <button id="zoom-in" type="button" aria-label="Zoom in">+</button>
         <button id="export" class="btn-primary" type="button" data-i18n="editorExport"></button>
       </div>
     </header>
 
     <div class="workspace">
       <aside class="sidebar">
-        <section data-panel="editor" class="panel active">
+        <section class="sidebar-block">
           <h3 data-i18n="editorTools"></h3>
-          <p class="tool-hint" data-i18n="editorSelectHint"></p>
-          <button class="tool active" data-tool="select" type="button" data-i18n="editorSelect"></button>
-          <button class="tool" data-tool="crop" type="button" data-i18n="editorCrop"></button>
-          <button class="tool" data-tool="highlight" type="button" data-i18n="editorHighlight"></button>
-          <button class="tool" data-tool="text" type="button" data-i18n="editorText"></button>
+          <div class="tool-grid">
+            <button class="tool-card active" data-tool="select" type="button">
+              <span class="tool-icon" aria-hidden="true">↖</span>
+              <span class="tool-label" data-i18n="editorSelect"></span>
+            </button>
+            <button class="tool-card" data-tool="crop" type="button">
+              <span class="tool-icon" aria-hidden="true">✂</span>
+              <span class="tool-label" data-i18n="editorCrop"></span>
+            </button>
+            <button class="tool-card" data-tool="highlight" type="button">
+              <span class="tool-icon" aria-hidden="true">🖍</span>
+              <span class="tool-label" data-i18n="editorHighlight"></span>
+            </button>
+            <button class="tool-card" data-tool="text" type="button">
+              <span class="tool-icon" aria-hidden="true">T</span>
+              <span class="tool-label" data-i18n="editorText"></span>
+            </button>
+          </div>
         </section>
 
-        <section data-panel="shapes" class="panel">
+        <section class="sidebar-block">
           <h3 data-i18n="editorShapes"></h3>
           <p class="tool-hint" data-i18n="editorShapesHint"></p>
-          <button class="tool" data-tool="rect" type="button" data-i18n="editorRectangle"></button>
-          <button class="tool" data-tool="arrow" type="button" data-i18n="editorArrow"></button>
-          <button class="tool" data-tool="ellipse" type="button" data-i18n="editorCircle"></button>
-          <button class="tool" data-tool="freehand" type="button" data-i18n="editorFreehand"></button>
+          <div class="tool-grid">
+            <button class="tool-card" data-tool="rect" type="button">
+              <span class="tool-icon" aria-hidden="true">▢</span>
+              <span class="tool-label" data-i18n="editorRectangle"></span>
+            </button>
+            <button class="tool-card" data-tool="arrow" type="button">
+              <span class="tool-icon" aria-hidden="true">→</span>
+              <span class="tool-label" data-i18n="editorArrow"></span>
+            </button>
+            <button class="tool-card" data-tool="ellipse" type="button">
+              <span class="tool-icon" aria-hidden="true">○</span>
+              <span class="tool-label" data-i18n="editorCircle"></span>
+            </button>
+            <button class="tool-card" data-tool="freehand" type="button">
+              <span class="tool-icon" aria-hidden="true">✎</span>
+              <span class="tool-label" data-i18n="editorFreehand"></span>
+            </button>
+          </div>
         </section>
 
-        <section data-panel="format" class="panel">
-          <h3 data-i18n="editorFormatting"></h3>
-          <label>
+        <section class="sidebar-block format-panel" id="format-panel">
+          <div class="format-panel-header">
+            <h3 data-i18n="editorFormatting"></h3>
+            <span class="format-badge" id="format-badge" data-i18n="editorFormatApplies"></span>
+          </div>
+          <p class="tool-hint" data-i18n="editorFormatHint"></p>
+          <div class="format-preview" id="format-preview" aria-hidden="true">
+            <span class="format-preview-line" id="format-preview-line"></span>
+            <span class="format-preview-shape" id="format-preview-shape"></span>
+          </div>
+          <div class="color-swatches" id="color-swatches">
+            <button type="button" class="swatch active" data-color="#000000" style="background:#000000" aria-label="#000000"></button>
+            <button type="button" class="swatch" data-color="#ffffff" style="background:#ffffff" aria-label="#ffffff"></button>
+            <button type="button" class="swatch" data-color="#ef4444" style="background:#ef4444" aria-label="#ef4444"></button>
+            <button type="button" class="swatch" data-color="#f59e0b" style="background:#f59e0b" aria-label="#f59e0b"></button>
+            <button type="button" class="swatch" data-color="#22c55e" style="background:#22c55e" aria-label="#22c55e"></button>
+            <button type="button" class="swatch" data-color="#3b82f6" style="background:#3b82f6" aria-label="#3b82f6"></button>
+          </div>
+          <label class="format-field">
             <span data-i18n="editorColor"></span>
-            <input id="stroke-color" type="color" value="#111111" />
+            <input id="stroke-color" type="color" value="#000000" />
           </label>
-          <label>
+          <label class="format-field">
             <span data-i18n="editorSize"></span>
-            <input id="stroke-size" type="range" min="1" max="24" value="4" />
+            <div class="size-row">
+              <input id="stroke-size" type="range" min="1" max="24" value="4" />
+              <output id="stroke-size-value" for="stroke-size">4</output>
+            </div>
           </label>
         </section>
 
-        <section>
-          <h3 data-i18n="editorUrlBrowser"></h3>
-          <label><input name="frame" type="radio" value="mac" /> <span data-i18n="editorMacOs"></span></label>
-          <label><input name="frame" type="radio" value="windows" /> <span data-i18n="editorWindows"></span></label>
-          <label><input name="frame" type="radio" value="none" checked /> <span data-i18n="optionsNone"></span></label>
-          <label><input name="urlPlacement" type="radio" value="top" /> <span data-i18n="editorUrlTop"></span></label>
-          <label><input name="urlPlacement" type="radio" value="bottom" /> <span data-i18n="editorUrlBottom"></span></label>
-          <label><input name="urlPlacement" type="radio" value="none" checked /> <span data-i18n="editorNoUrl"></span></label>
-        </section>
+        <details class="sidebar-block sidebar-details">
+          <summary data-i18n="editorUrlBrowser"></summary>
+          <div class="details-body">
+            <label><input name="frame" type="radio" value="mac" /> <span data-i18n="editorMacOs"></span></label>
+            <label><input name="frame" type="radio" value="windows" /> <span data-i18n="editorWindows"></span></label>
+            <label><input name="frame" type="radio" value="none" checked /> <span data-i18n="optionsNone"></span></label>
+            <label><input name="urlPlacement" type="radio" value="top" /> <span data-i18n="editorUrlTop"></span></label>
+            <label><input name="urlPlacement" type="radio" value="bottom" /> <span data-i18n="editorUrlBottom"></span></label>
+            <label><input name="urlPlacement" type="radio" value="none" checked /> <span data-i18n="editorNoUrl"></span></label>
+          </div>
+        </details>
 
-        <section>
-          <h3 data-i18n="editorDateTime"></h3>
-          <label class="checkbox">
-            <input id="show-date" type="checkbox" />
-            <span data-i18n="editorShowDate"></span>
-          </label>
-        </section>
+        <details class="sidebar-block sidebar-details">
+          <summary data-i18n="editorDateTime"></summary>
+          <div class="details-body">
+            <label class="checkbox">
+              <input id="show-date" type="checkbox" />
+              <span data-i18n="editorShowDate"></span>
+            </label>
+          </div>
+        </details>
 
-        <section>
+        <section class="sidebar-block">
           <h3 data-i18n="editorEmojis"></h3>
           <p class="tool-hint" data-i18n="editorEmojisHint"></p>
           <div id="emoji-grid" class="emoji-grid"></div>
@@ -89,7 +137,7 @@
       </main>
     </div>
 
-    <menu id="annotation-menu" class="annotation-menu" hidden>
+    <menu id="annotation-menu" class="annotation-menu surface" hidden>
       <button id="menu-delete" type="button" data-i18n="editorDelete"></button>
     </menu>
 

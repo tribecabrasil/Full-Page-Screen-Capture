@@ -26,6 +26,19 @@ let interaction = null;
 
 const EMOJIS = ['😀', '😎', '👍', '🔥', '✅', '❤️', '🎉', '📌', '⭐', '💡', '🚀', '📷'];
 const SHAPE_TOOLS = new Set(['rect', 'arrow', 'ellipse', 'freehand', 'highlight', 'text']);
+const DRAW_TOOLS = new Set(['rect', 'arrow', 'ellipse', 'freehand', 'highlight', 'text']);
+const FORMATTABLE_TYPES = new Set(['rect', 'arrow', 'ellipse', 'freehand', 'highlight', 'text']);
+
+const TOOL_STATUS_KEYS = {
+  select: 'editorSelectHint',
+  crop: 'editorCropHint',
+  highlight: 'editorHighlightHint',
+  text: 'editorTextHint',
+  rect: 'editorShapesHint',
+  arrow: 'editorShapesHint',
+  ellipse: 'editorShapesHint',
+  freehand: 'editorShapesHint',
+};
 
 function uid() {
   return `ann-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
@@ -37,6 +50,94 @@ function getStrokeColor() {
 
 function getStrokeSize() {
   return Number(document.getElementById('stroke-size').value);
+}
+
+function getSelectedAnnotation() {
+  return annotations.find((annotation) => annotation.id === selectedId);
+}
+
+function isFormattable(annotation) {
+  return annotation && FORMATTABLE_TYPES.has(annotation.type);
+}
+
+function updateFormatPreview() {
+  const color = getStrokeColor();
+  const size = getStrokeSize();
+  const line = document.getElementById('format-preview-line');
+  const shape = document.getElementById('format-preview-shape');
+  const sizeValue = document.getElementById('stroke-size-value');
+
+  if (line) {
+    line.style.background = color;
+    line.style.height = `${Math.max(2, size)}px`;
+  }
+  if (shape) {
+    shape.style.borderColor = color;
+    shape.style.borderWidth = `${Math.max(2, size)}px`;
+  }
+  if (sizeValue) {
+    sizeValue.textContent = String(size);
+  }
+
+  document.querySelectorAll('.swatch').forEach((swatch) => {
+    swatch.classList.toggle('active', swatch.dataset.color === color);
+  });
+}
+
+function updateToolStatus() {
+  const status = document.getElementById('tool-status');
+  if (!status) {
+    return;
+  }
+  const key = TOOL_STATUS_KEYS[tool] || 'editorSelectHint';
+  status.textContent = t(key);
+}
+
+function updateFormatPanelHighlight() {
+  const panel = document.getElementById('format-panel');
+  const selected = getSelectedAnnotation();
+  const isRelevant = DRAW_TOOLS.has(tool) || isFormattable(selected);
+  panel?.classList.toggle('is-active', isRelevant);
+}
+
+function syncFormatFromSelection() {
+  const annotation = getSelectedAnnotation();
+  if (!isFormattable(annotation)) {
+    updateFormatPreview();
+    updateFormatPanelHighlight();
+    return;
+  }
+
+  const colorInput = document.getElementById('stroke-color');
+  const sizeInput = document.getElementById('stroke-size');
+
+  if (annotation.color) {
+    colorInput.value = annotation.color;
+  }
+  if (annotation.type === 'text' && annotation.fontSize) {
+    sizeInput.value = String(Math.max(1, Math.round(annotation.fontSize / 4)));
+  } else if (annotation.size) {
+    sizeInput.value = String(annotation.size);
+  }
+
+  updateFormatPreview();
+  updateFormatPanelHighlight();
+}
+
+function applyFormatToSelection() {
+  const annotation = getSelectedAnnotation();
+  if (!isFormattable(annotation)) {
+    updateFormatPreview();
+    return;
+  }
+
+  annotation.color = getStrokeColor();
+  annotation.size = getStrokeSize();
+  if (annotation.type === 'text') {
+    annotation.fontSize = getStrokeSize() * 4;
+  }
+  redrawOverlay();
+  commitState();
 }
 
 function setZoom(value) {
@@ -59,10 +160,13 @@ function setTool(nextTool) {
   tool = nextTool;
   pendingEmoji = null;
   selectedId = null;
-  document.querySelectorAll('.tool').forEach((el) => {
+  document.querySelectorAll('.tool-card').forEach((el) => {
     el.classList.toggle('active', el.dataset.tool === nextTool);
   });
   overlayCanvas.style.cursor = nextTool === 'select' ? 'default' : 'crosshair';
+  updateToolStatus();
+  updateFormatPanelHighlight();
+  updateFormatPreview();
 }
 
 function getFrameType() {
@@ -125,6 +229,7 @@ function deleteAnnotation(id) {
   annotations = annotations.filter((annotation) => annotation.id !== id);
   if (selectedId === id) {
     selectedId = null;
+    updateFormatPanelHighlight();
   }
   redrawOverlay();
   commitState();
@@ -139,6 +244,7 @@ function hideAnnotationMenu() {
 function showAnnotationMenu(clientX, clientY, annotation) {
   const menu = document.getElementById('annotation-menu');
   selectedId = annotation.id;
+  syncFormatFromSelection();
   redrawOverlay();
   menu.dataset.targetId = annotation.id;
   menu.style.left = `${clientX}px`;
@@ -420,6 +526,9 @@ overlayCanvas.addEventListener('mousedown', (event) => {
     if (target) {
       interaction = { kind: 'move', target, start: point };
       dragSnapshot = JSON.stringify(annotations);
+      syncFormatFromSelection();
+    } else {
+      updateFormatPanelHighlight();
     }
     redrawOverlay();
     return;
@@ -622,20 +731,51 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-document.querySelectorAll('.tool').forEach((button) => {
+document.querySelectorAll('.tool-card').forEach((button) => {
   button.addEventListener('click', () => {
     setTool(button.dataset.tool);
   });
 });
 
-document.querySelectorAll('.tab').forEach((button) => {
-  button.addEventListener('click', () => {
-    const panel = button.dataset.panel;
-    document.querySelectorAll('.tab').forEach((el) => el.classList.remove('active'));
-    button.classList.add('active');
-    document.querySelectorAll('.sidebar .panel').forEach((el) => {
-      el.classList.toggle('active', el.dataset.panel === panel);
-    });
+document.getElementById('stroke-color').addEventListener('input', () => {
+  if (selectedId) {
+    applyFormatToSelection();
+    return;
+  }
+  updateFormatPreview();
+});
+
+document.getElementById('stroke-size').addEventListener('input', () => {
+  if (selectedId) {
+    const annotation = getSelectedAnnotation();
+    if (isFormattable(annotation)) {
+      annotation.color = getStrokeColor();
+      annotation.size = getStrokeSize();
+      if (annotation.type === 'text') {
+        annotation.fontSize = getStrokeSize() * 4;
+      }
+      redrawOverlay();
+    }
+    updateFormatPreview();
+    return;
+  }
+  updateFormatPreview();
+});
+
+document.getElementById('stroke-size').addEventListener('change', () => {
+  if (selectedId && isFormattable(getSelectedAnnotation())) {
+    commitState();
+  }
+});
+
+document.querySelectorAll('.swatch').forEach((swatch) => {
+  swatch.addEventListener('click', () => {
+    document.getElementById('stroke-color').value = swatch.dataset.color;
+    if (selectedId) {
+      applyFormatToSelection();
+      return;
+    }
+    updateFormatPreview();
   });
 });
 
@@ -670,9 +810,12 @@ EMOJIS.forEach((emoji) => {
     pendingEmoji = emoji;
     tool = 'select';
     selectedId = null;
-    document.querySelectorAll('.tool').forEach((el) => {
+    document.querySelectorAll('.tool-card').forEach((el) => {
       el.classList.toggle('active', el.dataset.tool === 'select');
     });
+    tool = 'select';
+    updateToolStatus();
+    updateFormatPanelHighlight();
     overlayCanvas.style.cursor = 'copy';
   });
   emojiGrid.appendChild(button);
@@ -690,6 +833,7 @@ async function init() {
   renderBaseImage(record.parts[0].dataUrl);
   setZoom(1);
   setTool('select');
+  updateFormatPreview();
 }
 
 (async () => {

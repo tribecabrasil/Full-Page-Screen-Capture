@@ -143,6 +143,13 @@
   "editorCircle": { "message": "Kreis" },
   "editorFreehand": { "message": "Freihand" },
   "editorFormatting": { "message": "Formatierung" },
+  "editorFormatHint": {
+    "message": "Farbe und Stärke hier einstellen — vor dem Zeichnen oder nach Auswahl einer Form."
+  },
+  "editorFormatApplies": { "message": "Aktiv" },
+  "editorCropHint": { "message": "Klicken und auf dem Bild ziehen zum Zuschneiden." },
+  "editorHighlightHint": { "message": "Klicken und ziehen, um eine Markierung hinzuzufügen." },
+  "editorTextHint": { "message": "Auf das Bild klicken, dann Text eingeben." },
   "editorColor": { "message": "Farbe" },
   "editorSize": { "message": "Größe" },
   "editorUrlBrowser": { "message": "URL & Browser" },
