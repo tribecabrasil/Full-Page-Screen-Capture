@@ -101,6 +101,8 @@
   "optionsBottom": { "message": "底部" },
   "optionsDateStamp": { "message": "显示日期戳" },
   "optionsGeneral": { "message": "常规" },
+  "optionsLanguage": { "message": "语言" },
+  "optionsLanguageAuto": { "message": "自动（浏览器语言）" },
   "optionsShowWelcome": { "message": "安装时显示欢迎页" },
   "optionsSave": { "message": "保存选项" },
   "optionsSaved": { "message": "已保存。" },

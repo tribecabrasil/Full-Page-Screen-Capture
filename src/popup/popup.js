@@ -1,9 +1,7 @@
 import { startCapture } from '../background/capture-orchestrator.js';
-import { applyI18n, t } from '../shared/i18n.js';
+import { applyI18n, initI18n, t } from '../shared/i18n.js';
 import { MSG } from '../shared/messaging.js';
 import { validateCaptureUrl } from '../shared/url-validator.js';
-
-applyI18n();
 
 const $ = (id) => document.getElementById(id);
 
@@ -32,6 +30,9 @@ function showError(message) {
 }
 
 async function init() {
+  await initI18n();
+  applyI18n();
+
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   if (!tab?.id) {
     showError(t('popupNoActiveTab'));

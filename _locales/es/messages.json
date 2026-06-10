@@ -101,6 +101,8 @@
   "optionsBottom": { "message": "Abajo" },
   "optionsDateStamp": { "message": "Mostrar fecha de captura" },
   "optionsGeneral": { "message": "General" },
+  "optionsLanguage": { "message": "Idioma" },
+  "optionsLanguageAuto": { "message": "Automático (idioma del navegador)" },
   "optionsShowWelcome": { "message": "Mostrar página de bienvenida al instalar" },
   "optionsSave": { "message": "Guardar opciones" },
   "optionsSaved": { "message": "Guardado." },

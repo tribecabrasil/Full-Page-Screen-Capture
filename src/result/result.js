@@ -1,10 +1,8 @@
 import { copyImageToClipboard, dataUrlWithFormat, downloadImage } from '../export/png-jpeg.js';
 import { exportToPdf } from '../export/pdf-export.js';
 import { addPartSuffix } from '../shared/filename.js';
-import { applyI18n, t } from '../shared/i18n.js';
+import { applyI18n, initI18n, t } from '../shared/i18n.js';
 import { deleteCapture, getCapture, getOptions } from '../shared/storage.js';
-
-applyI18n();
 
 const params = new URLSearchParams(location.search);
 const captureId = params.get('id');
@@ -158,4 +156,8 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-loadCapture();
+(async () => {
+  await initI18n();
+  applyI18n();
+  await loadCapture();
+})();

@@ -1,10 +1,8 @@
 import { drawBrowserFrame } from './overlays/browser-frame.js';
 import { HistoryStack } from './tools/history.js';
 import { downloadImage } from '../export/png-jpeg.js';
-import { applyI18n, t } from '../shared/i18n.js';
+import { applyI18n, initI18n, t } from '../shared/i18n.js';
 import { getCapture, getOptions } from '../shared/storage.js';
-
-applyI18n();
 
 const params = new URLSearchParams(location.search);
 const captureId = params.get('id');
@@ -693,4 +691,8 @@ async function init() {
   setTool('select');
 }
 
-init();
+(async () => {
+  await initI18n();
+  applyI18n();
+  await init();
+})();

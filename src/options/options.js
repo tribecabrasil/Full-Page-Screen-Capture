@@ -1,9 +1,9 @@
-import { applyI18n, t } from '../shared/i18n.js';
+import { applyI18n, initI18n, loadLocale, t } from '../shared/i18n.js';
+import { LOCALE_AUTO, SUPPORTED_LOCALES } from '../shared/locales.js';
 import { DEFAULT_OPTIONS, getOptions, saveOptions } from '../shared/storage.js';
 
-applyI18n();
-
 const fields = [
+  'locale',
   'imageFormat',
   'jpegQuality',
   'autoDownload',
@@ -19,6 +19,25 @@ const fields = [
 
 function $(id) {
   return document.getElementById(id);
+}
+
+function populateLocaleSelect(selected = LOCALE_AUTO) {
+  const select = $('locale');
+  select.innerHTML = '';
+
+  const autoOption = document.createElement('option');
+  autoOption.value = LOCALE_AUTO;
+  autoOption.textContent = t('optionsLanguageAuto');
+  select.appendChild(autoOption);
+
+  SUPPORTED_LOCALES.forEach(({ code, nativeName }) => {
+    const option = document.createElement('option');
+    option.value = code;
+    option.textContent = nativeName;
+    select.appendChild(option);
+  });
+
+  select.value = selected || LOCALE_AUTO;
 }
 
 function renderCredit() {
@@ -43,6 +62,19 @@ function renderCredit() {
   credit.append(document.createTextNode(message.slice(index + linkText.length)));
 }
 
+async function applyLocaleFromSelect() {
+  const locale = $('locale').value;
+  try {
+    await loadLocale(locale);
+  } catch {
+    await loadLocale(LOCALE_AUTO);
+    $('locale').value = LOCALE_AUTO;
+  }
+  applyI18n();
+  populateLocaleSelect($('locale').value);
+  renderCredit();
+}
+
 async function load() {
   const options = await getOptions();
   fields.forEach((key) => {
@@ -57,6 +89,7 @@ async function load() {
     }
   });
   $('jpegQualityValue').textContent = String(options.jpegQuality);
+  populateLocaleSelect(options.locale || LOCALE_AUTO);
 }
 
 async function persist() {
@@ -70,16 +103,30 @@ async function persist() {
   });
   next.jpegQuality = Number(next.jpegQuality);
   await saveOptions(next);
+  await loadLocale(next.locale || '');
   $('status').textContent = t('optionsSaved');
   setTimeout(() => {
     $('status').textContent = '';
   }, 2000);
 }
 
+async function bootstrap() {
+  await initI18n();
+  applyI18n();
+  populateLocaleSelect();
+  renderCredit();
+  await load();
+}
+
 $('jpegQuality').addEventListener('input', (event) => {
   $('jpegQualityValue').textContent = event.target.value;
 });
 
+$('locale').addEventListener('change', async () => {
+  await applyLocaleFromSelect();
+  const options = await getOptions();
+  await saveOptions({ ...options, locale: $('locale').value });
+});
+
 $('save').addEventListener('click', persist);
-renderCredit();
-load();
+bootstrap();

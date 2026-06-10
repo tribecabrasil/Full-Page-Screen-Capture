@@ -101,6 +101,8 @@
   "optionsBottom": { "message": "下" },
   "optionsDateStamp": { "message": "日付スタンプを表示" },
   "optionsGeneral": { "message": "一般" },
+  "optionsLanguage": { "message": "言語" },
+  "optionsLanguageAuto": { "message": "自動（ブラウザの言語）" },
   "optionsShowWelcome": { "message": "インストール時にウェルカムページを表示" },
   "optionsSave": { "message": "オプションを保存" },
   "optionsSaved": { "message": "保存しました。" },

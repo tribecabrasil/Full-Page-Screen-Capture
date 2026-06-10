@@ -101,6 +101,8 @@
   "optionsBottom": { "message": "Bas" },
   "optionsDateStamp": { "message": "Afficher l'horodatage" },
   "optionsGeneral": { "message": "Général" },
+  "optionsLanguage": { "message": "Langue" },
+  "optionsLanguageAuto": { "message": "Automatique (langue du navigateur)" },
   "optionsShowWelcome": { "message": "Afficher la page de bienvenue à l'installation" },
   "optionsSave": { "message": "Enregistrer les options" },
   "optionsSaved": { "message": "Enregistré." },

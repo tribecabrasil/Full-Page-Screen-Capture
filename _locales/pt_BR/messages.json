@@ -101,6 +101,8 @@
   "optionsBottom": { "message": "Rodapé" },
   "optionsDateStamp": { "message": "Mostrar data na captura" },
   "optionsGeneral": { "message": "Geral" },
+  "optionsLanguage": { "message": "Idioma" },
+  "optionsLanguageAuto": { "message": "Automático (idioma do navegador)" },
   "optionsShowWelcome": { "message": "Mostrar página de boas-vindas na instalação" },
   "optionsSave": { "message": "Salvar opções" },
   "optionsSaved": { "message": "Salvo." },

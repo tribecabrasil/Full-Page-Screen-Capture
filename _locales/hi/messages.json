@@ -101,6 +101,8 @@
   "optionsBottom": { "message": "नीचे" },
   "optionsDateStamp": { "message": "दिनांक मुहर दिखाएँ" },
   "optionsGeneral": { "message": "सामान्य" },
+  "optionsLanguage": { "message": "भाषा" },
+  "optionsLanguageAuto": { "message": "स्वचालित (ब्राउज़र की भाषा)" },
   "optionsShowWelcome": { "message": "इंस्टॉल पर स्वागत पेज दिखाएँ" },
   "optionsSave": { "message": "विकल्प सहेजें" },
   "optionsSaved": { "message": "सहेजा गया।" },

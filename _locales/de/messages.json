@@ -101,6 +101,8 @@
   "optionsBottom": { "message": "Unten" },
   "optionsDateStamp": { "message": "Datum anzeigen" },
   "optionsGeneral": { "message": "Allgemein" },
+  "optionsLanguage": { "message": "Sprache" },
+  "optionsLanguageAuto": { "message": "Automatisch (Browsersprache)" },
   "optionsShowWelcome": { "message": "Willkommensseite bei Installation anzeigen" },
   "optionsSave": { "message": "Optionen speichern" },
   "optionsSaved": { "message": "Gespeichert." },
