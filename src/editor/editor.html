@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" data-i18n-title="editorTitle">
+  <head>
+    <meta charset="utf-8" />
+    <title>Full Page Screen Capture: Editor</title>
+    <link rel="stylesheet" href="editor.css" />
+  </head>
+  <body>
+    <header class="toolbar">
+      <div class="left">
+        <span class="brand" data-i18n="editorBrand"></span>
+        <button class="tab active" data-panel="editor" type="button" data-i18n="editorTabEditor"></button>
+        <button class="tab" data-panel="shapes" type="button" data-i18n="editorTabShapes"></button>
+        <button class="tab" data-panel="format" type="button" data-i18n="editorTabFormat"></button>
+        <button id="undo" type="button" data-i18n="editorUndo"></button>
+        <button id="redo" type="button" data-i18n="editorRedo"></button>
+      </div>
+      <div class="right">
+        <button id="zoom-out" type="button">−</button>
+        <span id="zoom-label">100%</span>
+        <button id="zoom-in" type="button">+</button>
+        <button id="export" class="primary" type="button" data-i18n="editorExport"></button>
+      </div>
+    </header>
+
+    <div class="workspace">
+      <aside class="sidebar">
+        <section data-panel="editor" class="panel active">
+          <h3 data-i18n="editorTools"></h3>
+          <p class="tool-hint" data-i18n="editorSelectHint"></p>
+          <button class="tool active" data-tool="select" type="button" data-i18n="editorSelect"></button>
+          <button class="tool" data-tool="crop" type="button" data-i18n="editorCrop"></button>
+          <button class="tool" data-tool="highlight" type="button" data-i18n="editorHighlight"></button>
+          <button class="tool" data-tool="text" type="button" data-i18n="editorText"></button>
+        </section>
+
+        <section data-panel="shapes" class="panel">
+          <h3 data-i18n="editorShapes"></h3>
+          <p class="tool-hint" data-i18n="editorShapesHint"></p>
+          <button class="tool" data-tool="rect" type="button" data-i18n="editorRectangle"></button>
+          <button class="tool" data-tool="arrow" type="button" data-i18n="editorArrow"></button>
+          <button class="tool" data-tool="ellipse" type="button" data-i18n="editorCircle"></button>
+          <button class="tool" data-tool="freehand" type="button" data-i18n="editorFreehand"></button>
+        </section>
+
+        <section data-panel="format" class="panel">
+          <h3 data-i18n="editorFormatting"></h3>
+          <label>
+            <span data-i18n="editorColor"></span>
+            <input id="stroke-color" type="color" value="#111111" />
+          </label>
+          <label>
+            <span data-i18n="editorSize"></span>
+            <input id="stroke-size" type="range" min="1" max="24" value="4" />
+          </label>
+        </section>
+
+        <section>
+          <h3 data-i18n="editorUrlBrowser"></h3>
+          <label><input name="frame" type="radio" value="mac" /> <span data-i18n="editorMacOs"></span></label>
+          <label><input name="frame" type="radio" value="windows" /> <span data-i18n="editorWindows"></span></label>
+          <label><input name="frame" type="radio" value="none" checked /> <span data-i18n="optionsNone"></span></label>
+          <label><input name="urlPlacement" type="radio" value="top" /> <span data-i18n="editorUrlTop"></span></label>
+          <label><input name="urlPlacement" type="radio" value="bottom" /> <span data-i18n="editorUrlBottom"></span></label>
+          <label><input name="urlPlacement" type="radio" value="none" checked /> <span data-i18n="editorNoUrl"></span></label>
+        </section>
+
+        <section>
+          <h3 data-i18n="editorDateTime"></h3>
+          <label class="checkbox">
+            <input id="show-date" type="checkbox" />
+            <span data-i18n="editorShowDate"></span>
+          </label>
+        </section>
+
+        <section>
+          <h3 data-i18n="editorEmojis"></h3>
+          <p class="tool-hint" data-i18n="editorEmojisHint"></p>
+          <div id="emoji-grid" class="emoji-grid"></div>
+        </section>
+      </aside>
+
+      <main class="canvas-wrap" id="canvas-wrap">
+        <div class="canvas-stage" id="canvas-stage">
+          <canvas id="base-canvas"></canvas>
+          <canvas id="overlay-canvas"></canvas>
+        </div>
+      </main>
+    </div>
+
+    <menu id="annotation-menu" class="annotation-menu" hidden>
+      <button id="menu-delete" type="button" data-i18n="editorDelete"></button>
+    </menu>
+
+    <script type="module" src="editor.js"></script>
+  </body>
+</html>

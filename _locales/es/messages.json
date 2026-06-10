@@ -1,0 +1,172 @@
+{
+  "extName": { "message": "Full Page Screen Capture" },
+  "extDescription": {
+    "message": "Captura tu página actual por completo y de forma fiable — ¡sin solicitar permisos extra!"
+  },
+  "extActionTitle": { "message": "Full Page Screen Capture" },
+  "commandCapture": { "message": "Capturar pantalla de página completa" },
+
+  "popupCaptureInProgress": { "message": "Captura de pantalla en progreso..." },
+  "popupHint": {
+    "message": "La imagen final se abrirá en una nueva pestaña al terminar."
+  },
+  "popupSplitWarning": {
+    "message": "Nota: tu página es demasiado grande para que Chrome la capture en una sola imagen. Se dividirá en $COUNT$ imágenes.",
+    "placeholders": { "count": { "content": "$1", "example": "2" } }
+  },
+  "popupSplitMultiple": { "message": "varias" },
+  "popupInvalidUrl": {
+    "message": "Full Page Screen Capture no puede ejecutarse en este tipo de URL por las políticas del navegador. Prueba otra página web."
+  },
+  "popupError": {
+    "message": "Algo salió mal. Recarga la página e intenta capturar de nuevo."
+  },
+  "popupDone": { "message": "Captura completa. Revisa la nueva pestaña de resultado." },
+  "popupNoActiveTab": { "message": "No se encontró ninguna pestaña activa." },
+  "popupUnknownError": { "message": "Error desconocido" },
+
+  "resultTitle": { "message": "Resultado de la captura" },
+  "resultTitlePart": {
+    "message": "Resultado de la captura ($PART$/$PARTS$)",
+    "placeholders": {
+      "part": { "content": "$1", "example": "1" },
+      "parts": { "content": "$2", "example": "2" }
+    }
+  },
+  "resultBrand": { "message": "📷 Full Page Screen Capture" },
+  "resultEdit": { "message": "Editar" },
+  "resultReport": { "message": "Reportar problema" },
+  "resultDelete": { "message": "Eliminar" },
+  "resultPdf": { "message": "PDF" },
+  "resultDownload": { "message": "Descargar" },
+  "resultMore": { "message": "Más" },
+  "resultSettings": { "message": "Ajustes" },
+  "resultCopyClipboard": { "message": "Copiar al portapapeles" },
+  "resultOpenOptions": { "message": "Abrir opciones" },
+  "resultImageAlt": { "message": "Captura de página completa" },
+  "resultReportTitle": { "message": "Reportar un problema" },
+  "resultReportDesc": {
+    "message": "Describe qué salió mal. Esto abrirá tu cliente de correo con los detalles."
+  },
+  "resultReportPlaceholder": { "message": "¿Qué pasó?" },
+  "resultCancel": { "message": "Cancelar" },
+  "resultSendReport": { "message": "Enviar reporte" },
+  "resultMissingId": { "message": "Falta el ID de captura." },
+  "resultNotFound": { "message": "Captura no encontrada." },
+  "resultUntitled": { "message": "Página sin título" },
+  "resultPartMeta": {
+    "message": "Parte $PART$ de $PARTS$",
+    "placeholders": {
+      "part": { "content": "$1", "example": "1" },
+      "parts": { "content": "$2", "example": "2" }
+    }
+  },
+  "pdfPreparing": { "message": "Preparando PDF..." },
+  "pdfGenerating": {
+    "message": "Generando PDF... página $PAGE$/$TOTAL$",
+    "placeholders": {
+      "page": { "content": "$1", "example": "1" },
+      "total": { "content": "$2", "example": "5" }
+    }
+  },
+  "pdfSaved": { "message": "PDF guardado." },
+  "pdfFailed": { "message": "Error al exportar PDF." },
+  "pdfTooManyPages": {
+    "message": "PDF limitado a $MAX$ páginas. Usa la exportación PNG para páginas muy largas.",
+    "placeholders": { "max": { "content": "$1", "example": "200" } }
+  },
+  "reportSubject": { "message": "Reporte de problema — Full Page Screen Capture" },
+  "reportBodyUrl": { "message": "URL de la página" },
+  "reportBodyExtension": { "message": "Extensión" },
+  "reportBodyUserAgent": { "message": "User agent" },
+
+  "optionsTitle": { "message": "Full Page Screen Capture" },
+  "optionsSubtitle": { "message": "Sin bloat, sin anuncios, sin permisos innecesarios." },
+  "optionsImageExport": { "message": "Exportación de imagen" },
+  "optionsFormat": { "message": "Formato" },
+  "optionsJpegQuality": { "message": "Calidad JPEG" },
+  "optionsAutoDownload": { "message": "Descargar automáticamente tras la captura" },
+  "optionsSaveAs": { "message": "Mostrar diálogo \"Guardar como\"" },
+  "optionsPdfExport": { "message": "Exportación PDF" },
+  "optionsPaperSize": { "message": "Tamaño de papel" },
+  "optionsOrientation": { "message": "Orientación" },
+  "optionsPortrait": { "message": "Vertical" },
+  "optionsLandscape": { "message": "Horizontal" },
+  "optionsSmartSplit": { "message": "División inteligente de páginas" },
+  "optionsEditorDefaults": { "message": "Valores predeterminados del editor" },
+  "optionsBrowserFrame": { "message": "Marco del navegador" },
+  "optionsNone": { "message": "Ninguno" },
+  "optionsUrlPlacement": { "message": "Posición de la URL" },
+  "optionsTop": { "message": "Arriba" },
+  "optionsBottom": { "message": "Abajo" },
+  "optionsDateStamp": { "message": "Mostrar fecha de captura" },
+  "optionsGeneral": { "message": "General" },
+  "optionsShowWelcome": { "message": "Mostrar página de bienvenida al instalar" },
+  "optionsSave": { "message": "Guardar opciones" },
+  "optionsSaved": { "message": "Guardado." },
+  "optionsCredit": {
+    "message": "Basado en el proyecto open source de $LINK$",
+    "placeholders": { "link": { "content": "$1", "example": "mrcoles" } }
+  },
+  "optionsCreditLink": {
+    "message": "mrcoles/full-page-screen-capture-chrome-extension"
+  },
+
+  "editorTitle": { "message": "Full Page Screen Capture: Editor" },
+  "editorBrand": { "message": "📷 Editor" },
+  "editorTabEditor": { "message": "Editor" },
+  "editorTabShapes": { "message": "Formas" },
+  "editorTabFormat": { "message": "Formato" },
+  "editorUndo": { "message": "Deshacer" },
+  "editorRedo": { "message": "Rehacer" },
+  "editorExport": { "message": "Exportar" },
+  "editorTools": { "message": "Herramientas" },
+  "editorSelectHint": {
+    "message": "Usa Seleccionar para arrastrar elementos. Clic derecho para eliminar."
+  },
+  "editorSelect": { "message": "Seleccionar" },
+  "editorCrop": { "message": "Recortar" },
+  "editorHighlight": { "message": "Resaltar" },
+  "editorText": { "message": "Texto" },
+  "editorShapes": { "message": "Formas" },
+  "editorShapesHint": {
+    "message": "Elige una forma y haz clic y arrastra sobre la imagen."
+  },
+  "editorRectangle": { "message": "Rectángulo" },
+  "editorArrow": { "message": "Flecha" },
+  "editorCircle": { "message": "Círculo" },
+  "editorFreehand": { "message": "Mano alzada" },
+  "editorFormatting": { "message": "Formato" },
+  "editorColor": { "message": "Color" },
+  "editorSize": { "message": "Tamaño" },
+  "editorUrlBrowser": { "message": "URL y navegador" },
+  "editorMacOs": { "message": "Mac OS X" },
+  "editorWindows": { "message": "Windows" },
+  "editorUrlTop": { "message": "URL arriba" },
+  "editorUrlBottom": { "message": "URL abajo" },
+  "editorNoUrl": { "message": "Sin URL" },
+  "editorDateTime": { "message": "Fecha y hora" },
+  "editorShowDate": { "message": "Mostrar fecha de captura" },
+  "editorEmojis": { "message": "Emojis" },
+  "editorEmojisHint": {
+    "message": "Elige un emoji y haz clic en la imagen para colocarlo."
+  },
+  "editorDelete": { "message": "Eliminar" },
+  "editorTextPrompt": { "message": "Introduce el texto" },
+
+  "welcomeTitle": { "message": "Full Page Screen Capture" },
+  "welcomeTagline": {
+    "message": "Captura tu página actual por completo y de forma fiable — sin solicitar permisos extra."
+  },
+  "welcomeHowToUse": { "message": "Cómo usar" },
+  "welcomeStep1": { "message": "Haz clic en el icono de la extensión en la barra de herramientas." },
+  "welcomeStep2": { "message": "O presiona Alt + Shift + P." },
+  "welcomeStep3": { "message": "Espera mientras se captura cada parte de la página." },
+  "welcomeStep4": { "message": "Descarga como PNG, JPEG o PDF desde la pestaña de resultado." },
+  "welcomeStep5": {
+    "message": "Edita, recorta, anota y añade emojis en el editor integrado."
+  },
+  "welcomeCredit": {
+    "message": "Basado en el proyecto open source:"
+  }
+}

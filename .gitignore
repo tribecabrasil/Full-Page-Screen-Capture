@@ -1,0 +1,35 @@
+# ---------------- OS / Editor ---------------------
+.DS_Store
+.idea/
+.vscode/
+.cursor/
+.claude/
+*.swp
+*.swo
+*~
+Thumbs.db
+
+# ---------------- Secrets / env -------------------
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.p12
+*.pfx
+.credentials
+.auth_secret
+
+# ---------------- Build / deps ------------------
+node_modules/
+dist/
+build/
+*.log
+
+# ---------------- Extension local data ------------
+# Captures are stored in browser IndexedDB at runtime — never on disk here.
+*.crx
+*.zip
+
+# ---------------- Misc ----------------------------
+*.tsbuildinfo

@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 320px;
+  font: 13px/1.45 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #444;
+  background: #fff;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #111;
+  color: #fff;
+  font-weight: 600;
+}
+
+.logo {
+  font-size: 16px;
+}
+
+#wrap {
+  padding: 14px;
+}
+
+.panel {
+  display: none;
+}
+
+.panel.active {
+  display: block;
+}
+
+.status {
+  margin: 0 0 10px;
+  font-weight: 600;
+  color: #222;
+}
+
+.progress-track {
+  height: 8px;
+  background: #e8e8e8;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #111, #444);
+  transition: width 0.2s ease;
+}
+
+.dots {
+  display: flex;
+  gap: 5px;
+  margin: 12px 0;
+}
+
+.dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #111;
+  animation: pulse 1.2s infinite ease-in-out;
+}
+
+.dots span:nth-child(2) { animation-delay: 0.1s; }
+.dots span:nth-child(3) { animation-delay: 0.2s; }
+.dots span:nth-child(4) { animation-delay: 0.3s; }
+.dots span:nth-child(5) { animation-delay: 0.4s; }
+.dots span:nth-child(6) { animation-delay: 0.5s; }
+.dots span:nth-child(7) { animation-delay: 0.6s; }
+.dots span:nth-child(8) { animation-delay: 0.7s; }
+
+@keyframes pulse {
+  0%, 80%, 100% { opacity: 0.25; transform: scale(0.85); }
+  40% { opacity: 1; transform: scale(1); }
+}
+
+.hint {
+  margin: 0;
+  color: #777;
+  font-size: 12px;
+}
+
+.warning {
+  color: #8a6d1f;
+  background: #fff8e6;
+  border: 1px solid #f0dfaa;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.error {
+  color: #a12622;
+  background: #fff1f0;
+  border: 1px solid #f3c1bf;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.success {
+  color: #1f6b3a;
+  background: #eefaf2;
+  border: 1px solid #b9e3c8;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.error-detail {
+  margin: 8px 0 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  word-break: break-word;
+}
+
+#split-image.active {
+  display: block;
+  margin-top: 10px;
+}

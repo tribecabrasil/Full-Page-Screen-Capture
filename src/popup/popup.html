@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-i18n-title="extName">
+  <head>
+    <meta charset="utf-8" />
+    <title>Full Page Screen Capture</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="header">
+      <span class="logo">📷</span>
+      <span class="title" data-i18n="extName"></span>
+    </header>
+
+    <div id="wrap">
+      <div id="loading" class="panel active">
+        <p class="status" data-i18n="popupCaptureInProgress"></p>
+        <div class="progress-track">
+          <div class="progress-bar" id="bar"></div>
+        </div>
+        <div class="dots" id="dots" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <p class="hint" data-i18n="popupHint"></p>
+      </div>
+
+      <div id="split-image" class="panel warning">
+        <span id="split-text"></span>
+      </div>
+
+      <div id="invalid" class="panel error" data-i18n="popupInvalidUrl"></div>
+
+      <div id="uh-oh" class="panel error">
+        <p data-i18n="popupError"></p>
+        <p id="error-detail" class="error-detail"></p>
+      </div>
+
+      <div id="done" class="panel success" data-i18n="popupDone"></div>
+    </div>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

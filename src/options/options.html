@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" data-i18n-title="optionsTitle">
+  <head>
+    <meta charset="utf-8" />
+    <title>Full Page Screen Capture Options</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1 data-i18n="optionsTitle"></h1>
+      <p class="subtitle" data-i18n="optionsSubtitle"></p>
+
+      <section>
+        <h2 data-i18n="optionsImageExport"></h2>
+        <label>
+          <span data-i18n="optionsFormat"></span>
+          <select id="imageFormat">
+            <option value="png">PNG</option>
+            <option value="jpeg">JPEG</option>
+          </select>
+        </label>
+        <label>
+          <span data-i18n="optionsJpegQuality"></span>
+          <input id="jpegQuality" type="range" min="50" max="100" value="92" />
+          <span id="jpegQualityValue">92</span>
+        </label>
+        <label class="checkbox">
+          <input id="autoDownload" type="checkbox" />
+          <span data-i18n="optionsAutoDownload"></span>
+        </label>
+        <label class="checkbox">
+          <input id="saveAsDialog" type="checkbox" checked />
+          <span data-i18n="optionsSaveAs"></span>
+        </label>
+      </section>
+
+      <section>
+        <h2 data-i18n="optionsPdfExport"></h2>
+        <label>
+          <span data-i18n="optionsPaperSize"></span>
+          <select id="pdfPaperSize">
+            <option value="a4">A4</option>
+            <option value="letter">Letter</option>
+            <option value="legal">Legal</option>
+            <option value="a3">A3</option>
+          </select>
+        </label>
+        <label>
+          <span data-i18n="optionsOrientation"></span>
+          <select id="pdfOrientation">
+            <option value="portrait" data-i18n="optionsPortrait"></option>
+            <option value="landscape" data-i18n="optionsLandscape"></option>
+          </select>
+        </label>
+        <label class="checkbox">
+          <input id="pdfSmartSplit" type="checkbox" checked />
+          <span data-i18n="optionsSmartSplit"></span>
+        </label>
+      </section>
+
+      <section>
+        <h2 data-i18n="optionsEditorDefaults"></h2>
+        <label>
+          <span data-i18n="optionsBrowserFrame"></span>
+          <select id="browserFrame">
+            <option value="none" data-i18n="optionsNone"></option>
+            <option value="mac" data-i18n="editorMacOs"></option>
+            <option value="windows" data-i18n="editorWindows"></option>
+          </select>
+        </label>
+        <label>
+          <span data-i18n="optionsUrlPlacement"></span>
+          <select id="urlPlacement">
+            <option value="none" data-i18n="optionsNone"></option>
+            <option value="top" data-i18n="optionsTop"></option>
+            <option value="bottom" data-i18n="optionsBottom"></option>
+          </select>
+        </label>
+        <label class="checkbox">
+          <input id="showDateStamp" type="checkbox" />
+          <span data-i18n="optionsDateStamp"></span>
+        </label>
+      </section>
+
+      <section>
+        <h2 data-i18n="optionsGeneral"></h2>
+        <label class="checkbox">
+          <input id="showWelcome" type="checkbox" checked />
+          <span data-i18n="optionsShowWelcome"></span>
+        </label>
+      </section>
+
+      <div class="actions">
+        <button id="save" type="button" data-i18n="optionsSave"></button>
+        <span id="status" role="status"></span>
+      </div>
+
+      <p class="credit" id="options-credit"></p>
+    </main>
+
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

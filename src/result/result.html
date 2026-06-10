@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" data-i18n-title="resultTitle">
+  <head>
+    <meta charset="utf-8" />
+    <title>Screen Capture Result</title>
+    <link rel="stylesheet" href="result.css" />
+    <script src="../vendor/jspdf.umd.min.js"></script>
+  </head>
+  <body>
+    <header class="toolbar" id="toolbar">
+      <div class="brand" data-i18n="resultBrand"></div>
+      <div class="actions">
+        <button id="btn-edit" type="button" data-i18n="resultEdit"></button>
+        <button id="btn-report" type="button" data-i18n="resultReport" data-i18n-attr="title"></button>
+        <button id="btn-delete" type="button" data-i18n="resultDelete" data-i18n-attr="title"></button>
+        <button id="btn-pdf" type="button" data-i18n="resultPdf"></button>
+        <span id="pdf-status" class="pdf-status" hidden></span>
+        <button id="btn-download" type="button" data-i18n="resultDownload" data-i18n-attr="title"></button>
+        <button id="btn-menu" type="button" data-i18n="resultMore" data-i18n-attr="title"></button>
+        <button id="btn-settings" type="button" data-i18n="resultSettings" data-i18n-attr="title"></button>
+      </div>
+    </header>
+
+    <menu id="menu" class="menu" hidden>
+      <button id="btn-copy" type="button" data-i18n="resultCopyClipboard"></button>
+      <button id="btn-open-options" type="button" data-i18n="resultOpenOptions"></button>
+    </menu>
+
+    <main class="stage">
+      <div id="meta" class="meta"></div>
+      <img id="capture-image" data-i18n="resultImageAlt" data-i18n-attr="alt" draggable="true" />
+    </main>
+
+    <dialog id="report-dialog">
+      <form method="dialog">
+        <h2 data-i18n="resultReportTitle"></h2>
+        <p data-i18n="resultReportDesc"></p>
+        <textarea id="report-text" rows="5" data-i18n-placeholder="resultReportPlaceholder"></textarea>
+        <div class="dialog-actions">
+          <button value="cancel" type="submit" data-i18n="resultCancel"></button>
+          <button id="report-send" value="send" type="submit" data-i18n="resultSendReport"></button>
+        </div>
+      </form>
+    </dialog>
+
+    <script type="module" src="result.js"></script>
+  </body>
+</html>
