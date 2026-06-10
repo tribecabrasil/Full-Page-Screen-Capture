@@ -1,0 +1,172 @@
+{
+  "extName": { "message": "Full Page Screen Capture" },
+  "extDescription": {
+    "message": "完整、可靠地捕获当前页面 — 无需请求任何额外权限！"
+  },
+  "extActionTitle": { "message": "Full Page Screen Capture" },
+  "commandCapture": { "message": "捕获整页截图" },
+
+  "popupCaptureInProgress": { "message": "正在截屏..." },
+  "popupHint": {
+    "message": "完成后，成品图片将在新标签页中打开。"
+  },
+  "popupSplitWarning": {
+    "message": "注意：页面过大，Chrome 无法将其捕获为一张图片。将拆分为 $COUNT$ 张图片。",
+    "placeholders": { "count": { "content": "$1", "example": "2" } }
+  },
+  "popupSplitMultiple": { "message": "多张" },
+  "popupInvalidUrl": {
+    "message": "由于浏览器策略限制，Full Page Screen Capture 无法在此类 URL 上运行。请尝试其他网页。"
+  },
+  "popupError": {
+    "message": "出现问题。请重新加载页面后再次捕获。"
+  },
+  "popupDone": { "message": "捕获完成。请查看新的结果标签页。" },
+  "popupNoActiveTab": { "message": "未找到活动标签页。" },
+  "popupUnknownError": { "message": "未知错误" },
+
+  "resultTitle": { "message": "截屏结果" },
+  "resultTitlePart": {
+    "message": "截屏结果（$PART$/$PARTS$）",
+    "placeholders": {
+      "part": { "content": "$1", "example": "1" },
+      "parts": { "content": "$2", "example": "2" }
+    }
+  },
+  "resultBrand": { "message": "📷 Full Page Screen Capture" },
+  "resultEdit": { "message": "编辑" },
+  "resultReport": { "message": "报告问题" },
+  "resultDelete": { "message": "删除" },
+  "resultPdf": { "message": "PDF" },
+  "resultDownload": { "message": "下载" },
+  "resultMore": { "message": "更多" },
+  "resultSettings": { "message": "设置" },
+  "resultCopyClipboard": { "message": "复制到剪贴板" },
+  "resultOpenOptions": { "message": "打开选项" },
+  "resultImageAlt": { "message": "整页捕获" },
+  "resultReportTitle": { "message": "报告问题" },
+  "resultReportDesc": {
+    "message": "描述出了什么问题。将打开您的邮件客户端并附带详细信息。"
+  },
+  "resultReportPlaceholder": { "message": "发生了什么？" },
+  "resultCancel": { "message": "取消" },
+  "resultSendReport": { "message": "发送报告" },
+  "resultMissingId": { "message": "缺少捕获 ID。" },
+  "resultNotFound": { "message": "未找到捕获内容。" },
+  "resultUntitled": { "message": "无标题页面" },
+  "resultPartMeta": {
+    "message": "第 $PART$ 部分，共 $PARTS$ 部分",
+    "placeholders": {
+      "part": { "content": "$1", "example": "1" },
+      "parts": { "content": "$2", "example": "2" }
+    }
+  },
+  "pdfPreparing": { "message": "正在准备 PDF..." },
+  "pdfGenerating": {
+    "message": "正在生成 PDF... 第 $PAGE$/$TOTAL$ 页",
+    "placeholders": {
+      "page": { "content": "$1", "example": "1" },
+      "total": { "content": "$2", "example": "5" }
+    }
+  },
+  "pdfSaved": { "message": "PDF 已保存。" },
+  "pdfFailed": { "message": "PDF 导出失败。" },
+  "pdfTooManyPages": {
+    "message": "PDF 最多 $MAX$ 页。对于超长页面，请尝试 PNG 导出。",
+    "placeholders": { "max": { "content": "$1", "example": "200" } }
+  },
+  "reportSubject": { "message": "Full Page Screen Capture 问题报告" },
+  "reportBodyUrl": { "message": "页面 URL" },
+  "reportBodyExtension": { "message": "扩展程序" },
+  "reportBodyUserAgent": { "message": "用户代理" },
+
+  "optionsTitle": { "message": "Full Page Screen Capture" },
+  "optionsSubtitle": { "message": "无冗余、无广告、无不必要的权限。" },
+  "optionsImageExport": { "message": "图片导出" },
+  "optionsFormat": { "message": "格式" },
+  "optionsJpegQuality": { "message": "JPEG 质量" },
+  "optionsAutoDownload": { "message": "捕获后自动下载" },
+  "optionsSaveAs": { "message": "显示「另存为」对话框" },
+  "optionsPdfExport": { "message": "PDF 导出" },
+  "optionsPaperSize": { "message": "纸张大小" },
+  "optionsOrientation": { "message": "方向" },
+  "optionsPortrait": { "message": "纵向" },
+  "optionsLandscape": { "message": "横向" },
+  "optionsSmartSplit": { "message": "智能分页" },
+  "optionsEditorDefaults": { "message": "编辑器默认设置" },
+  "optionsBrowserFrame": { "message": "浏览器边框" },
+  "optionsNone": { "message": "无" },
+  "optionsUrlPlacement": { "message": "URL 位置" },
+  "optionsTop": { "message": "顶部" },
+  "optionsBottom": { "message": "底部" },
+  "optionsDateStamp": { "message": "显示日期戳" },
+  "optionsGeneral": { "message": "常规" },
+  "optionsShowWelcome": { "message": "安装时显示欢迎页" },
+  "optionsSave": { "message": "保存选项" },
+  "optionsSaved": { "message": "已保存。" },
+  "optionsCredit": {
+    "message": "基于 $LINK$ 的开源项目",
+    "placeholders": { "link": { "content": "$1", "example": "mrcoles" } }
+  },
+  "optionsCreditLink": {
+    "message": "mrcoles/full-page-screen-capture-chrome-extension"
+  },
+
+  "editorTitle": { "message": "Full Page Screen Capture：编辑器" },
+  "editorBrand": { "message": "📷 编辑器" },
+  "editorTabEditor": { "message": "编辑器" },
+  "editorTabShapes": { "message": "形状" },
+  "editorTabFormat": { "message": "格式" },
+  "editorUndo": { "message": "撤销" },
+  "editorRedo": { "message": "重做" },
+  "editorExport": { "message": "导出" },
+  "editorTools": { "message": "工具" },
+  "editorSelectHint": {
+    "message": "使用选择工具拖动项目。右键点击项目可删除。"
+  },
+  "editorSelect": { "message": "选择" },
+  "editorCrop": { "message": "裁剪" },
+  "editorHighlight": { "message": "高亮" },
+  "editorText": { "message": "文本" },
+  "editorShapes": { "message": "形状" },
+  "editorShapesHint": {
+    "message": "选择形状，然后在图片上点击并拖动。"
+  },
+  "editorRectangle": { "message": "矩形" },
+  "editorArrow": { "message": "箭头" },
+  "editorCircle": { "message": "圆形" },
+  "editorFreehand": { "message": "自由绘制" },
+  "editorFormatting": { "message": "格式" },
+  "editorColor": { "message": "颜色" },
+  "editorSize": { "message": "大小" },
+  "editorUrlBrowser": { "message": "URL 与浏览器" },
+  "editorMacOs": { "message": "Mac OS X" },
+  "editorWindows": { "message": "Windows" },
+  "editorUrlTop": { "message": "URL 在顶部" },
+  "editorUrlBottom": { "message": "URL 在底部" },
+  "editorNoUrl": { "message": "无 URL" },
+  "editorDateTime": { "message": "日期与时间" },
+  "editorShowDate": { "message": "显示捕获日期" },
+  "editorEmojis": { "message": "表情符号" },
+  "editorEmojisHint": {
+    "message": "选择表情符号，然后点击图片放置。"
+  },
+  "editorDelete": { "message": "删除" },
+  "editorTextPrompt": { "message": "输入文本" },
+
+  "welcomeTitle": { "message": "Full Page Screen Capture" },
+  "welcomeTagline": {
+    "message": "完整、可靠地捕获当前页面的截图 — 无需请求任何额外权限。"
+  },
+  "welcomeHowToUse": { "message": "使用方法" },
+  "welcomeStep1": { "message": "点击工具栏中的扩展程序图标。" },
+  "welcomeStep2": { "message": "或按 Alt + Shift + P。" },
+  "welcomeStep3": { "message": "等待页面的每个部分被捕获。" },
+  "welcomeStep4": { "message": "从结果标签页下载 PNG、JPEG 或 PDF。" },
+  "welcomeStep5": {
+    "message": "在内置编辑器中编辑、裁剪、标注并添加表情符号。"
+  },
+  "welcomeCredit": {
+    "message": "基于开源项目："
+  }
+}

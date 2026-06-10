@@ -11,7 +11,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Chrome-MV3-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Chrome MV3" />
   <img src="https://img.shields.io/badge/License-MIT-22C55E?style=for-the-badge" alt="MIT License" />
-  <img src="https://img.shields.io/badge/Languages-6-F59E0B?style=for-the-badge" alt="6 Languages" />
+  <img src="https://img.shields.io/badge/Languages-9-F59E0B?style=for-the-badge" alt="9 Languages" />
   <img src="https://img.shields.io/badge/Permissions-Minimal-8B5CF6?style=for-the-badge" alt="Minimal Permissions" />
 </p>
 
@@ -53,7 +53,7 @@ This extension was implemented using **Grok Build** and **Composer 2.5** as AI-a
 | 🎨 | **Built-in editor** with crop, shapes, highlight, text, emojis, browser frame overlays, undo/redo, and drag-to-move |
 | 📤 | **Configurable exports** — PNG, JPEG, PDF (A4, Letter, Legal, A3), auto-download, smart PDF splitting |
 | 🔒 | **Minimal permissions** — no `host_permissions`; uses `activeTab` only when you invoke the extension |
-| 🌍 | **Internationalization** — 6 languages supported |
+| 🌍 | **Internationalization** — 9 languages supported |
 
 ---
 
@@ -66,6 +66,9 @@ This extension was implemented using **Grok Build** and **Composer 2.5** as AI-a
   <img src="https://img.shields.io/badge/🇮🇳_hi-हिन्दी-F59E0B?style=flat-square" alt="Hindi" />
   <img src="https://img.shields.io/badge/🇫🇷_fr-Français-8B5CF6?style=flat-square" alt="Français" />
   <img src="https://img.shields.io/badge/🇮🇹_it-Italiano-EC4899?style=flat-square" alt="Italiano" />
+  <img src="https://img.shields.io/badge/🇩🇪_de-Deutsch-0EA5E9?style=flat-square" alt="Deutsch" />
+  <img src="https://img.shields.io/badge/🇯🇵_ja-日本語-A855F7?style=flat-square" alt="日本語" />
+  <img src="https://img.shields.io/badge/🇨🇳_zh__CN-简体中文-E11D48?style=flat-square" alt="简体中文" />
 </p>
 
 | 🏳️ Locale | 🗣️ Language | 📁 Folder |
@@ -76,6 +79,9 @@ This extension was implemented using **Grok Build** and **Composer 2.5** as AI-a
 | `hi` | 🇮🇳 हिन्दी (Hindi) | `_locales/hi/` |
 | `fr` | 🇫🇷 Français | `_locales/fr/` |
 | `it` | 🇮🇹 Italiano | `_locales/it/` |
+| `de` | 🇩🇪 Deutsch | `_locales/de/` |
+| `ja` | 🇯🇵 日本語 | `_locales/ja/` |
+| `zh_CN` | 🇨🇳 简体中文 | `_locales/zh_CN/` |
 
 > 💡 Chrome picks the language automatically from your browser settings. UI strings live in [`_locales/`](_locales/).
 
@@ -184,7 +190,7 @@ Open via the gear icon on the result tab, or `chrome://extensions` → **Extensi
 
 ```
 full-page-screen-capture/
-├── 🌍 _locales/          # en, pt_BR, es, hi, fr, it
+├── 🌍 _locales/          # en, pt_BR, es, hi, fr, it, de, ja, zh_CN
 ├── 🎨 icons/
 ├── 📋 manifest.json
 ├── src/
@@ -271,6 +277,10 @@ This project builds upon concepts from the MIT-licensed [full-page-screen-captur
 ---
 
 ## 📋 Changelog
+
+### 1.0.2
+
+- 🌍 Added German (`de`), Japanese (`ja`), and Simplified Chinese (`zh_CN`) translations
 
 ### 1.0.1
 

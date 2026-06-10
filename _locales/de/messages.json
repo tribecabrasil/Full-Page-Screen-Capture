@@ -1,0 +1,172 @@
+{
+  "extName": { "message": "Full Page Screen Capture" },
+  "extDescription": {
+    "message": "Erfassen Sie Ihre aktuelle Seite vollständig und zuverlässig — ohne zusätzliche Berechtigungen anzufordern!"
+  },
+  "extActionTitle": { "message": "Full Page Screen Capture" },
+  "commandCapture": { "message": "Vollständigen Seiten-Screenshot aufnehmen" },
+
+  "popupCaptureInProgress": { "message": "Bildschirmaufnahme läuft..." },
+  "popupHint": {
+    "message": "Ihr fertiges Bild wird nach Abschluss in einem neuen Tab geöffnet."
+  },
+  "popupSplitWarning": {
+    "message": "Hinweis: Ihre Seite ist zu groß, um von Chrome als ein Bild erfasst zu werden. Sie wird in $COUNT$ Bilder aufgeteilt.",
+    "placeholders": { "count": { "content": "$1", "example": "2" } }
+  },
+  "popupSplitMultiple": { "message": "mehrere" },
+  "popupInvalidUrl": {
+    "message": "Full Page Screen Capture kann aufgrund von Browser-Richtlinien nicht auf diesem URL-Typ ausgeführt werden. Versuchen Sie eine andere Webseite."
+  },
+  "popupError": {
+    "message": "Etwas ist schiefgelaufen. Laden Sie die Seite neu und starten Sie die Aufnahme erneut."
+  },
+  "popupDone": { "message": "Aufnahme abgeschlossen. Prüfen Sie den neuen Ergebnis-Tab." },
+  "popupNoActiveTab": { "message": "Kein aktiver Tab gefunden." },
+  "popupUnknownError": { "message": "Unbekannter Fehler" },
+
+  "resultTitle": { "message": "Ergebnis der Bildschirmaufnahme" },
+  "resultTitlePart": {
+    "message": "Ergebnis der Bildschirmaufnahme ($PART$/$PARTS$)",
+    "placeholders": {
+      "part": { "content": "$1", "example": "1" },
+      "parts": { "content": "$2", "example": "2" }
+    }
+  },
+  "resultBrand": { "message": "📷 Full Page Screen Capture" },
+  "resultEdit": { "message": "Bearbeiten" },
+  "resultReport": { "message": "Problem melden" },
+  "resultDelete": { "message": "Löschen" },
+  "resultPdf": { "message": "PDF" },
+  "resultDownload": { "message": "Herunterladen" },
+  "resultMore": { "message": "Mehr" },
+  "resultSettings": { "message": "Einstellungen" },
+  "resultCopyClipboard": { "message": "In Zwischenablage kopieren" },
+  "resultOpenOptions": { "message": "Optionen öffnen" },
+  "resultImageAlt": { "message": "Vollständige Seitenaufnahme" },
+  "resultReportTitle": { "message": "Problem melden" },
+  "resultReportDesc": {
+    "message": "Beschreiben Sie, was schiefgelaufen ist. Ihr E-Mail-Programm wird mit Details geöffnet."
+  },
+  "resultReportPlaceholder": { "message": "Was ist passiert?" },
+  "resultCancel": { "message": "Abbrechen" },
+  "resultSendReport": { "message": "Bericht senden" },
+  "resultMissingId": { "message": "Aufnahme-ID fehlt." },
+  "resultNotFound": { "message": "Aufnahme nicht gefunden." },
+  "resultUntitled": { "message": "Unbenannte Seite" },
+  "resultPartMeta": {
+    "message": "Teil $PART$ von $PARTS$",
+    "placeholders": {
+      "part": { "content": "$1", "example": "1" },
+      "parts": { "content": "$2", "example": "2" }
+    }
+  },
+  "pdfPreparing": { "message": "PDF wird vorbereitet..." },
+  "pdfGenerating": {
+    "message": "PDF wird erstellt... Seite $PAGE$/$TOTAL$",
+    "placeholders": {
+      "page": { "content": "$1", "example": "1" },
+      "total": { "content": "$2", "example": "5" }
+    }
+  },
+  "pdfSaved": { "message": "PDF gespeichert." },
+  "pdfFailed": { "message": "PDF-Export fehlgeschlagen." },
+  "pdfTooManyPages": {
+    "message": "PDF auf $MAX$ Seiten begrenzt. Versuchen Sie PNG-Export für sehr lange Seiten.",
+    "placeholders": { "max": { "content": "$1", "example": "200" } }
+  },
+  "reportSubject": { "message": "Full Page Screen Capture Problembericht" },
+  "reportBodyUrl": { "message": "Seiten-URL" },
+  "reportBodyExtension": { "message": "Erweiterung" },
+  "reportBodyUserAgent": { "message": "User-Agent" },
+
+  "optionsTitle": { "message": "Full Page Screen Capture" },
+  "optionsSubtitle": { "message": "Kein Ballast, keine Werbung, keine unnötigen Berechtigungen." },
+  "optionsImageExport": { "message": "Bildexport" },
+  "optionsFormat": { "message": "Format" },
+  "optionsJpegQuality": { "message": "JPEG-Qualität" },
+  "optionsAutoDownload": { "message": "Automatischer Download nach Aufnahme" },
+  "optionsSaveAs": { "message": "Dialog „Speichern unter“ anzeigen" },
+  "optionsPdfExport": { "message": "PDF-Export" },
+  "optionsPaperSize": { "message": "Papierformat" },
+  "optionsOrientation": { "message": "Ausrichtung" },
+  "optionsPortrait": { "message": "Hochformat" },
+  "optionsLandscape": { "message": "Querformat" },
+  "optionsSmartSplit": { "message": "Intelligente Seitenaufteilung" },
+  "optionsEditorDefaults": { "message": "Editor-Standardeinstellungen" },
+  "optionsBrowserFrame": { "message": "Browser-Rahmen" },
+  "optionsNone": { "message": "Keiner" },
+  "optionsUrlPlacement": { "message": "URL-Platzierung" },
+  "optionsTop": { "message": "Oben" },
+  "optionsBottom": { "message": "Unten" },
+  "optionsDateStamp": { "message": "Datum anzeigen" },
+  "optionsGeneral": { "message": "Allgemein" },
+  "optionsShowWelcome": { "message": "Willkommensseite bei Installation anzeigen" },
+  "optionsSave": { "message": "Optionen speichern" },
+  "optionsSaved": { "message": "Gespeichert." },
+  "optionsCredit": {
+    "message": "Basierend auf dem Open-Source-Projekt von $LINK$",
+    "placeholders": { "link": { "content": "$1", "example": "mrcoles" } }
+  },
+  "optionsCreditLink": {
+    "message": "mrcoles/full-page-screen-capture-chrome-extension"
+  },
+
+  "editorTitle": { "message": "Full Page Screen Capture: Editor" },
+  "editorBrand": { "message": "📷 Editor" },
+  "editorTabEditor": { "message": "Editor" },
+  "editorTabShapes": { "message": "Formen" },
+  "editorTabFormat": { "message": "Formatierung" },
+  "editorUndo": { "message": "Rückgängig" },
+  "editorRedo": { "message": "Wiederholen" },
+  "editorExport": { "message": "Exportieren" },
+  "editorTools": { "message": "Werkzeuge" },
+  "editorSelectHint": {
+    "message": "Verwenden Sie Auswählen, um Elemente zu verschieben. Rechtsklick auf ein Element zum Löschen."
+  },
+  "editorSelect": { "message": "Auswählen" },
+  "editorCrop": { "message": "Zuschneiden" },
+  "editorHighlight": { "message": "Hervorheben" },
+  "editorText": { "message": "Text" },
+  "editorShapes": { "message": "Formen" },
+  "editorShapesHint": {
+    "message": "Wählen Sie eine Form, klicken und ziehen Sie dann auf dem Bild."
+  },
+  "editorRectangle": { "message": "Rechteck" },
+  "editorArrow": { "message": "Pfeil" },
+  "editorCircle": { "message": "Kreis" },
+  "editorFreehand": { "message": "Freihand" },
+  "editorFormatting": { "message": "Formatierung" },
+  "editorColor": { "message": "Farbe" },
+  "editorSize": { "message": "Größe" },
+  "editorUrlBrowser": { "message": "URL & Browser" },
+  "editorMacOs": { "message": "Mac OS X" },
+  "editorWindows": { "message": "Windows" },
+  "editorUrlTop": { "message": "URL oben" },
+  "editorUrlBottom": { "message": "URL unten" },
+  "editorNoUrl": { "message": "Keine URL" },
+  "editorDateTime": { "message": "Datum & Uhrzeit" },
+  "editorShowDate": { "message": "Aufnahmedatum anzeigen" },
+  "editorEmojis": { "message": "Emojis" },
+  "editorEmojisHint": {
+    "message": "Wählen Sie ein Emoji und klicken Sie auf das Bild, um es zu platzieren."
+  },
+  "editorDelete": { "message": "Löschen" },
+  "editorTextPrompt": { "message": "Text eingeben" },
+
+  "welcomeTitle": { "message": "Full Page Screen Capture" },
+  "welcomeTagline": {
+    "message": "Erfassen Sie einen Screenshot Ihrer aktuellen Seite vollständig und zuverlässig — ohne zusätzliche Berechtigungen anzufordern."
+  },
+  "welcomeHowToUse": { "message": "So verwenden Sie es" },
+  "welcomeStep1": { "message": "Klicken Sie auf das Erweiterungssymbol in Ihrer Symbolleiste." },
+  "welcomeStep2": { "message": "Oder drücken Sie Alt + Shift + P." },
+  "welcomeStep3": { "message": "Warten Sie, bis jeder Teil der Seite erfasst wurde." },
+  "welcomeStep4": { "message": "Laden Sie als PNG, JPEG oder PDF vom Ergebnis-Tab herunter." },
+  "welcomeStep5": {
+    "message": "Bearbeiten, zuschneiden, annotieren und Emojis im integrierten Editor hinzufügen."
+  },
+  "welcomeCredit": {
+    "message": "Basierend auf dem Open-Source-Projekt:"
+  }
+}
