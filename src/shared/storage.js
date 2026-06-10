@@ -68,6 +68,7 @@ export async function deleteCapture(id) {
 
 export const DEFAULT_OPTIONS = {
   locale: '',
+  theme: 'system',
   imageFormat: 'png',
   jpegQuality: 92,
   autoDownload: false,

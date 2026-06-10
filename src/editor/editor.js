@@ -2,6 +2,7 @@ import { drawBrowserFrame } from './overlays/browser-frame.js';
 import { HistoryStack } from './tools/history.js';
 import { downloadImage } from '../export/png-jpeg.js';
 import { applyI18n, initI18n, t } from '../shared/i18n.js';
+import { initTheme } from '../shared/theme.js';
 import { getCapture, getOptions } from '../shared/storage.js';
 
 const params = new URLSearchParams(location.search);
@@ -692,7 +693,7 @@ async function init() {
 }
 
 (async () => {
-  await initI18n();
+  await Promise.all([initI18n(), initTheme()]);
   applyI18n();
   await init();
 })();

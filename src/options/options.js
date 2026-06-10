@@ -1,8 +1,10 @@
 import { applyI18n, initI18n, loadLocale, t } from '../shared/i18n.js';
 import { LOCALE_AUTO, SUPPORTED_LOCALES } from '../shared/locales.js';
+import { applyTheme, initTheme } from '../shared/theme.js';
 import { DEFAULT_OPTIONS, getOptions, saveOptions } from '../shared/storage.js';
 
 const fields = [
+  'theme',
   'locale',
   'imageFormat',
   'jpegQuality',
@@ -90,6 +92,7 @@ async function load() {
   });
   $('jpegQualityValue').textContent = String(options.jpegQuality);
   populateLocaleSelect(options.locale || LOCALE_AUTO);
+  applyTheme(options.theme || 'system');
 }
 
 async function persist() {
@@ -104,6 +107,7 @@ async function persist() {
   next.jpegQuality = Number(next.jpegQuality);
   await saveOptions(next);
   await loadLocale(next.locale || '');
+  applyTheme(next.theme || 'system');
   $('status').textContent = t('optionsSaved');
   setTimeout(() => {
     $('status').textContent = '';
@@ -111,7 +115,7 @@ async function persist() {
 }
 
 async function bootstrap() {
-  await initI18n();
+  await Promise.all([initI18n(), initTheme()]);
   applyI18n();
   populateLocaleSelect();
   renderCredit();
@@ -120,6 +124,12 @@ async function bootstrap() {
 
 $('jpegQuality').addEventListener('input', (event) => {
   $('jpegQualityValue').textContent = event.target.value;
+});
+
+$('theme').addEventListener('change', async () => {
+  applyTheme($('theme').value);
+  const options = await getOptions();
+  await saveOptions({ ...options, theme: $('theme').value });
 });
 
 $('locale').addEventListener('change', async () => {

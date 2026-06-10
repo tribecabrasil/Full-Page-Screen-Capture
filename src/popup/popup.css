@@ -1,31 +1,34 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
-  margin: 0;
-  width: 320px;
-  font: 13px/1.45 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  color: #444;
-  background: #fff;
+  width: 340px;
+  background: var(--bg-elevated);
 }
 
 .header {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 14px;
-  background: #111;
-  color: #fff;
-  font-weight: 600;
+  gap: 10px;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, var(--header-bg) 0%, #1e3a5f 100%);
+  color: var(--header-text);
 }
 
 .logo {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.12);
   font-size: 16px;
 }
 
+.title {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
 #wrap {
-  padding: 14px;
+  padding: 16px;
 }
 
 .panel {
@@ -37,14 +40,14 @@ body {
 }
 
 .status {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   font-weight: 600;
-  color: #222;
+  color: var(--text);
 }
 
 .progress-track {
-  height: 8px;
-  background: #e8e8e8;
+  height: 6px;
+  background: var(--bg-inset);
   border-radius: 999px;
   overflow: hidden;
 }
@@ -52,21 +55,22 @@ body {
 .progress-bar {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, #111, #444);
+  background: linear-gradient(90deg, var(--accent), #60a5fa);
+  border-radius: 999px;
   transition: width 0.2s ease;
 }
 
 .dots {
   display: flex;
-  gap: 5px;
-  margin: 12px 0;
+  gap: 6px;
+  margin: 14px 0;
 }
 
 .dots span {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #111;
+  background: var(--accent);
   animation: pulse 1.2s infinite ease-in-out;
 }
 
@@ -85,32 +89,34 @@ body {
 
 .hint {
   margin: 0;
-  color: #777;
+  color: var(--text-muted);
   font-size: 12px;
 }
 
+.warning,
+.error,
+.success {
+  border-radius: var(--radius-md);
+  padding: 12px;
+  font-size: 13px;
+}
+
 .warning {
-  color: #8a6d1f;
-  background: #fff8e6;
-  border: 1px solid #f0dfaa;
-  border-radius: 8px;
-  padding: 10px;
+  color: var(--warning-text);
+  background: var(--warning-bg);
+  border: 1px solid var(--warning-border);
 }
 
 .error {
-  color: #a12622;
-  background: #fff1f0;
-  border: 1px solid #f3c1bf;
-  border-radius: 8px;
-  padding: 10px;
+  color: var(--error-text);
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
 }
 
 .success {
-  color: #1f6b3a;
-  background: #eefaf2;
-  border: 1px solid #b9e3c8;
-  border-radius: 8px;
-  padding: 10px;
+  color: var(--success-text);
+  background: var(--success-bg);
+  border: 1px solid var(--success-border);
 }
 
 .error-detail {
@@ -118,9 +124,10 @@ body {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 11px;
   word-break: break-word;
+  color: var(--text-muted);
 }
 
 #split-image.active {
   display: block;
-  margin-top: 10px;
+  margin-top: 12px;
 }

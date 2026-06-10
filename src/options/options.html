@@ -3,14 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <title>Full Page Screen Capture Options</title>
+    <link rel="stylesheet" href="../shared/theme.css" />
     <link rel="stylesheet" href="options.css" />
   </head>
   <body>
     <main class="container">
-      <h1 data-i18n="optionsTitle"></h1>
-      <p class="subtitle" data-i18n="optionsSubtitle"></p>
+      <div class="page-header">
+        <h1 data-i18n="optionsTitle"></h1>
+        <p class="subtitle" data-i18n="optionsSubtitle"></p>
+      </div>
 
-      <section>
+      <section class="surface">
         <h2 data-i18n="optionsImageExport"></h2>
         <label>
           <span data-i18n="optionsFormat"></span>
@@ -34,7 +37,7 @@
         </label>
       </section>
 
-      <section>
+      <section class="surface">
         <h2 data-i18n="optionsPdfExport"></h2>
         <label>
           <span data-i18n="optionsPaperSize"></span>
@@ -58,7 +61,7 @@
         </label>
       </section>
 
-      <section>
+      <section class="surface">
         <h2 data-i18n="optionsEditorDefaults"></h2>
         <label>
           <span data-i18n="optionsBrowserFrame"></span>
@@ -82,8 +85,16 @@
         </label>
       </section>
 
-      <section>
+      <section class="surface">
         <h2 data-i18n="optionsGeneral"></h2>
+        <label>
+          <span data-i18n="optionsTheme"></span>
+          <select id="theme">
+            <option value="system" data-i18n="optionsThemeSystem"></option>
+            <option value="light" data-i18n="optionsThemeLight"></option>
+            <option value="dark" data-i18n="optionsThemeDark"></option>
+          </select>
+        </label>
         <label>
           <span data-i18n="optionsLanguage"></span>
           <select id="locale"></select>
@@ -95,7 +106,7 @@
       </section>
 
       <div class="actions">
-        <button id="save" type="button" data-i18n="optionsSave"></button>
+        <button id="save" class="btn-primary" type="button" data-i18n="optionsSave"></button>
         <span id="status" role="status"></span>
       </div>
 
