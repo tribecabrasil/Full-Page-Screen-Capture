@@ -28,6 +28,8 @@ const EMOJIS = ['😀', '😎', '👍', '🔥', '✅', '❤️', '🎉', '📌',
 const SHAPE_TOOLS = new Set(['rect', 'arrow', 'ellipse', 'freehand', 'highlight', 'text']);
 const DRAW_TOOLS = new Set(['rect', 'arrow', 'ellipse', 'freehand', 'highlight', 'text']);
 const FORMATTABLE_TYPES = new Set(['rect', 'arrow', 'ellipse', 'freehand', 'highlight', 'text']);
+const HIT_PADDING = 10;
+const MIN_HIT_SIZE = 28;
 
 const TOOL_STATUS_KEYS = {
   select: 'editorSelectHint',
@@ -156,10 +158,12 @@ function canvasPoint(event) {
   };
 }
 
-function setTool(nextTool) {
+function setTool(nextTool, options = {}) {
   tool = nextTool;
   pendingEmoji = null;
-  selectedId = null;
+  if (!options.keepSelection) {
+    selectedId = null;
+  }
   document.querySelectorAll('.tool-card').forEach((el) => {
     el.classList.toggle('active', el.dataset.tool === nextTool);
   });
@@ -167,6 +171,22 @@ function setTool(nextTool) {
   updateToolStatus();
   updateFormatPanelHighlight();
   updateFormatPreview();
+}
+
+function focusAnnotation(annotationId) {
+  selectedId = annotationId;
+  setTool('select', { keepSelection: true });
+  syncFormatFromSelection();
+  redrawOverlay();
+}
+
+function beginMove(target, point) {
+  selectedId = target.id;
+  interaction = { kind: 'move', target, start: point };
+  dragSnapshot = JSON.stringify(annotations);
+  setTool('select', { keepSelection: true });
+  syncFormatFromSelection();
+  redrawOverlay();
 }
 
 function getFrameType() {
@@ -177,16 +197,42 @@ function getUrlPlacement() {
   return document.querySelector('input[name="urlPlacement"]:checked')?.value || 'none';
 }
 
+function textBounds(annotation) {
+  const fontSize = annotation.fontSize || 24;
+  overlayCtx.font = `${fontSize}px sans-serif`;
+  const width = Math.max(fontSize, overlayCtx.measureText(annotation.text || '').width);
+  return {
+    x: annotation.x,
+    y: annotation.y - fontSize,
+    width,
+    height: fontSize,
+  };
+}
+
+function expandHitBounds(bounds) {
+  const width = Math.max(bounds.width, MIN_HIT_SIZE);
+  const height = Math.max(bounds.height, MIN_HIT_SIZE);
+  const extraX = (width - bounds.width) / 2;
+  const extraY = (height - bounds.height) / 2;
+  return {
+    x: bounds.x - HIT_PADDING - extraX,
+    y: bounds.y - HIT_PADDING - extraY,
+    width: width + HIT_PADDING * 2,
+    height: height + HIT_PADDING * 2,
+  };
+}
+
 function boundsFor(annotation) {
   switch (annotation.type) {
     case 'emoji':
-    case 'text':
       return {
         x: annotation.x,
         y: annotation.y - (annotation.fontSize || 48),
         width: annotation.fontSize || 48,
         height: annotation.fontSize || 48,
       };
+    case 'text':
+      return textBounds(annotation);
     case 'rect':
     case 'highlight':
       return {
@@ -212,7 +258,7 @@ function boundsFor(annotation) {
 
 function hitTest(point) {
   for (let i = annotations.length - 1; i >= 0; i -= 1) {
-    const bounds = boundsFor(annotations[i]);
+    const bounds = expandHitBounds(boundsFor(annotations[i]));
     if (
       point.x >= bounds.x &&
       point.x <= bounds.x + bounds.width &&
@@ -544,31 +590,32 @@ overlayCanvas.addEventListener('mousedown', (event) => {
   const point = canvasPoint(event);
 
   if (pendingEmoji) {
-    annotations.push({
+    const annotation = {
       id: uid(),
       type: 'emoji',
       emoji: pendingEmoji,
       x: point.x,
       y: point.y,
       fontSize: 48,
-    });
+    };
+    annotations.push(annotation);
     pendingEmoji = null;
-    overlayCanvas.style.cursor = 'default';
-    redrawOverlay();
+    focusAnnotation(annotation.id);
     commitState();
     return;
   }
 
-  if (tool === 'select') {
+  if (tool !== 'crop') {
     const target = hitTest(point);
-    selectedId = target?.id || null;
     if (target) {
-      interaction = { kind: 'move', target, start: point };
-      dragSnapshot = JSON.stringify(annotations);
-      syncFormatFromSelection();
-    } else {
-      updateFormatPanelHighlight();
+      beginMove(target, point);
+      return;
     }
+  }
+
+  if (tool === 'select') {
+    selectedId = null;
+    updateFormatPanelHighlight();
     redrawOverlay();
     return;
   }
@@ -576,7 +623,7 @@ overlayCanvas.addEventListener('mousedown', (event) => {
   if (tool === 'text') {
     const text = prompt(t('editorTextPrompt'));
     if (text) {
-      annotations.push({
+      const annotation = {
         id: uid(),
         type: 'text',
         text,
@@ -584,8 +631,9 @@ overlayCanvas.addEventListener('mousedown', (event) => {
         y: point.y,
         color: getStrokeColor(),
         fontSize: getStrokeSize() * 4,
-      });
-      redrawOverlay();
+      };
+      annotations.push(annotation);
+      focusAnnotation(annotation.id);
       commitState();
     }
     return;
@@ -686,10 +734,11 @@ overlayCanvas.addEventListener('mouseup', (event) => {
     const minDistance = 4;
     const distance = Math.hypot(point.x - interaction.start.x, point.y - interaction.start.y);
     if (tool === 'freehand' || distance >= minDistance) {
+      let annotation;
       if (tool === 'freehand') {
         const xs = interaction.points.map((p) => p.x);
         const ys = interaction.points.map((p) => p.y);
-        annotations.push({
+        annotation = {
           id: uid(),
           type: 'freehand',
           points: interaction.points,
@@ -701,9 +750,9 @@ overlayCanvas.addEventListener('mouseup', (event) => {
             width: Math.max(...xs) - Math.min(...xs),
             height: Math.max(...ys) - Math.min(...ys),
           },
-        });
+        };
       } else {
-        annotations.push({
+        annotation = {
           id: uid(),
           type: tool,
           x1: interaction.start.x,
@@ -712,9 +761,10 @@ overlayCanvas.addEventListener('mouseup', (event) => {
           y2: point.y,
           color: getStrokeColor(),
           size: getStrokeSize(),
-        });
+        };
       }
-      redrawOverlay();
+      annotations.push(annotation);
+      focusAnnotation(annotation.id);
       commitState();
     } else {
       redrawOverlay();
