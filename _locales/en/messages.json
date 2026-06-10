@@ -6,6 +6,13 @@
   "extActionTitle": { "message": "Full Page Screen Capture" },
   "commandCapture": { "message": "Capture full page screenshot" },
 
+  "popupCountdown": {
+    "message": "Capturing in $SECONDS$ s...",
+    "placeholders": { "seconds": { "content": "$1", "example": "3" } }
+  },
+  "popupCountdownHint": {
+    "message": "Close menus or hover states you want in the shot."
+  },
   "popupChooseMode": { "message": "What would you like to capture?" },
   "popupCaptureFull": { "message": "Full page" },
   "popupCaptureVisible": { "message": "Visible area" },
@@ -92,6 +99,10 @@
   "optionsCaptureMode": { "message": "Default mode (keyboard shortcut)" },
   "optionsCaptureFull": { "message": "Full page" },
   "optionsCaptureVisible": { "message": "Visible area" },
+  "optionsCaptureDelay": { "message": "Capture delay" },
+  "optionsCaptureDelayNone": { "message": "None (immediate)" },
+  "optionsCaptureDelay3": { "message": "3 seconds" },
+  "optionsCaptureDelay5": { "message": "5 seconds" },
   "optionsImageExport": { "message": "Image export" },
   "optionsFormat": { "message": "Format" },
   "optionsJpegQuality": { "message": "JPEG quality" },
@@ -111,6 +122,10 @@
   "optionsBottom": { "message": "Bottom" },
   "optionsDateStamp": { "message": "Show date stamp" },
   "optionsGeneral": { "message": "General" },
+  "themeToggle": { "message": "Toggle theme" },
+  "toastCopied": { "message": "Copied to clipboard" },
+  "toastExported": { "message": "Image exported" },
+  "toastCopyFailed": { "message": "Copy failed" },
   "optionsTheme": { "message": "Theme" },
   "optionsThemeSystem": { "message": "System" },
   "optionsThemeLight": { "message": "Light" },
@@ -144,6 +159,11 @@
   "editorCrop": { "message": "Crop" },
   "editorHighlight": { "message": "Highlight" },
   "editorText": { "message": "Text" },
+  "editorBlur": { "message": "Blur" },
+  "editorPixelate": { "message": "Pixelate" },
+  "editorBlurHint": { "message": "Drag a region to blur sensitive content." },
+  "editorPixelateHint": { "message": "Drag a region to pixelate sensitive content." },
+  "editorCopy": { "message": "Copy" },
   "editorShapes": { "message": "Shapes" },
   "editorShapesHint": {
     "message": "Choose a shape, then click and drag on the image."

@@ -13,11 +13,13 @@
         <p id="tool-status" class="tool-status" data-i18n="editorSelectHint"></p>
       </div>
       <div class="right">
+        <button id="theme-toggle" class="btn-icon" type="button" data-i18n="themeToggle" data-i18n-attr="title">◐</button>
         <button id="undo" type="button" data-i18n="editorUndo"></button>
         <button id="redo" type="button" data-i18n="editorRedo"></button>
         <button id="zoom-out" type="button" aria-label="Zoom out">−</button>
         <span id="zoom-label">100%</span>
         <button id="zoom-in" type="button" aria-label="Zoom in">+</button>
+        <button id="copy" type="button" data-i18n="editorCopy"></button>
         <button id="export" class="btn-primary" type="button" data-i18n="editorExport"></button>
       </div>
     </header>
@@ -42,6 +44,14 @@
             <button class="tool-card" data-tool="text" type="button">
               <span class="tool-icon" aria-hidden="true">T</span>
               <span class="tool-label" data-i18n="editorText"></span>
+            </button>
+            <button class="tool-card" data-tool="blur" type="button">
+              <span class="tool-icon" aria-hidden="true">▦</span>
+              <span class="tool-label" data-i18n="editorBlur"></span>
+            </button>
+            <button class="tool-card" data-tool="pixelate" type="button">
+              <span class="tool-icon" aria-hidden="true">▩</span>
+              <span class="tool-label" data-i18n="editorPixelate"></span>
             </button>
           </div>
         </section>

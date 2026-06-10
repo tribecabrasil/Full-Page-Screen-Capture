@@ -84,6 +84,13 @@ async function openResultTabs(captureIds, sourceTab, split) {
   }
 }
 
+async function waitCaptureDelay(options) {
+  const delaySec = Number(options.captureDelay || 0);
+  if (delaySec > 0) {
+    await new Promise((resolve) => setTimeout(resolve, delaySec * 1000));
+  }
+}
+
 async function maybeAutoDownload(captureId, filename, options) {
   if (!options.autoDownload) {
     return;
@@ -216,6 +223,7 @@ export async function startCapture(tab, hooks = {}) {
 
   try {
     const options = await getOptions();
+    await waitCaptureDelay(options);
 
     if (mode === 'visible') {
       return await captureVisibleArea(tab, captureVisibleTab, options);

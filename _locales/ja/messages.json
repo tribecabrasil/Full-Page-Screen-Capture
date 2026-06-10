@@ -1,197 +1,506 @@
 {
-  "extName": { "message": "Full Page Screen Capture" },
+  "extName": {
+    "message": "Full Page Screen Capture"
+  },
   "extDescription": {
     "message": "現在のページ全体を確実にキャプチャ — 追加の権限は不要です！"
   },
-  "extActionTitle": { "message": "Full Page Screen Capture" },
-  "commandCapture": { "message": "ページ全体のスクリーンショットをキャプチャ" },
-
-  "popupChooseMode": { "message": "何をキャプチャしますか？" },
-  "popupCaptureFull": { "message": "ページ全体" },
-  "popupCaptureVisible": { "message": "表示領域" },
+  "extActionTitle": {
+    "message": "Full Page Screen Capture"
+  },
+  "commandCapture": {
+    "message": "ページ全体のスクリーンショットをキャプチャ"
+  },
+  "popupChooseMode": {
+    "message": "何をキャプチャしますか？"
+  },
+  "popupCaptureFull": {
+    "message": "ページ全体"
+  },
+  "popupCaptureVisible": {
+    "message": "表示領域"
+  },
   "popupVisibleHint": {
     "message": "表示領域は現在画面に見えている部分のみをキャプチャします（スクロールなし）。"
   },
-  "popupCaptureInProgress": { "message": "画面キャプチャ中..." },
+  "popupCaptureInProgress": {
+    "message": "画面キャプチャ中..."
+  },
   "popupHint": {
     "message": "完了すると、新しいタブで完成した画像が開きます。"
   },
   "popupSplitWarning": {
     "message": "注意：ページが大きすぎるため、Chromeは1枚の画像としてキャプチャできません。$COUNT$枚の画像に分割されます。",
-    "placeholders": { "count": { "content": "$1", "example": "2" } }
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
   },
-  "popupSplitMultiple": { "message": "複数" },
+  "popupSplitMultiple": {
+    "message": "複数"
+  },
   "popupInvalidUrl": {
     "message": "ブラウザのポリシーにより、この種類のURLではFull Page Screen Captureを実行できません。別のWebページをお試しください。"
   },
   "popupError": {
     "message": "問題が発生しました。ページを再読み込みして、キャプチャを再実行してください。"
   },
-  "popupDone": { "message": "キャプチャ完了。新しい結果タブをご確認ください。" },
-  "popupNoActiveTab": { "message": "アクティブなタブが見つかりません。" },
-  "popupUnknownError": { "message": "不明なエラー" },
-
-  "resultTitle": { "message": "画面キャプチャ結果" },
+  "popupDone": {
+    "message": "キャプチャ完了。新しい結果タブをご確認ください。"
+  },
+  "popupNoActiveTab": {
+    "message": "アクティブなタブが見つかりません。"
+  },
+  "popupUnknownError": {
+    "message": "不明なエラー"
+  },
+  "resultTitle": {
+    "message": "画面キャプチャ結果"
+  },
   "resultTitlePart": {
     "message": "画面キャプチャ結果（$PART$/$PARTS$）",
     "placeholders": {
-      "part": { "content": "$1", "example": "1" },
-      "parts": { "content": "$2", "example": "2" }
+      "part": {
+        "content": "$1",
+        "example": "1"
+      },
+      "parts": {
+        "content": "$2",
+        "example": "2"
+      }
     }
   },
-  "resultBrand": { "message": "📷 Full Page Screen Capture" },
-  "resultEdit": { "message": "編集" },
-  "resultReport": { "message": "問題を報告" },
-  "resultDelete": { "message": "削除" },
-  "resultPdf": { "message": "PDF" },
-  "resultDownload": { "message": "ダウンロード" },
-  "resultMore": { "message": "その他" },
-  "resultSettings": { "message": "設定" },
-  "resultCopyClipboard": { "message": "クリップボードにコピー" },
-  "resultOpenOptions": { "message": "オプションを開く" },
-  "resultImageAlt": { "message": "ページ全体のキャプチャ" },
-  "resultReportTitle": { "message": "問題を報告" },
+  "resultBrand": {
+    "message": "📷 Full Page Screen Capture"
+  },
+  "resultEdit": {
+    "message": "編集"
+  },
+  "resultReport": {
+    "message": "問題を報告"
+  },
+  "resultDelete": {
+    "message": "削除"
+  },
+  "resultPdf": {
+    "message": "PDF"
+  },
+  "resultDownload": {
+    "message": "ダウンロード"
+  },
+  "resultMore": {
+    "message": "その他"
+  },
+  "resultSettings": {
+    "message": "設定"
+  },
+  "resultCopyClipboard": {
+    "message": "クリップボードにコピー"
+  },
+  "resultOpenOptions": {
+    "message": "オプションを開く"
+  },
+  "resultImageAlt": {
+    "message": "ページ全体のキャプチャ"
+  },
+  "resultReportTitle": {
+    "message": "問題を報告"
+  },
   "resultReportDesc": {
     "message": "問題の内容を記述してください。詳細付きでメールクライアントが開きます。"
   },
-  "resultReportPlaceholder": { "message": "何が起きましたか？" },
-  "resultCancel": { "message": "キャンセル" },
-  "resultSendReport": { "message": "報告を送信" },
-  "resultMissingId": { "message": "キャプチャIDがありません。" },
-  "resultNotFound": { "message": "キャプチャが見つかりません。" },
-  "resultUntitled": { "message": "無題のページ" },
+  "resultReportPlaceholder": {
+    "message": "何が起きましたか？"
+  },
+  "resultCancel": {
+    "message": "キャンセル"
+  },
+  "resultSendReport": {
+    "message": "報告を送信"
+  },
+  "resultMissingId": {
+    "message": "キャプチャIDがありません。"
+  },
+  "resultNotFound": {
+    "message": "キャプチャが見つかりません。"
+  },
+  "resultUntitled": {
+    "message": "無題のページ"
+  },
   "resultPartMeta": {
     "message": "パート $PART$ / $PARTS$",
     "placeholders": {
-      "part": { "content": "$1", "example": "1" },
-      "parts": { "content": "$2", "example": "2" }
+      "part": {
+        "content": "$1",
+        "example": "1"
+      },
+      "parts": {
+        "content": "$2",
+        "example": "2"
+      }
     }
   },
-  "pdfPreparing": { "message": "PDFを準備中..." },
+  "pdfPreparing": {
+    "message": "PDFを準備中..."
+  },
   "pdfGenerating": {
     "message": "PDFを生成中... ページ $PAGE$/$TOTAL$",
     "placeholders": {
-      "page": { "content": "$1", "example": "1" },
-      "total": { "content": "$2", "example": "5" }
+      "page": {
+        "content": "$1",
+        "example": "1"
+      },
+      "total": {
+        "content": "$2",
+        "example": "5"
+      }
     }
   },
-  "pdfSaved": { "message": "PDFを保存しました。" },
-  "pdfFailed": { "message": "PDFのエクスポートに失敗しました。" },
+  "pdfSaved": {
+    "message": "PDFを保存しました。"
+  },
+  "pdfFailed": {
+    "message": "PDFのエクスポートに失敗しました。"
+  },
   "pdfTooManyPages": {
     "message": "PDFは$MAX$ページまでです。非常に長いページはPNGエクスポートをお試しください。",
-    "placeholders": { "max": { "content": "$1", "example": "200" } }
+    "placeholders": {
+      "max": {
+        "content": "$1",
+        "example": "200"
+      }
+    }
   },
-  "reportSubject": { "message": "Full Page Screen Capture 問題報告" },
-  "reportBodyUrl": { "message": "ページURL" },
-  "reportBodyExtension": { "message": "拡張機能" },
-  "reportBodyUserAgent": { "message": "ユーザーエージェント" },
-
-  "optionsTitle": { "message": "Full Page Screen Capture" },
-  "optionsSubtitle": { "message": "余計な機能なし、広告なし、不要な権限なし。" },
-  "optionsCapture": { "message": "キャプチャ" },
-  "optionsCaptureMode": { "message": "デフォルトモード（キーボードショートカット）" },
-  "optionsCaptureFull": { "message": "ページ全体" },
-  "optionsCaptureVisible": { "message": "表示領域" },
-  "optionsImageExport": { "message": "画像エクスポート" },
-  "optionsFormat": { "message": "形式" },
-  "optionsJpegQuality": { "message": "JPEG品質" },
-  "optionsAutoDownload": { "message": "キャプチャ後に自動ダウンロード" },
-  "optionsSaveAs": { "message": "「名前を付けて保存」ダイアログを表示" },
-  "optionsPdfExport": { "message": "PDFエクスポート" },
-  "optionsPaperSize": { "message": "用紙サイズ" },
-  "optionsOrientation": { "message": "向き" },
-  "optionsPortrait": { "message": "縦" },
-  "optionsLandscape": { "message": "横" },
-  "optionsSmartSplit": { "message": "スマートページ分割" },
-  "optionsEditorDefaults": { "message": "エディターのデフォルト" },
-  "optionsBrowserFrame": { "message": "ブラウザーフレーム" },
-  "optionsNone": { "message": "なし" },
-  "optionsUrlPlacement": { "message": "URLの配置" },
-  "optionsTop": { "message": "上" },
-  "optionsBottom": { "message": "下" },
-  "optionsDateStamp": { "message": "日付スタンプを表示" },
-  "optionsGeneral": { "message": "一般" },
-  "optionsTheme": { "message": "テーマ" },
-  "optionsThemeSystem": { "message": "システム" },
-  "optionsThemeLight": { "message": "ライト" },
-  "optionsThemeDark": { "message": "ダーク" },
-  "optionsLanguage": { "message": "言語" },
-  "optionsLanguageAuto": { "message": "自動（ブラウザの言語）" },
-  "optionsShowWelcome": { "message": "インストール時にウェルカムページを表示" },
-  "optionsSave": { "message": "オプションを保存" },
-  "optionsSaved": { "message": "保存しました。" },
+  "reportSubject": {
+    "message": "Full Page Screen Capture 問題報告"
+  },
+  "reportBodyUrl": {
+    "message": "ページURL"
+  },
+  "reportBodyExtension": {
+    "message": "拡張機能"
+  },
+  "reportBodyUserAgent": {
+    "message": "ユーザーエージェント"
+  },
+  "optionsTitle": {
+    "message": "Full Page Screen Capture"
+  },
+  "optionsSubtitle": {
+    "message": "余計な機能なし、広告なし、不要な権限なし。"
+  },
+  "optionsCapture": {
+    "message": "キャプチャ"
+  },
+  "optionsCaptureMode": {
+    "message": "デフォルトモード（キーボードショートカット）"
+  },
+  "optionsCaptureFull": {
+    "message": "ページ全体"
+  },
+  "optionsCaptureVisible": {
+    "message": "表示領域"
+  },
+  "optionsImageExport": {
+    "message": "画像エクスポート"
+  },
+  "optionsFormat": {
+    "message": "形式"
+  },
+  "optionsJpegQuality": {
+    "message": "JPEG品質"
+  },
+  "optionsAutoDownload": {
+    "message": "キャプチャ後に自動ダウンロード"
+  },
+  "optionsSaveAs": {
+    "message": "「名前を付けて保存」ダイアログを表示"
+  },
+  "optionsPdfExport": {
+    "message": "PDFエクスポート"
+  },
+  "optionsPaperSize": {
+    "message": "用紙サイズ"
+  },
+  "optionsOrientation": {
+    "message": "向き"
+  },
+  "optionsPortrait": {
+    "message": "縦"
+  },
+  "optionsLandscape": {
+    "message": "横"
+  },
+  "optionsSmartSplit": {
+    "message": "スマートページ分割"
+  },
+  "optionsEditorDefaults": {
+    "message": "エディターのデフォルト"
+  },
+  "optionsBrowserFrame": {
+    "message": "ブラウザーフレーム"
+  },
+  "optionsNone": {
+    "message": "なし"
+  },
+  "optionsUrlPlacement": {
+    "message": "URLの配置"
+  },
+  "optionsTop": {
+    "message": "上"
+  },
+  "optionsBottom": {
+    "message": "下"
+  },
+  "optionsDateStamp": {
+    "message": "日付スタンプを表示"
+  },
+  "optionsGeneral": {
+    "message": "一般"
+  },
+  "optionsTheme": {
+    "message": "テーマ"
+  },
+  "optionsThemeSystem": {
+    "message": "システム"
+  },
+  "optionsThemeLight": {
+    "message": "ライト"
+  },
+  "optionsThemeDark": {
+    "message": "ダーク"
+  },
+  "optionsLanguage": {
+    "message": "言語"
+  },
+  "optionsLanguageAuto": {
+    "message": "自動（ブラウザの言語）"
+  },
+  "optionsShowWelcome": {
+    "message": "インストール時にウェルカムページを表示"
+  },
+  "optionsSave": {
+    "message": "オプションを保存"
+  },
+  "optionsSaved": {
+    "message": "保存しました。"
+  },
   "optionsCredit": {
     "message": "$LINK$によるオープンソースプロジェクトを基にしています",
-    "placeholders": { "link": { "content": "$1", "example": "mrcoles" } }
+    "placeholders": {
+      "link": {
+        "content": "$1",
+        "example": "mrcoles"
+      }
+    }
   },
   "optionsCreditLink": {
     "message": "mrcoles/full-page-screen-capture-chrome-extension"
   },
-
-  "editorTitle": { "message": "Full Page Screen Capture: エディター" },
-  "editorBrand": { "message": "📷 エディター" },
-  "editorTabEditor": { "message": "エディター" },
-  "editorTabShapes": { "message": "図形" },
-  "editorTabFormat": { "message": "書式" },
-  "editorUndo": { "message": "元に戻す" },
-  "editorRedo": { "message": "やり直す" },
-  "editorExport": { "message": "エクスポート" },
-  "editorTools": { "message": "ツール" },
+  "editorTitle": {
+    "message": "Full Page Screen Capture: エディター"
+  },
+  "editorBrand": {
+    "message": "📷 エディター"
+  },
+  "editorTabEditor": {
+    "message": "エディター"
+  },
+  "editorTabShapes": {
+    "message": "図形"
+  },
+  "editorTabFormat": {
+    "message": "書式"
+  },
+  "editorUndo": {
+    "message": "元に戻す"
+  },
+  "editorRedo": {
+    "message": "やり直す"
+  },
+  "editorExport": {
+    "message": "エクスポート"
+  },
+  "editorTools": {
+    "message": "ツール"
+  },
   "editorSelectHint": {
     "message": "選択ツールで項目をドラッグします。項目を右クリックで削除できます。"
   },
-  "editorSelect": { "message": "選択" },
-  "editorCrop": { "message": "切り抜き" },
-  "editorHighlight": { "message": "ハイライト" },
-  "editorText": { "message": "テキスト" },
-  "editorShapes": { "message": "図形" },
+  "editorSelect": {
+    "message": "選択"
+  },
+  "editorCrop": {
+    "message": "切り抜き"
+  },
+  "editorHighlight": {
+    "message": "ハイライト"
+  },
+  "editorText": {
+    "message": "テキスト"
+  },
+  "editorShapes": {
+    "message": "図形"
+  },
   "editorShapesHint": {
     "message": "図形を選び、画像上でクリック＆ドラッグしてください。"
   },
-  "editorRectangle": { "message": "四角形" },
-  "editorArrow": { "message": "矢印" },
-  "editorCircle": { "message": "円" },
-  "editorFreehand": { "message": "フリーハンド" },
-  "editorFormatting": { "message": "書式" },
+  "editorRectangle": {
+    "message": "四角形"
+  },
+  "editorArrow": {
+    "message": "矢印"
+  },
+  "editorCircle": {
+    "message": "円"
+  },
+  "editorFreehand": {
+    "message": "フリーハンド"
+  },
+  "editorFormatting": {
+    "message": "書式"
+  },
   "editorFormatHint": {
     "message": "色と太さはここで設定 — 描画前、または図形選択後に変更できます。"
   },
-  "editorFormatApplies": { "message": "有効" },
-  "editorCropHint": { "message": "画像上でクリック＆ドラッグして切り抜きます。" },
-  "editorHighlightHint": { "message": "クリック＆ドラッグでハイライトを追加します。" },
-  "editorTextHint": { "message": "画像をクリックしてテキストを入力します。" },
-  "editorColor": { "message": "色" },
-  "editorSize": { "message": "サイズ" },
-  "editorUrlBrowser": { "message": "URLとブラウザー" },
-  "editorMacOs": { "message": "Mac OS X" },
-  "editorWindows": { "message": "Windows" },
-  "editorUrlTop": { "message": "URLを上に表示" },
-  "editorUrlBottom": { "message": "URLを下に表示" },
-  "editorNoUrl": { "message": "URLなし" },
-  "editorDateTime": { "message": "日付と時刻" },
-  "editorShowDate": { "message": "キャプチャ日を表示" },
-  "editorEmojis": { "message": "絵文字" },
+  "editorFormatApplies": {
+    "message": "有効"
+  },
+  "editorCropHint": {
+    "message": "画像上でクリック＆ドラッグして切り抜きます。"
+  },
+  "editorHighlightHint": {
+    "message": "クリック＆ドラッグでハイライトを追加します。"
+  },
+  "editorTextHint": {
+    "message": "画像をクリックしてテキストを入力します。"
+  },
+  "editorColor": {
+    "message": "色"
+  },
+  "editorSize": {
+    "message": "サイズ"
+  },
+  "editorUrlBrowser": {
+    "message": "URLとブラウザー"
+  },
+  "editorMacOs": {
+    "message": "Mac OS X"
+  },
+  "editorWindows": {
+    "message": "Windows"
+  },
+  "editorUrlTop": {
+    "message": "URLを上に表示"
+  },
+  "editorUrlBottom": {
+    "message": "URLを下に表示"
+  },
+  "editorNoUrl": {
+    "message": "URLなし"
+  },
+  "editorDateTime": {
+    "message": "日付と時刻"
+  },
+  "editorShowDate": {
+    "message": "キャプチャ日を表示"
+  },
+  "editorEmojis": {
+    "message": "絵文字"
+  },
   "editorEmojisHint": {
     "message": "絵文字を選び、画像上をクリックして配置してください。"
   },
-  "editorDelete": { "message": "削除" },
-  "editorTextPrompt": { "message": "テキストを入力" },
-  "editorTextDialogTitle": { "message": "テキストを追加" },
-  "editorTextAdd": { "message": "追加" },
-
-  "welcomeTitle": { "message": "Full Page Screen Capture" },
+  "editorDelete": {
+    "message": "削除"
+  },
+  "editorTextPrompt": {
+    "message": "テキストを入力"
+  },
+  "editorTextDialogTitle": {
+    "message": "テキストを追加"
+  },
+  "editorTextAdd": {
+    "message": "追加"
+  },
+  "welcomeTitle": {
+    "message": "Full Page Screen Capture"
+  },
   "welcomeTagline": {
     "message": "現在のページ全体のスクリーンショットを確実にキャプチャ — 追加の権限は不要です。"
   },
-  "welcomeHowToUse": { "message": "使い方" },
-  "welcomeStep1": { "message": "ツールバーの拡張機能アイコンをクリックします。" },
-  "welcomeStep2": { "message": "または Alt + Shift + P を押します。" },
-  "welcomeStep3": { "message": "ページの各部分がキャプチャされるまでお待ちください。" },
-  "welcomeStep4": { "message": "結果タブからPNG、JPEG、またはPDFでダウンロードします。" },
+  "welcomeHowToUse": {
+    "message": "使い方"
+  },
+  "welcomeStep1": {
+    "message": "ツールバーの拡張機能アイコンをクリックします。"
+  },
+  "welcomeStep2": {
+    "message": "または Alt + Shift + P を押します。"
+  },
+  "welcomeStep3": {
+    "message": "ページの各部分がキャプチャされるまでお待ちください。"
+  },
+  "welcomeStep4": {
+    "message": "結果タブからPNG、JPEG、またはPDFでダウンロードします。"
+  },
   "welcomeStep5": {
     "message": "組み込みエディターで編集、切り抜き、注釈、絵文字の追加ができます。"
   },
   "welcomeCredit": {
     "message": "オープンソースプロジェクトを基にしています："
+  },
+  "popupCountdown": {
+    "message": "$SECONDS$ 秒後にキャプチャします...",
+    "placeholders": {
+      "seconds": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "popupCountdownHint": {
+    "message": "キャプチャに含めたいメニューやホバー状態を閉じてください。"
+  },
+  "optionsCaptureDelay": {
+    "message": "キャプチャ遅延"
+  },
+  "optionsCaptureDelayNone": {
+    "message": "なし（即時）"
+  },
+  "optionsCaptureDelay3": {
+    "message": "3秒"
+  },
+  "optionsCaptureDelay5": {
+    "message": "5秒"
+  },
+  "themeToggle": {
+    "message": "テーマを切り替え"
+  },
+  "toastCopied": {
+    "message": "クリップボードにコピーしました"
+  },
+  "toastExported": {
+    "message": "画像をエクスポートしました"
+  },
+  "toastCopyFailed": {
+    "message": "コピーに失敗しました"
+  },
+  "editorBlur": {
+    "message": "ぼかし"
+  },
+  "editorPixelate": {
+    "message": "ピクセル化"
+  },
+  "editorBlurHint": {
+    "message": "領域をドラッグして機密コンテンツをぼかします。"
+  },
+  "editorPixelateHint": {
+    "message": "領域をドラッグして機密コンテンツをピクセル化します。"
+  },
+  "editorCopy": {
+    "message": "コピー"
   }
 }

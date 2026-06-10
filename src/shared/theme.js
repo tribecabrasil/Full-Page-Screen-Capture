@@ -1,4 +1,6 @@
-import { getOptions } from './storage.js';
+import { getOptions, saveOptions } from './storage.js';
+
+const THEME_CYCLE = ['system', 'light', 'dark'];
 
 /** @type {MediaQueryList | null} */
 let colorSchemeQuery = null;
@@ -67,4 +69,31 @@ export async function initTheme() {
   applyTheme(options.theme || 'system');
   watchSystemTheme();
   attachStorageListener();
+}
+
+/**
+ * Cycle theme preference: system → light → dark → system.
+ * @returns {Promise<string>}
+ */
+export async function cycleTheme() {
+  const options = await getOptions();
+  const current = options.theme || 'system';
+  const index = THEME_CYCLE.indexOf(current);
+  const next = THEME_CYCLE[(index + 1 + THEME_CYCLE.length) % THEME_CYCLE.length];
+  await saveOptions({ ...options, theme: next });
+  applyTheme(next);
+  return next;
+}
+
+/**
+ * @param {HTMLButtonElement} button
+ * @param {string} preference
+ */
+export function updateThemeToggleButton(button, preference) {
+  if (!button) {
+    return;
+  }
+  const icons = { system: '◐', light: '☀', dark: '☾' };
+  button.textContent = icons[preference] || icons.system;
+  button.dataset.themePreference = preference || 'system';
 }

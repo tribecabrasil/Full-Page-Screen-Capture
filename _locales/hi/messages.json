@@ -1,197 +1,506 @@
 {
-  "extName": { "message": "Full Page Screen Capture" },
+  "extName": {
+    "message": "Full Page Screen Capture"
+  },
   "extDescription": {
     "message": "अपने वर्तमान पेज को पूरी तरह और विश्वसनीय रूप से कैप्चर करें — बिना किसी अतिरिक्त अनुमति के!"
   },
-  "extActionTitle": { "message": "Full Page Screen Capture" },
-  "commandCapture": { "message": "पूर्ण पेज स्क्रीनशॉट कैप्चर करें" },
-
-  "popupChooseMode": { "message": "आप क्या कैप्चर करना चाहते हैं?" },
-  "popupCaptureFull": { "message": "पूर्ण पृष्ठ" },
-  "popupCaptureVisible": { "message": "दृश्य क्षेत्र" },
+  "extActionTitle": {
+    "message": "Full Page Screen Capture"
+  },
+  "commandCapture": {
+    "message": "पूर्ण पेज स्क्रीनशॉट कैप्चर करें"
+  },
+  "popupChooseMode": {
+    "message": "आप क्या कैप्चर करना चाहते हैं?"
+  },
+  "popupCaptureFull": {
+    "message": "पूर्ण पृष्ठ"
+  },
+  "popupCaptureVisible": {
+    "message": "दृश्य क्षेत्र"
+  },
   "popupVisibleHint": {
     "message": "दृश्य क्षेत्र केवल वही कैप्चर करता है जो अभी स्क्रीन पर है — बिना स्क्रॉल किए।"
   },
-  "popupCaptureInProgress": { "message": "स्क्रीन कैप्चर प्रगति में है..." },
+  "popupCaptureInProgress": {
+    "message": "स्क्रीन कैप्चर प्रगति में है..."
+  },
   "popupHint": {
     "message": "पूर्ण होने पर आपकी तैयार छवि एक नए टैब में खुलेगी।"
   },
   "popupSplitWarning": {
     "message": "ध्यान दें: आपका पेज Chrome के लिए एक छवि के रूप में कैप्चर करने के लिए बहुत बड़ा है। इसे $COUNT$ छवियों में विभाजित किया जाएगा।",
-    "placeholders": { "count": { "content": "$1", "example": "2" } }
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
   },
-  "popupSplitMultiple": { "message": "कई" },
+  "popupSplitMultiple": {
+    "message": "कई"
+  },
   "popupInvalidUrl": {
     "message": "ब्राउज़र नीतियों के कारण Full Page Screen Capture इस प्रकार के URL पर नहीं चल सकता। वेब पर कोई अन्य पेज आज़माएँ।"
   },
   "popupError": {
     "message": "कुछ गलत हो गया। पेज को पुनः लोड करें और फिर से कैप्चर करें।"
   },
-  "popupDone": { "message": "कैप्चर पूर्ण। नए परिणाम टैब की जाँच करें।" },
-  "popupNoActiveTab": { "message": "कोई सक्रिय टैब नहीं मिला।" },
-  "popupUnknownError": { "message": "अज्ञात त्रुटि" },
-
-  "resultTitle": { "message": "स्क्रीन कैप्चर परिणाम" },
+  "popupDone": {
+    "message": "कैप्चर पूर्ण। नए परिणाम टैब की जाँच करें।"
+  },
+  "popupNoActiveTab": {
+    "message": "कोई सक्रिय टैब नहीं मिला।"
+  },
+  "popupUnknownError": {
+    "message": "अज्ञात त्रुटि"
+  },
+  "resultTitle": {
+    "message": "स्क्रीन कैप्चर परिणाम"
+  },
   "resultTitlePart": {
     "message": "स्क्रीन कैप्चर परिणाम ($PART$/$PARTS$)",
     "placeholders": {
-      "part": { "content": "$1", "example": "1" },
-      "parts": { "content": "$2", "example": "2" }
+      "part": {
+        "content": "$1",
+        "example": "1"
+      },
+      "parts": {
+        "content": "$2",
+        "example": "2"
+      }
     }
   },
-  "resultBrand": { "message": "📷 Full Page Screen Capture" },
-  "resultEdit": { "message": "संपादित करें" },
-  "resultReport": { "message": "समस्या रिपोर्ट करें" },
-  "resultDelete": { "message": "हटाएँ" },
-  "resultPdf": { "message": "PDF" },
-  "resultDownload": { "message": "डाउनलोड" },
-  "resultMore": { "message": "अधिक" },
-  "resultSettings": { "message": "सेटिंग्स" },
-  "resultCopyClipboard": { "message": "क्लिपबोर्ड पर कॉपी करें" },
-  "resultOpenOptions": { "message": "विकल्प खोलें" },
-  "resultImageAlt": { "message": "पूर्ण पेज कैप्चर" },
-  "resultReportTitle": { "message": "समस्या रिपोर्ट करें" },
+  "resultBrand": {
+    "message": "📷 Full Page Screen Capture"
+  },
+  "resultEdit": {
+    "message": "संपादित करें"
+  },
+  "resultReport": {
+    "message": "समस्या रिपोर्ट करें"
+  },
+  "resultDelete": {
+    "message": "हटाएँ"
+  },
+  "resultPdf": {
+    "message": "PDF"
+  },
+  "resultDownload": {
+    "message": "डाउनलोड"
+  },
+  "resultMore": {
+    "message": "अधिक"
+  },
+  "resultSettings": {
+    "message": "सेटिंग्स"
+  },
+  "resultCopyClipboard": {
+    "message": "क्लिपबोर्ड पर कॉपी करें"
+  },
+  "resultOpenOptions": {
+    "message": "विकल्प खोलें"
+  },
+  "resultImageAlt": {
+    "message": "पूर्ण पेज कैप्चर"
+  },
+  "resultReportTitle": {
+    "message": "समस्या रिपोर्ट करें"
+  },
   "resultReportDesc": {
     "message": "बताएँ कि क्या गलत हुआ। यह विवरण के साथ आपका ईमेल क्लाइंट खोलेगा।"
   },
-  "resultReportPlaceholder": { "message": "क्या हुआ?" },
-  "resultCancel": { "message": "रद्द करें" },
-  "resultSendReport": { "message": "रिपोर्ट भेजें" },
-  "resultMissingId": { "message": "कैप्चर ID गायब है।" },
-  "resultNotFound": { "message": "कैप्चर नहीं मिला।" },
-  "resultUntitled": { "message": "शीर्षक रहित पेज" },
+  "resultReportPlaceholder": {
+    "message": "क्या हुआ?"
+  },
+  "resultCancel": {
+    "message": "रद्द करें"
+  },
+  "resultSendReport": {
+    "message": "रिपोर्ट भेजें"
+  },
+  "resultMissingId": {
+    "message": "कैप्चर ID गायब है।"
+  },
+  "resultNotFound": {
+    "message": "कैप्चर नहीं मिला।"
+  },
+  "resultUntitled": {
+    "message": "शीर्षक रहित पेज"
+  },
   "resultPartMeta": {
     "message": "भाग $PART$ / $PARTS$",
     "placeholders": {
-      "part": { "content": "$1", "example": "1" },
-      "parts": { "content": "$2", "example": "2" }
+      "part": {
+        "content": "$1",
+        "example": "1"
+      },
+      "parts": {
+        "content": "$2",
+        "example": "2"
+      }
     }
   },
-  "pdfPreparing": { "message": "PDF तैयार हो रहा है..." },
+  "pdfPreparing": {
+    "message": "PDF तैयार हो रहा है..."
+  },
   "pdfGenerating": {
     "message": "PDF बन रहा है... पृष्ठ $PAGE$/$TOTAL$",
     "placeholders": {
-      "page": { "content": "$1", "example": "1" },
-      "total": { "content": "$2", "example": "5" }
+      "page": {
+        "content": "$1",
+        "example": "1"
+      },
+      "total": {
+        "content": "$2",
+        "example": "5"
+      }
     }
   },
-  "pdfSaved": { "message": "PDF सहेजा गया।" },
-  "pdfFailed": { "message": "PDF निर्यात विफल।" },
+  "pdfSaved": {
+    "message": "PDF सहेजा गया।"
+  },
+  "pdfFailed": {
+    "message": "PDF निर्यात विफल।"
+  },
   "pdfTooManyPages": {
     "message": "PDF $MAX$ पृष्ठों तक सीमित है। बहुत लंबे पेजों के लिए PNG निर्यात आज़माएँ।",
-    "placeholders": { "max": { "content": "$1", "example": "200" } }
+    "placeholders": {
+      "max": {
+        "content": "$1",
+        "example": "200"
+      }
+    }
   },
-  "reportSubject": { "message": "Full Page Screen Capture समस्या रिपोर्ट" },
-  "reportBodyUrl": { "message": "पेज URL" },
-  "reportBodyExtension": { "message": "एक्सटेंशन" },
-  "reportBodyUserAgent": { "message": "यूज़र एजेंट" },
-
-  "optionsTitle": { "message": "Full Page Screen Capture" },
-  "optionsSubtitle": { "message": "कोई बloat नहीं, कोई विज्ञापन नहीं, कोई अनावश्यक अनुमति नहीं।" },
-  "optionsCapture": { "message": "कैप्चर" },
-  "optionsCaptureMode": { "message": "डिफ़ॉल्ट मोड (कीबोर्ड शॉर्टकट)" },
-  "optionsCaptureFull": { "message": "पूर्ण पृष्ठ" },
-  "optionsCaptureVisible": { "message": "दृश्य क्षेत्र" },
-  "optionsImageExport": { "message": "छवि निर्यात" },
-  "optionsFormat": { "message": "प्रारूप" },
-  "optionsJpegQuality": { "message": "JPEG गुणवत्ता" },
-  "optionsAutoDownload": { "message": "कैप्चर के बाद स्वचालित डाउनलोड" },
-  "optionsSaveAs": { "message": "\"इस रूप में सहेजें\" संवाद दिखाएँ" },
-  "optionsPdfExport": { "message": "PDF निर्यात" },
-  "optionsPaperSize": { "message": "कागज़ का आकार" },
-  "optionsOrientation": { "message": "अभिविन्यास" },
-  "optionsPortrait": { "message": "पोर्ट्रेट" },
-  "optionsLandscape": { "message": "लैंडस्केप" },
-  "optionsSmartSplit": { "message": "स्मार्ट पेज विभाजन" },
-  "optionsEditorDefaults": { "message": "संपादक डिफ़ॉल्ट" },
-  "optionsBrowserFrame": { "message": "ब्राउज़र फ़्रेम" },
-  "optionsNone": { "message": "कोई नहीं" },
-  "optionsUrlPlacement": { "message": "URL स्थान" },
-  "optionsTop": { "message": "ऊपर" },
-  "optionsBottom": { "message": "नीचे" },
-  "optionsDateStamp": { "message": "दिनांक मुहर दिखाएँ" },
-  "optionsGeneral": { "message": "सामान्य" },
-  "optionsTheme": { "message": "थीम" },
-  "optionsThemeSystem": { "message": "सिस्टम" },
-  "optionsThemeLight": { "message": "लाइट" },
-  "optionsThemeDark": { "message": "डार्क" },
-  "optionsLanguage": { "message": "भाषा" },
-  "optionsLanguageAuto": { "message": "स्वचालित (ब्राउज़र की भाषा)" },
-  "optionsShowWelcome": { "message": "इंस्टॉल पर स्वागत पेज दिखाएँ" },
-  "optionsSave": { "message": "विकल्प सहेजें" },
-  "optionsSaved": { "message": "सहेजा गया।" },
+  "reportSubject": {
+    "message": "Full Page Screen Capture समस्या रिपोर्ट"
+  },
+  "reportBodyUrl": {
+    "message": "पेज URL"
+  },
+  "reportBodyExtension": {
+    "message": "एक्सटेंशन"
+  },
+  "reportBodyUserAgent": {
+    "message": "यूज़र एजेंट"
+  },
+  "optionsTitle": {
+    "message": "Full Page Screen Capture"
+  },
+  "optionsSubtitle": {
+    "message": "कोई बloat नहीं, कोई विज्ञापन नहीं, कोई अनावश्यक अनुमति नहीं।"
+  },
+  "optionsCapture": {
+    "message": "कैप्चर"
+  },
+  "optionsCaptureMode": {
+    "message": "डिफ़ॉल्ट मोड (कीबोर्ड शॉर्टकट)"
+  },
+  "optionsCaptureFull": {
+    "message": "पूर्ण पृष्ठ"
+  },
+  "optionsCaptureVisible": {
+    "message": "दृश्य क्षेत्र"
+  },
+  "optionsImageExport": {
+    "message": "छवि निर्यात"
+  },
+  "optionsFormat": {
+    "message": "प्रारूप"
+  },
+  "optionsJpegQuality": {
+    "message": "JPEG गुणवत्ता"
+  },
+  "optionsAutoDownload": {
+    "message": "कैप्चर के बाद स्वचालित डाउनलोड"
+  },
+  "optionsSaveAs": {
+    "message": "\"इस रूप में सहेजें\" संवाद दिखाएँ"
+  },
+  "optionsPdfExport": {
+    "message": "PDF निर्यात"
+  },
+  "optionsPaperSize": {
+    "message": "कागज़ का आकार"
+  },
+  "optionsOrientation": {
+    "message": "अभिविन्यास"
+  },
+  "optionsPortrait": {
+    "message": "पोर्ट्रेट"
+  },
+  "optionsLandscape": {
+    "message": "लैंडस्केप"
+  },
+  "optionsSmartSplit": {
+    "message": "स्मार्ट पेज विभाजन"
+  },
+  "optionsEditorDefaults": {
+    "message": "संपादक डिफ़ॉल्ट"
+  },
+  "optionsBrowserFrame": {
+    "message": "ब्राउज़र फ़्रेम"
+  },
+  "optionsNone": {
+    "message": "कोई नहीं"
+  },
+  "optionsUrlPlacement": {
+    "message": "URL स्थान"
+  },
+  "optionsTop": {
+    "message": "ऊपर"
+  },
+  "optionsBottom": {
+    "message": "नीचे"
+  },
+  "optionsDateStamp": {
+    "message": "दिनांक मुहर दिखाएँ"
+  },
+  "optionsGeneral": {
+    "message": "सामान्य"
+  },
+  "optionsTheme": {
+    "message": "थीम"
+  },
+  "optionsThemeSystem": {
+    "message": "सिस्टम"
+  },
+  "optionsThemeLight": {
+    "message": "लाइट"
+  },
+  "optionsThemeDark": {
+    "message": "डार्क"
+  },
+  "optionsLanguage": {
+    "message": "भाषा"
+  },
+  "optionsLanguageAuto": {
+    "message": "स्वचालित (ब्राउज़र की भाषा)"
+  },
+  "optionsShowWelcome": {
+    "message": "इंस्टॉल पर स्वागत पेज दिखाएँ"
+  },
+  "optionsSave": {
+    "message": "विकल्प सहेजें"
+  },
+  "optionsSaved": {
+    "message": "सहेजा गया।"
+  },
   "optionsCredit": {
     "message": "$LINK$ द्वारा ओपन सोर्स प्रोजेक्ट पर आधारित",
-    "placeholders": { "link": { "content": "$1", "example": "mrcoles" } }
+    "placeholders": {
+      "link": {
+        "content": "$1",
+        "example": "mrcoles"
+      }
+    }
   },
   "optionsCreditLink": {
     "message": "mrcoles/full-page-screen-capture-chrome-extension"
   },
-
-  "editorTitle": { "message": "Full Page Screen Capture: संपादक" },
-  "editorBrand": { "message": "📷 संपादक" },
-  "editorTabEditor": { "message": "संपादक" },
-  "editorTabShapes": { "message": "आकृतियाँ" },
-  "editorTabFormat": { "message": "फ़ॉर्मेटिंग" },
-  "editorUndo": { "message": "पूर्ववत" },
-  "editorRedo": { "message": "फिर से करें" },
-  "editorExport": { "message": "निर्यात" },
-  "editorTools": { "message": "उपकरण" },
+  "editorTitle": {
+    "message": "Full Page Screen Capture: संपादक"
+  },
+  "editorBrand": {
+    "message": "📷 संपादक"
+  },
+  "editorTabEditor": {
+    "message": "संपादक"
+  },
+  "editorTabShapes": {
+    "message": "आकृतियाँ"
+  },
+  "editorTabFormat": {
+    "message": "फ़ॉर्मेटिंग"
+  },
+  "editorUndo": {
+    "message": "पूर्ववत"
+  },
+  "editorRedo": {
+    "message": "फिर से करें"
+  },
+  "editorExport": {
+    "message": "निर्यात"
+  },
+  "editorTools": {
+    "message": "उपकरण"
+  },
   "editorSelectHint": {
     "message": "आइटम खींचने के लिए Select का उपयोग करें। हटाने के लिए आइटम पर राइट-क्लिक करें।"
   },
-  "editorSelect": { "message": "चुनें" },
-  "editorCrop": { "message": "क्रॉप" },
-  "editorHighlight": { "message": "हाइलाइट" },
-  "editorText": { "message": "टेक्स्ट" },
-  "editorShapes": { "message": "आकृतियाँ" },
+  "editorSelect": {
+    "message": "चुनें"
+  },
+  "editorCrop": {
+    "message": "क्रॉप"
+  },
+  "editorHighlight": {
+    "message": "हाइलाइट"
+  },
+  "editorText": {
+    "message": "टेक्स्ट"
+  },
+  "editorShapes": {
+    "message": "आकृतियाँ"
+  },
   "editorShapesHint": {
     "message": "एक आकृति चुनें, फिर छवि पर क्लिक करें और खींचें।"
   },
-  "editorRectangle": { "message": "आयत" },
-  "editorArrow": { "message": "तीर" },
-  "editorCircle": { "message": "वृत्त" },
-  "editorFreehand": { "message": "फ्रीहैंड" },
-  "editorFormatting": { "message": "फ़ॉर्मेटिंग" },
+  "editorRectangle": {
+    "message": "आयत"
+  },
+  "editorArrow": {
+    "message": "तीर"
+  },
+  "editorCircle": {
+    "message": "वृत्त"
+  },
+  "editorFreehand": {
+    "message": "फ्रीहैंड"
+  },
+  "editorFormatting": {
+    "message": "फ़ॉर्मेटिंग"
+  },
   "editorFormatHint": {
     "message": "रंग और मोटाई यहाँ सेट करें — बनाने से पहले या आकृति चुनने के बाद।"
   },
-  "editorFormatApplies": { "message": "सक्रिय" },
-  "editorCropHint": { "message": "क्रॉप करने के लिए छवि पर क्लिक करें और खींचें।" },
-  "editorHighlightHint": { "message": "हाइलाइट जोड़ने के लिए क्लिक करें और खींचें।" },
-  "editorTextHint": { "message": "छवि पर क्लिक करें, फिर टेक्स्ट दर्ज करें।" },
-  "editorColor": { "message": "रंग" },
-  "editorSize": { "message": "आकार" },
-  "editorUrlBrowser": { "message": "URL और ब्राउज़र" },
-  "editorMacOs": { "message": "Mac OS X" },
-  "editorWindows": { "message": "Windows" },
-  "editorUrlTop": { "message": "URL ऊपर" },
-  "editorUrlBottom": { "message": "URL नीचे" },
-  "editorNoUrl": { "message": "कोई URL नहीं" },
-  "editorDateTime": { "message": "दिनांक और समय" },
-  "editorShowDate": { "message": "कैप्चर दिनांक दिखाएँ" },
-  "editorEmojis": { "message": "इमोजी" },
+  "editorFormatApplies": {
+    "message": "सक्रिय"
+  },
+  "editorCropHint": {
+    "message": "क्रॉप करने के लिए छवि पर क्लिक करें और खींचें।"
+  },
+  "editorHighlightHint": {
+    "message": "हाइलाइट जोड़ने के लिए क्लिक करें और खींचें।"
+  },
+  "editorTextHint": {
+    "message": "छवि पर क्लिक करें, फिर टेक्स्ट दर्ज करें।"
+  },
+  "editorColor": {
+    "message": "रंग"
+  },
+  "editorSize": {
+    "message": "आकार"
+  },
+  "editorUrlBrowser": {
+    "message": "URL और ब्राउज़र"
+  },
+  "editorMacOs": {
+    "message": "Mac OS X"
+  },
+  "editorWindows": {
+    "message": "Windows"
+  },
+  "editorUrlTop": {
+    "message": "URL ऊपर"
+  },
+  "editorUrlBottom": {
+    "message": "URL नीचे"
+  },
+  "editorNoUrl": {
+    "message": "कोई URL नहीं"
+  },
+  "editorDateTime": {
+    "message": "दिनांक और समय"
+  },
+  "editorShowDate": {
+    "message": "कैप्चर दिनांक दिखाएँ"
+  },
+  "editorEmojis": {
+    "message": "इमोजी"
+  },
   "editorEmojisHint": {
     "message": "एक इमोजी चुनें, फिर छवि पर क्लिक करके रखें।"
   },
-  "editorDelete": { "message": "हटाएँ" },
-  "editorTextPrompt": { "message": "टेक्स्ट दर्ज करें" },
-  "editorTextDialogTitle": { "message": "टेक्स्ट जोड़ें" },
-  "editorTextAdd": { "message": "जोड़ें" },
-
-  "welcomeTitle": { "message": "Full Page Screen Capture" },
+  "editorDelete": {
+    "message": "हटाएँ"
+  },
+  "editorTextPrompt": {
+    "message": "टेक्स्ट दर्ज करें"
+  },
+  "editorTextDialogTitle": {
+    "message": "टेक्स्ट जोड़ें"
+  },
+  "editorTextAdd": {
+    "message": "जोड़ें"
+  },
+  "welcomeTitle": {
+    "message": "Full Page Screen Capture"
+  },
   "welcomeTagline": {
     "message": "अपने वर्तमान पेज का पूर्ण स्क्रीनशॉट विश्वसनीय रूप से कैप्चर करें — बिना किसी अतिरिक्त अनुमति के।"
   },
-  "welcomeHowToUse": { "message": "उपयोग कैसे करें" },
-  "welcomeStep1": { "message": "अपने टूलबार में एक्सटेंशन आइकन पर क्लिक करें।" },
-  "welcomeStep2": { "message": "या Alt + Shift + P दबाएँ।" },
-  "welcomeStep3": { "message": "पेज के प्रत्येक भाग के कैप्चर होने तक प्रतीक्षा करें।" },
-  "welcomeStep4": { "message": "परिणाम टैब से PNG, JPEG या PDF के रूप में डाउनलोड करें।" },
+  "welcomeHowToUse": {
+    "message": "उपयोग कैसे करें"
+  },
+  "welcomeStep1": {
+    "message": "अपने टूलबार में एक्सटेंशन आइकन पर क्लिक करें।"
+  },
+  "welcomeStep2": {
+    "message": "या Alt + Shift + P दबाएँ।"
+  },
+  "welcomeStep3": {
+    "message": "पेज के प्रत्येक भाग के कैप्चर होने तक प्रतीक्षा करें।"
+  },
+  "welcomeStep4": {
+    "message": "परिणाम टैब से PNG, JPEG या PDF के रूप में डाउनलोड करें।"
+  },
   "welcomeStep5": {
     "message": "बिल्ट-इन संपादक में संपादित करें, क्रॉप करें, एनोटेट करें और इमोजी जोड़ें।"
   },
   "welcomeCredit": {
     "message": "ओपन सोर्स प्रोजेक्ट पर आधारित:"
+  },
+  "popupCountdown": {
+    "message": "$SECONDS$ सेकंड में कैप्चर...",
+    "placeholders": {
+      "seconds": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "popupCountdownHint": {
+    "message": "शॉट में चाहिए वाले मेनू या होवर स्थिति बंद करें।"
+  },
+  "optionsCaptureDelay": {
+    "message": "कैप्चर विलंब"
+  },
+  "optionsCaptureDelayNone": {
+    "message": "कोई नहीं (तुरंत)"
+  },
+  "optionsCaptureDelay3": {
+    "message": "3 सेकंड"
+  },
+  "optionsCaptureDelay5": {
+    "message": "5 सेकंड"
+  },
+  "themeToggle": {
+    "message": "थीम बदलें"
+  },
+  "toastCopied": {
+    "message": "क्लिपबोर्ड पर कॉपी किया गया"
+  },
+  "toastExported": {
+    "message": "छवि निर्यात की गई"
+  },
+  "toastCopyFailed": {
+    "message": "कॉपी विफल"
+  },
+  "editorBlur": {
+    "message": "धुंधला"
+  },
+  "editorPixelate": {
+    "message": "पिक्सेलेट"
+  },
+  "editorBlurHint": {
+    "message": "संवेदनशील सामग्री धुंधली करने के लिए क्षेत्र खींचें।"
+  },
+  "editorPixelateHint": {
+    "message": "संवेदनशील सामग्री पिक्सेलेट करने के लिए क्षेत्र खींचें।"
+  },
+  "editorCopy": {
+    "message": "कॉपी"
   }
 }

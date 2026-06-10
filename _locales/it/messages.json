@@ -1,197 +1,506 @@
 {
-  "extName": { "message": "Full Page Screen Capture" },
+  "extName": {
+    "message": "Full Page Screen Capture"
+  },
   "extDescription": {
     "message": "Cattura l'intera pagina corrente in modo affidabile — senza richiedere permessi aggiuntivi!"
   },
-  "extActionTitle": { "message": "Full Page Screen Capture" },
-  "commandCapture": { "message": "Cattura screenshot pagina intera" },
-
-  "popupChooseMode": { "message": "Cosa vuoi catturare?" },
-  "popupCaptureFull": { "message": "Pagina intera" },
-  "popupCaptureVisible": { "message": "Area visibile" },
+  "extActionTitle": {
+    "message": "Full Page Screen Capture"
+  },
+  "commandCapture": {
+    "message": "Cattura screenshot pagina intera"
+  },
+  "popupChooseMode": {
+    "message": "Cosa vuoi catturare?"
+  },
+  "popupCaptureFull": {
+    "message": "Pagina intera"
+  },
+  "popupCaptureVisible": {
+    "message": "Area visibile"
+  },
   "popupVisibleHint": {
     "message": "L'area visibile cattura solo ciò che è sullo schermo ora — senza scorrimento."
   },
-  "popupCaptureInProgress": { "message": "Acquisizione schermo in corso..." },
+  "popupCaptureInProgress": {
+    "message": "Acquisizione schermo in corso..."
+  },
   "popupHint": {
     "message": "L'immagine finita si aprirà in una nuova scheda al termine."
   },
   "popupSplitWarning": {
     "message": "Nota: la pagina è troppo grande per essere catturata da Chrome in un'unica immagine. Verrà divisa in $COUNT$ immagini.",
-    "placeholders": { "count": { "content": "$1", "example": "2" } }
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
   },
-  "popupSplitMultiple": { "message": "multiple" },
+  "popupSplitMultiple": {
+    "message": "multiple"
+  },
   "popupInvalidUrl": {
     "message": "Full Page Screen Capture non può essere eseguito su questo tipo di URL a causa delle policy del browser. Prova un'altra pagina sul web."
   },
   "popupError": {
     "message": "Qualcosa è andato storto. Ricarica la pagina e riprova la cattura."
   },
-  "popupDone": { "message": "Cattura completata. Controlla la nuova scheda dei risultati." },
-  "popupNoActiveTab": { "message": "Nessuna scheda attiva trovata." },
-  "popupUnknownError": { "message": "Errore sconosciuto" },
-
-  "resultTitle": { "message": "Risultato acquisizione" },
+  "popupDone": {
+    "message": "Cattura completata. Controlla la nuova scheda dei risultati."
+  },
+  "popupNoActiveTab": {
+    "message": "Nessuna scheda attiva trovata."
+  },
+  "popupUnknownError": {
+    "message": "Errore sconosciuto"
+  },
+  "resultTitle": {
+    "message": "Risultato acquisizione"
+  },
   "resultTitlePart": {
     "message": "Risultato acquisizione ($PART$/$PARTS$)",
     "placeholders": {
-      "part": { "content": "$1", "example": "1" },
-      "parts": { "content": "$2", "example": "2" }
+      "part": {
+        "content": "$1",
+        "example": "1"
+      },
+      "parts": {
+        "content": "$2",
+        "example": "2"
+      }
     }
   },
-  "resultBrand": { "message": "📷 Full Page Screen Capture" },
-  "resultEdit": { "message": "Modifica" },
-  "resultReport": { "message": "Segnala problema" },
-  "resultDelete": { "message": "Elimina" },
-  "resultPdf": { "message": "PDF" },
-  "resultDownload": { "message": "Scarica" },
-  "resultMore": { "message": "Altro" },
-  "resultSettings": { "message": "Impostazioni" },
-  "resultCopyClipboard": { "message": "Copia negli appunti" },
-  "resultOpenOptions": { "message": "Apri opzioni" },
-  "resultImageAlt": { "message": "Cattura pagina intera" },
-  "resultReportTitle": { "message": "Segnala un problema" },
+  "resultBrand": {
+    "message": "📷 Full Page Screen Capture"
+  },
+  "resultEdit": {
+    "message": "Modifica"
+  },
+  "resultReport": {
+    "message": "Segnala problema"
+  },
+  "resultDelete": {
+    "message": "Elimina"
+  },
+  "resultPdf": {
+    "message": "PDF"
+  },
+  "resultDownload": {
+    "message": "Scarica"
+  },
+  "resultMore": {
+    "message": "Altro"
+  },
+  "resultSettings": {
+    "message": "Impostazioni"
+  },
+  "resultCopyClipboard": {
+    "message": "Copia negli appunti"
+  },
+  "resultOpenOptions": {
+    "message": "Apri opzioni"
+  },
+  "resultImageAlt": {
+    "message": "Cattura pagina intera"
+  },
+  "resultReportTitle": {
+    "message": "Segnala un problema"
+  },
   "resultReportDesc": {
     "message": "Descrivi cosa è andato storto. Si aprirà il client email con i dettagli."
   },
-  "resultReportPlaceholder": { "message": "Cosa è successo?" },
-  "resultCancel": { "message": "Annulla" },
-  "resultSendReport": { "message": "Invia segnalazione" },
-  "resultMissingId": { "message": "ID cattura mancante." },
-  "resultNotFound": { "message": "Cattura non trovata." },
-  "resultUntitled": { "message": "Pagina senza titolo" },
+  "resultReportPlaceholder": {
+    "message": "Cosa è successo?"
+  },
+  "resultCancel": {
+    "message": "Annulla"
+  },
+  "resultSendReport": {
+    "message": "Invia segnalazione"
+  },
+  "resultMissingId": {
+    "message": "ID cattura mancante."
+  },
+  "resultNotFound": {
+    "message": "Cattura non trovata."
+  },
+  "resultUntitled": {
+    "message": "Pagina senza titolo"
+  },
   "resultPartMeta": {
     "message": "Parte $PART$ di $PARTS$",
     "placeholders": {
-      "part": { "content": "$1", "example": "1" },
-      "parts": { "content": "$2", "example": "2" }
+      "part": {
+        "content": "$1",
+        "example": "1"
+      },
+      "parts": {
+        "content": "$2",
+        "example": "2"
+      }
     }
   },
-  "pdfPreparing": { "message": "Preparazione PDF..." },
+  "pdfPreparing": {
+    "message": "Preparazione PDF..."
+  },
   "pdfGenerating": {
     "message": "Generazione PDF... pagina $PAGE$/$TOTAL$",
     "placeholders": {
-      "page": { "content": "$1", "example": "1" },
-      "total": { "content": "$2", "example": "5" }
+      "page": {
+        "content": "$1",
+        "example": "1"
+      },
+      "total": {
+        "content": "$2",
+        "example": "5"
+      }
     }
   },
-  "pdfSaved": { "message": "PDF salvato." },
-  "pdfFailed": { "message": "Esportazione PDF non riuscita." },
+  "pdfSaved": {
+    "message": "PDF salvato."
+  },
+  "pdfFailed": {
+    "message": "Esportazione PDF non riuscita."
+  },
   "pdfTooManyPages": {
     "message": "PDF limitato a $MAX$ pagine. Prova l'esportazione PNG per pagine molto lunghe.",
-    "placeholders": { "max": { "content": "$1", "example": "200" } }
+    "placeholders": {
+      "max": {
+        "content": "$1",
+        "example": "200"
+      }
+    }
   },
-  "reportSubject": { "message": "Segnalazione problema Full Page Screen Capture" },
-  "reportBodyUrl": { "message": "URL pagina" },
-  "reportBodyExtension": { "message": "Estensione" },
-  "reportBodyUserAgent": { "message": "User agent" },
-
-  "optionsTitle": { "message": "Full Page Screen Capture" },
-  "optionsSubtitle": { "message": "Niente bloat, niente pubblicità, niente permessi inutili." },
-  "optionsCapture": { "message": "Acquisizione" },
-  "optionsCaptureMode": { "message": "Modalità predefinita (scorciatoia da tastiera)" },
-  "optionsCaptureFull": { "message": "Pagina intera" },
-  "optionsCaptureVisible": { "message": "Area visibile" },
-  "optionsImageExport": { "message": "Esportazione immagine" },
-  "optionsFormat": { "message": "Formato" },
-  "optionsJpegQuality": { "message": "Qualità JPEG" },
-  "optionsAutoDownload": { "message": "Download automatico dopo la cattura" },
-  "optionsSaveAs": { "message": "Mostra finestra \"Salva con nome\"" },
-  "optionsPdfExport": { "message": "Esportazione PDF" },
-  "optionsPaperSize": { "message": "Formato carta" },
-  "optionsOrientation": { "message": "Orientamento" },
-  "optionsPortrait": { "message": "Verticale" },
-  "optionsLandscape": { "message": "Orizzontale" },
-  "optionsSmartSplit": { "message": "Divisione intelligente delle pagine" },
-  "optionsEditorDefaults": { "message": "Impostazioni predefinite editor" },
-  "optionsBrowserFrame": { "message": "Cornice browser" },
-  "optionsNone": { "message": "Nessuna" },
-  "optionsUrlPlacement": { "message": "Posizione URL" },
-  "optionsTop": { "message": "In alto" },
-  "optionsBottom": { "message": "In basso" },
-  "optionsDateStamp": { "message": "Mostra data" },
-  "optionsGeneral": { "message": "Generale" },
-  "optionsTheme": { "message": "Tema" },
-  "optionsThemeSystem": { "message": "Sistema" },
-  "optionsThemeLight": { "message": "Chiaro" },
-  "optionsThemeDark": { "message": "Scuro" },
-  "optionsLanguage": { "message": "Lingua" },
-  "optionsLanguageAuto": { "message": "Automatico (lingua del browser)" },
-  "optionsShowWelcome": { "message": "Mostra pagina di benvenuto all'installazione" },
-  "optionsSave": { "message": "Salva opzioni" },
-  "optionsSaved": { "message": "Salvato." },
+  "reportSubject": {
+    "message": "Segnalazione problema Full Page Screen Capture"
+  },
+  "reportBodyUrl": {
+    "message": "URL pagina"
+  },
+  "reportBodyExtension": {
+    "message": "Estensione"
+  },
+  "reportBodyUserAgent": {
+    "message": "User agent"
+  },
+  "optionsTitle": {
+    "message": "Full Page Screen Capture"
+  },
+  "optionsSubtitle": {
+    "message": "Niente bloat, niente pubblicità, niente permessi inutili."
+  },
+  "optionsCapture": {
+    "message": "Acquisizione"
+  },
+  "optionsCaptureMode": {
+    "message": "Modalità predefinita (scorciatoia da tastiera)"
+  },
+  "optionsCaptureFull": {
+    "message": "Pagina intera"
+  },
+  "optionsCaptureVisible": {
+    "message": "Area visibile"
+  },
+  "optionsImageExport": {
+    "message": "Esportazione immagine"
+  },
+  "optionsFormat": {
+    "message": "Formato"
+  },
+  "optionsJpegQuality": {
+    "message": "Qualità JPEG"
+  },
+  "optionsAutoDownload": {
+    "message": "Download automatico dopo la cattura"
+  },
+  "optionsSaveAs": {
+    "message": "Mostra finestra \"Salva con nome\""
+  },
+  "optionsPdfExport": {
+    "message": "Esportazione PDF"
+  },
+  "optionsPaperSize": {
+    "message": "Formato carta"
+  },
+  "optionsOrientation": {
+    "message": "Orientamento"
+  },
+  "optionsPortrait": {
+    "message": "Verticale"
+  },
+  "optionsLandscape": {
+    "message": "Orizzontale"
+  },
+  "optionsSmartSplit": {
+    "message": "Divisione intelligente delle pagine"
+  },
+  "optionsEditorDefaults": {
+    "message": "Impostazioni predefinite editor"
+  },
+  "optionsBrowserFrame": {
+    "message": "Cornice browser"
+  },
+  "optionsNone": {
+    "message": "Nessuna"
+  },
+  "optionsUrlPlacement": {
+    "message": "Posizione URL"
+  },
+  "optionsTop": {
+    "message": "In alto"
+  },
+  "optionsBottom": {
+    "message": "In basso"
+  },
+  "optionsDateStamp": {
+    "message": "Mostra data"
+  },
+  "optionsGeneral": {
+    "message": "Generale"
+  },
+  "optionsTheme": {
+    "message": "Tema"
+  },
+  "optionsThemeSystem": {
+    "message": "Sistema"
+  },
+  "optionsThemeLight": {
+    "message": "Chiaro"
+  },
+  "optionsThemeDark": {
+    "message": "Scuro"
+  },
+  "optionsLanguage": {
+    "message": "Lingua"
+  },
+  "optionsLanguageAuto": {
+    "message": "Automatico (lingua del browser)"
+  },
+  "optionsShowWelcome": {
+    "message": "Mostra pagina di benvenuto all'installazione"
+  },
+  "optionsSave": {
+    "message": "Salva opzioni"
+  },
+  "optionsSaved": {
+    "message": "Salvato."
+  },
   "optionsCredit": {
     "message": "Basato sul progetto open source di $LINK$",
-    "placeholders": { "link": { "content": "$1", "example": "mrcoles" } }
+    "placeholders": {
+      "link": {
+        "content": "$1",
+        "example": "mrcoles"
+      }
+    }
   },
   "optionsCreditLink": {
     "message": "mrcoles/full-page-screen-capture-chrome-extension"
   },
-
-  "editorTitle": { "message": "Full Page Screen Capture: Editor" },
-  "editorBrand": { "message": "📷 Editor" },
-  "editorTabEditor": { "message": "Editor" },
-  "editorTabShapes": { "message": "Forme" },
-  "editorTabFormat": { "message": "Formattazione" },
-  "editorUndo": { "message": "Annulla" },
-  "editorRedo": { "message": "Ripeti" },
-  "editorExport": { "message": "Esporta" },
-  "editorTools": { "message": "Strumenti" },
+  "editorTitle": {
+    "message": "Full Page Screen Capture: Editor"
+  },
+  "editorBrand": {
+    "message": "📷 Editor"
+  },
+  "editorTabEditor": {
+    "message": "Editor"
+  },
+  "editorTabShapes": {
+    "message": "Forme"
+  },
+  "editorTabFormat": {
+    "message": "Formattazione"
+  },
+  "editorUndo": {
+    "message": "Annulla"
+  },
+  "editorRedo": {
+    "message": "Ripeti"
+  },
+  "editorExport": {
+    "message": "Esporta"
+  },
+  "editorTools": {
+    "message": "Strumenti"
+  },
   "editorSelectHint": {
     "message": "Usa Seleziona per trascinare gli elementi. Clic destro su un elemento per eliminarlo."
   },
-  "editorSelect": { "message": "Seleziona" },
-  "editorCrop": { "message": "Ritaglia" },
-  "editorHighlight": { "message": "Evidenzia" },
-  "editorText": { "message": "Testo" },
-  "editorShapes": { "message": "Forme" },
+  "editorSelect": {
+    "message": "Seleziona"
+  },
+  "editorCrop": {
+    "message": "Ritaglia"
+  },
+  "editorHighlight": {
+    "message": "Evidenzia"
+  },
+  "editorText": {
+    "message": "Testo"
+  },
+  "editorShapes": {
+    "message": "Forme"
+  },
   "editorShapesHint": {
     "message": "Scegli una forma, poi clicca e trascina sull'immagine."
   },
-  "editorRectangle": { "message": "Rettangolo" },
-  "editorArrow": { "message": "Freccia" },
-  "editorCircle": { "message": "Cerchio" },
-  "editorFreehand": { "message": "Mano libera" },
-  "editorFormatting": { "message": "Formattazione" },
+  "editorRectangle": {
+    "message": "Rettangolo"
+  },
+  "editorArrow": {
+    "message": "Freccia"
+  },
+  "editorCircle": {
+    "message": "Cerchio"
+  },
+  "editorFreehand": {
+    "message": "Mano libera"
+  },
+  "editorFormatting": {
+    "message": "Formattazione"
+  },
   "editorFormatHint": {
     "message": "Imposta colore e spessore qui — prima di disegnare o dopo aver selezionato una forma."
   },
-  "editorFormatApplies": { "message": "Attivo" },
-  "editorCropHint": { "message": "Clicca e trascina sull'immagine per ritagliare." },
-  "editorHighlightHint": { "message": "Clicca e trascina per aggiungere un'evidenziazione." },
-  "editorTextHint": { "message": "Clicca sull'immagine, poi inserisci il testo." },
-  "editorColor": { "message": "Colore" },
-  "editorSize": { "message": "Dimensione" },
-  "editorUrlBrowser": { "message": "URL e browser" },
-  "editorMacOs": { "message": "Mac OS X" },
-  "editorWindows": { "message": "Windows" },
-  "editorUrlTop": { "message": "URL in alto" },
-  "editorUrlBottom": { "message": "URL in basso" },
-  "editorNoUrl": { "message": "Nessun URL" },
-  "editorDateTime": { "message": "Data e ora" },
-  "editorShowDate": { "message": "Mostra data cattura" },
-  "editorEmojis": { "message": "Emoji" },
+  "editorFormatApplies": {
+    "message": "Attivo"
+  },
+  "editorCropHint": {
+    "message": "Clicca e trascina sull'immagine per ritagliare."
+  },
+  "editorHighlightHint": {
+    "message": "Clicca e trascina per aggiungere un'evidenziazione."
+  },
+  "editorTextHint": {
+    "message": "Clicca sull'immagine, poi inserisci il testo."
+  },
+  "editorColor": {
+    "message": "Colore"
+  },
+  "editorSize": {
+    "message": "Dimensione"
+  },
+  "editorUrlBrowser": {
+    "message": "URL e browser"
+  },
+  "editorMacOs": {
+    "message": "Mac OS X"
+  },
+  "editorWindows": {
+    "message": "Windows"
+  },
+  "editorUrlTop": {
+    "message": "URL in alto"
+  },
+  "editorUrlBottom": {
+    "message": "URL in basso"
+  },
+  "editorNoUrl": {
+    "message": "Nessun URL"
+  },
+  "editorDateTime": {
+    "message": "Data e ora"
+  },
+  "editorShowDate": {
+    "message": "Mostra data cattura"
+  },
+  "editorEmojis": {
+    "message": "Emoji"
+  },
   "editorEmojisHint": {
     "message": "Scegli un'emoji, poi clicca sull'immagine per posizionarla."
   },
-  "editorDelete": { "message": "Elimina" },
-  "editorTextPrompt": { "message": "Inserisci testo" },
-  "editorTextDialogTitle": { "message": "Aggiungi testo" },
-  "editorTextAdd": { "message": "Aggiungi" },
-
-  "welcomeTitle": { "message": "Full Page Screen Capture" },
+  "editorDelete": {
+    "message": "Elimina"
+  },
+  "editorTextPrompt": {
+    "message": "Inserisci testo"
+  },
+  "editorTextDialogTitle": {
+    "message": "Aggiungi testo"
+  },
+  "editorTextAdd": {
+    "message": "Aggiungi"
+  },
+  "welcomeTitle": {
+    "message": "Full Page Screen Capture"
+  },
   "welcomeTagline": {
     "message": "Cattura uno screenshot dell'intera pagina corrente in modo affidabile — senza richiedere permessi aggiuntivi."
   },
-  "welcomeHowToUse": { "message": "Come usare" },
-  "welcomeStep1": { "message": "Clicca l'icona dell'estensione nella barra degli strumenti." },
-  "welcomeStep2": { "message": "Oppure premi Alt + Shift + P." },
-  "welcomeStep3": { "message": "Attendi mentre ogni parte della pagina viene catturata." },
-  "welcomeStep4": { "message": "Scarica in PNG, JPEG o PDF dalla scheda dei risultati." },
+  "welcomeHowToUse": {
+    "message": "Come usare"
+  },
+  "welcomeStep1": {
+    "message": "Clicca l'icona dell'estensione nella barra degli strumenti."
+  },
+  "welcomeStep2": {
+    "message": "Oppure premi Alt + Shift + P."
+  },
+  "welcomeStep3": {
+    "message": "Attendi mentre ogni parte della pagina viene catturata."
+  },
+  "welcomeStep4": {
+    "message": "Scarica in PNG, JPEG o PDF dalla scheda dei risultati."
+  },
   "welcomeStep5": {
     "message": "Modifica, ritaglia, annota e aggiungi emoji nell'editor integrato."
   },
   "welcomeCredit": {
     "message": "Basato sul progetto open source:"
+  },
+  "popupCountdown": {
+    "message": "Acquisizione tra $SECONDS$ s...",
+    "placeholders": {
+      "seconds": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "popupCountdownHint": {
+    "message": "Chiudi menu o stati hover da includere nello screenshot."
+  },
+  "optionsCaptureDelay": {
+    "message": "Ritardo acquisizione"
+  },
+  "optionsCaptureDelayNone": {
+    "message": "Nessuno (immediato)"
+  },
+  "optionsCaptureDelay3": {
+    "message": "3 secondi"
+  },
+  "optionsCaptureDelay5": {
+    "message": "5 secondi"
+  },
+  "themeToggle": {
+    "message": "Cambia tema"
+  },
+  "toastCopied": {
+    "message": "Copiato negli appunti"
+  },
+  "toastExported": {
+    "message": "Immagine esportata"
+  },
+  "toastCopyFailed": {
+    "message": "Copia non riuscita"
+  },
+  "editorBlur": {
+    "message": "Sfocatura"
+  },
+  "editorPixelate": {
+    "message": "Pixelatura"
+  },
+  "editorBlurHint": {
+    "message": "Trascina un'area per sfocare contenuti sensibili."
+  },
+  "editorPixelateHint": {
+    "message": "Trascina un'area per pixelare contenuti sensibili."
+  },
+  "editorCopy": {
+    "message": "Copia"
   }
 }

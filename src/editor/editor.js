@@ -1,8 +1,14 @@
 import { drawBrowserFrame } from './overlays/browser-frame.js';
+import { applyBlurRegion, applyPixelateRegion } from './tools/mask-effects.js';
 import { HistoryStack } from './tools/history.js';
-import { downloadImage } from '../export/png-jpeg.js';
+import { copyImageToClipboard, downloadImage } from '../export/png-jpeg.js';
 import { applyI18n, initI18n, t } from '../shared/i18n.js';
-import { initTheme } from '../shared/theme.js';
+import {
+  cycleTheme,
+  initTheme,
+  updateThemeToggleButton,
+} from '../shared/theme.js';
+import { showToast } from '../shared/toast.js';
 import { getCapture, getOptions } from '../shared/storage.js';
 
 const params = new URLSearchParams(location.search);
@@ -31,6 +37,7 @@ const textDialogInput = document.getElementById('text-dialog-input');
 const EMOJIS = ['😀', '😎', '👍', '🔥', '✅', '❤️', '🎉', '📌', '⭐', '💡', '🚀', '📷'];
 const SHAPE_TOOLS = new Set(['rect', 'arrow', 'ellipse', 'freehand', 'highlight', 'text']);
 const DRAW_TOOLS = new Set(['rect', 'arrow', 'ellipse', 'freehand', 'highlight', 'text']);
+const MASK_TOOLS = new Set(['blur', 'pixelate']);
 const FORMATTABLE_TYPES = new Set(['rect', 'arrow', 'ellipse', 'freehand', 'highlight', 'text']);
 const HIT_PADDING = 10;
 const MIN_HIT_SIZE = 28;
@@ -44,6 +51,15 @@ const TOOL_STATUS_KEYS = {
   arrow: 'editorShapesHint',
   ellipse: 'editorShapesHint',
   freehand: 'editorShapesHint',
+  blur: 'editorBlurHint',
+  pixelate: 'editorPixelateHint',
+};
+
+const TOOL_CURSORS = {
+  select: 'default',
+  crop: 'crosshair',
+  blur: 'crosshair',
+  pixelate: 'crosshair',
 };
 
 function uid() {
@@ -171,7 +187,7 @@ function setTool(nextTool, options = {}) {
   document.querySelectorAll('.tool-card').forEach((el) => {
     el.classList.toggle('active', el.dataset.tool === nextTool);
   });
-  overlayCanvas.style.cursor = nextTool === 'select' ? 'default' : 'crosshair';
+  overlayCanvas.style.cursor = TOOL_CURSORS[nextTool] || 'crosshair';
   updateToolStatus();
   updateFormatPanelHighlight();
   updateFormatPreview();
@@ -188,9 +204,33 @@ function beginMove(target, point) {
   selectedId = target.id;
   interaction = { kind: 'move', target, start: point };
   dragSnapshot = JSON.stringify(annotations);
+  overlayCanvas.style.cursor = 'grabbing';
   setTool('select', { keepSelection: true });
   syncFormatFromSelection();
   redrawOverlay();
+}
+
+function snapPoint(from, to, enabled) {
+  if (!enabled) {
+    return to;
+  }
+  const angle = Math.atan2(to.y - from.y, to.x - from.x);
+  const snappedAngle = Math.round(angle / (Math.PI / 4)) * (Math.PI / 4);
+  const distance = Math.hypot(to.x - from.x, to.y - from.y);
+  return {
+    x: from.x + Math.cos(snappedAngle) * distance,
+    y: from.y + Math.sin(snappedAngle) * distance,
+  };
+}
+
+function applyMaskEffect(effectTool, rect) {
+  if (effectTool === 'blur') {
+    applyBlurRegion(baseCtx, baseCanvas, rect);
+    return;
+  }
+  if (effectTool === 'pixelate') {
+    applyPixelateRegion(baseCtx, rect);
+  }
 }
 
 function getFrameType() {
@@ -565,7 +605,7 @@ function addTextAnnotation(text, point) {
   commitState();
 }
 
-async function exportImage() {
+function buildExportCanvas() {
   redrawOverlay();
   const exportCanvas = document.createElement('canvas');
   const exportCtx = exportCanvas.getContext('2d');
@@ -593,15 +633,16 @@ async function exportImage() {
     record.pageUrl
   );
 
+  const imageTop = padding + chromeHeight + (urlPlacement === 'top' ? urlHeight : 0);
   exportCtx.drawImage(
     baseCanvas,
     padding + offsets.offsetX,
-    padding + chromeHeight + (urlPlacement === 'top' ? urlHeight : 0) + offsets.offsetY
+    imageTop + offsets.offsetY
   );
   exportCtx.drawImage(
     overlayCanvas,
     padding + offsets.offsetX,
-    padding + chromeHeight + (urlPlacement === 'top' ? urlHeight : 0) + offsets.offsetY
+    imageTop + offsets.offsetY
   );
 
   if (urlPlacement === 'top') {
@@ -626,11 +667,32 @@ async function exportImage() {
     );
   }
 
-  const dataUrl = exportCanvas.toDataURL(
+  return exportCanvas;
+}
+
+function getExportDataUrl() {
+  const exportCanvas = buildExportCanvas();
+  return exportCanvas.toDataURL(
     options.imageFormat === 'jpeg' ? 'image/jpeg' : 'image/png',
     (options.jpegQuality || 92) / 100
   );
+}
+
+async function exportImage() {
+  const dataUrl = getExportDataUrl();
   await downloadImage(dataUrl, record.filename || 'screencapture-edited.png', options);
+  showToast(t('toastExported'));
+}
+
+async function copyImage() {
+  try {
+    const dataUrl = getExportDataUrl();
+    await copyImageToClipboard(dataUrl);
+    showToast(t('toastCopied'));
+  } catch (error) {
+    console.error('[FPSC editor] copy failed:', error);
+    showToast(t('toastCopyFailed'));
+  }
 }
 
 overlayCanvas.addEventListener('mousedown', (event) => {
@@ -653,6 +715,12 @@ overlayCanvas.addEventListener('mousedown', (event) => {
     pendingEmoji = null;
     focusAnnotation(annotation.id);
     commitState();
+    return;
+  }
+
+  if (MASK_TOOLS.has(tool)) {
+    interaction = { kind: 'mask', start: point, effectTool: tool };
+    dragSnapshot = overlayCtx.getImageData(0, 0, overlayCanvas.width, overlayCanvas.height);
     return;
   }
 
@@ -708,7 +776,7 @@ overlayCanvas.addEventListener('mousemove', (event) => {
     return;
   }
 
-  if (interaction.kind === 'crop') {
+  if (interaction.kind === 'mask' || interaction.kind === 'crop') {
     overlayCtx.putImageData(dragSnapshot, 0, 0);
     const rect = {
       x: Math.min(interaction.start.x, point.x),
@@ -717,7 +785,7 @@ overlayCanvas.addEventListener('mousemove', (event) => {
       height: Math.abs(point.y - interaction.start.y),
     };
     overlayCtx.setLineDash([8, 6]);
-    overlayCtx.strokeStyle = '#3d84ff';
+    overlayCtx.strokeStyle = interaction.kind === 'mask' ? '#a855f7' : '#3d84ff';
     overlayCtx.lineWidth = 2;
     overlayCtx.strokeRect(rect.x, rect.y, rect.width, rect.height);
     overlayCtx.setLineDash([]);
@@ -738,7 +806,8 @@ overlayCanvas.addEventListener('mousemove', (event) => {
       });
       return;
     }
-    drawPreviewShape(interaction.start, point);
+    const previewPoint = snapPoint(interaction.start, point, event.shiftKey && tool === 'arrow');
+    drawPreviewShape(interaction.start, previewPoint);
   }
 });
 
@@ -751,6 +820,18 @@ overlayCanvas.addEventListener('mouseup', (event) => {
 
   if (interaction.kind === 'move') {
     commitState();
+    overlayCanvas.style.cursor = TOOL_CURSORS[tool] || 'crosshair';
+    interaction = null;
+    dragSnapshot = null;
+    return;
+  }
+
+  if (interaction.kind === 'mask') {
+    if (interaction.preview?.width > 4 && interaction.preview?.height > 4) {
+      applyMaskEffect(interaction.effectTool, interaction.preview);
+      commitState({ includeCanvas: true });
+    }
+    redrawOverlay();
     interaction = null;
     dragSnapshot = null;
     return;
@@ -768,8 +849,9 @@ overlayCanvas.addEventListener('mouseup', (event) => {
   }
 
   if (interaction.kind === 'draw') {
+    const endPoint = snapPoint(interaction.start, point, event.shiftKey && tool === 'arrow');
     const minDistance = 4;
-    const distance = Math.hypot(point.x - interaction.start.x, point.y - interaction.start.y);
+    const distance = Math.hypot(endPoint.x - interaction.start.x, endPoint.y - interaction.start.y);
     if (tool === 'freehand' || distance >= minDistance) {
       let annotation;
       if (tool === 'freehand') {
@@ -794,8 +876,8 @@ overlayCanvas.addEventListener('mouseup', (event) => {
           type: tool,
           x1: interaction.start.x,
           y1: interaction.start.y,
-          x2: point.x,
-          y2: point.y,
+          x2: endPoint.x,
+          y2: endPoint.y,
           color: getStrokeColor(),
           size: getStrokeSize(),
         };
@@ -813,7 +895,7 @@ overlayCanvas.addEventListener('mouseup', (event) => {
 });
 
 overlayCanvas.addEventListener('mouseleave', () => {
-  if (interaction?.kind === 'draw' || interaction?.kind === 'crop') {
+  if (interaction?.kind === 'draw' || interaction?.kind === 'crop' || interaction?.kind === 'mask') {
     redrawOverlay();
     interaction = null;
     dragSnapshot = null;
@@ -917,12 +999,24 @@ document.addEventListener('keydown', (event) => {
       c: 'crop',
       h: 'highlight',
       t: 'text',
+      b: 'blur',
+      p: 'pixelate',
     };
     const nextTool = toolKeys[event.key.toLowerCase()];
     if (nextTool) {
       setTool(nextTool);
       return;
     }
+  }
+
+  if (event.key === '=' || event.key === '+') {
+    setZoom(zoom + 0.25);
+    return;
+  }
+
+  if (event.key === '-') {
+    setZoom(zoom - 0.25);
+    return;
   }
 
   if ((event.key === 'Delete' || event.key === 'Backspace') && selectedId) {
@@ -985,6 +1079,12 @@ document.getElementById('redo').addEventListener('click', performRedo);
 document.getElementById('zoom-in').addEventListener('click', () => setZoom(zoom + 0.25));
 document.getElementById('zoom-out').addEventListener('click', () => setZoom(zoom - 0.25));
 document.getElementById('export').addEventListener('click', exportImage);
+document.getElementById('copy').addEventListener('click', copyImage);
+
+document.getElementById('theme-toggle').addEventListener('click', async () => {
+  const next = await cycleTheme();
+  updateThemeToggleButton(document.getElementById('theme-toggle'), next);
+});
 
 const emojiGrid = document.getElementById('emoji-grid');
 EMOJIS.forEach((emoji) => {
@@ -1019,6 +1119,10 @@ async function init() {
   setZoom(1);
   setTool('select');
   updateFormatPreview();
+  updateThemeToggleButton(
+    document.getElementById('theme-toggle'),
+    options.theme || 'system'
+  );
 }
 
 (async () => {

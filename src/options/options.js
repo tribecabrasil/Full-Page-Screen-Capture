@@ -7,6 +7,7 @@ const fields = [
   'theme',
   'locale',
   'defaultCaptureMode',
+  'captureDelay',
   'imageFormat',
   'jpegQuality',
   'autoDownload',
@@ -106,6 +107,7 @@ async function persist() {
     next[key] = el.type === 'checkbox' ? el.checked : el.value;
   });
   next.jpegQuality = Number(next.jpegQuality);
+  next.captureDelay = Number(next.captureDelay);
   await saveOptions(next);
   await loadLocale(next.locale || '');
   applyTheme(next.theme || 'system');

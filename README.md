@@ -341,6 +341,16 @@ This project builds upon concepts from the MIT-licensed [full-page-screen-captur
 
 ## 📋 Changelog
 
+### 1.3.0
+
+- 🫥 **Blur & pixelate tools** — mask sensitive regions directly on the screenshot
+- 📋 **Copy from editor** — one-click clipboard export with toast feedback
+- 🌓 **Theme toggle** in editor and result toolbars (system → light → dark)
+- ⏱️ **Capture delay** option (0 / 3 / 5 seconds) with countdown in popup
+- 🔔 **Toast notifications** for copy and export actions
+- ⌨️ **Editor polish** — `B`/`P` mask tools, `+`/`-` zoom, Shift-snap arrows to 45°
+- 📄 **Chrome Web Store prep** — `PRIVACY.md` and `store/LISTING.md`
+
 ### 1.2.0
 
 - 📐 **Visible area capture** — capture only the current viewport without scrolling

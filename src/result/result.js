@@ -2,7 +2,12 @@ import { copyImageToClipboard, dataUrlWithFormat, downloadImage } from '../expor
 import { exportToPdf } from '../export/pdf-export.js';
 import { addPartSuffix } from '../shared/filename.js';
 import { applyI18n, initI18n, t } from '../shared/i18n.js';
-import { initTheme } from '../shared/theme.js';
+import {
+  cycleTheme,
+  initTheme,
+  updateThemeToggleButton,
+} from '../shared/theme.js';
+import { showToast } from '../shared/toast.js';
 import { deleteCapture, getCapture, getOptions } from '../shared/storage.js';
 
 const params = new URLSearchParams(location.search);
@@ -124,8 +129,19 @@ document.getElementById('btn-menu').addEventListener('click', () => {
 });
 
 document.getElementById('btn-copy').addEventListener('click', async () => {
-  await copyImageToClipboard(record.parts[0].dataUrl);
+  try {
+    await copyImageToClipboard(record.parts[0].dataUrl);
+    showToast(t('toastCopied'));
+  } catch (error) {
+    console.error('[FPSC] copy failed:', error);
+    showToast(t('toastCopyFailed'));
+  }
   menuEl.hidden = true;
+});
+
+document.getElementById('theme-toggle').addEventListener('click', async () => {
+  const next = await cycleTheme();
+  updateThemeToggleButton(document.getElementById('theme-toggle'), next);
 });
 
 document.getElementById('btn-report').addEventListener('click', () => {
@@ -161,4 +177,9 @@ document.addEventListener('keydown', (event) => {
   await Promise.all([initI18n(), initTheme()]);
   applyI18n();
   await loadCapture();
+  const themeOptions = options || (await getOptions());
+  updateThemeToggleButton(
+    document.getElementById('theme-toggle'),
+    themeOptions.theme || 'system'
+  );
 })();

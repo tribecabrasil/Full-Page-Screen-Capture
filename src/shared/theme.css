@@ -297,3 +297,42 @@ dialog::backdrop {
 .status-muted {
   color: var(--text-muted);
 }
+
+.fpsc-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 10000;
+  max-width: min(90vw, 360px);
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  background: var(--gray-900);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  transform: translate(-50%, 12px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+[data-theme='dark'] .fpsc-toast {
+  background: var(--white);
+  color: var(--black);
+}
+
+.fpsc-toast.visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  padding: 6px 10px;
+  font-size: 15px;
+  line-height: 1;
+}

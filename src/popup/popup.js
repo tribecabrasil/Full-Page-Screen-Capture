@@ -2,6 +2,7 @@ import { startCapture } from '../background/capture-orchestrator.js';
 import { applyI18n, initI18n, t } from '../shared/i18n.js';
 import { initTheme } from '../shared/theme.js';
 import { MSG } from '../shared/messaging.js';
+import { getOptions } from '../shared/storage.js';
 import { validateCaptureUrl } from '../shared/url-validator.js';
 
 const $ = (id) => document.getElementById(id);
@@ -33,6 +34,10 @@ function showError(message) {
   showPanel('uh-oh');
 }
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 function setupMessageListener() {
   chrome.runtime.onMessage.addListener((message) => {
     if (!activeTab || message.tabId !== activeTab.id) {
@@ -58,11 +63,25 @@ function setupMessageListener() {
   });
 }
 
+async function runCountdown(seconds) {
+  showPanel('countdown');
+  for (let remaining = seconds; remaining > 0; remaining -= 1) {
+    $('countdown-text').textContent = t('popupCountdown', [String(remaining)]);
+    await sleep(1000);
+  }
+}
+
 async function runCapture(mode) {
   if (captureStarted || !activeTab) {
     return;
   }
   captureStarted = true;
+
+  const options = await getOptions();
+  const delay = Number(options.captureDelay || 0);
+  if (delay > 0) {
+    await runCountdown(delay);
+  }
 
   showPanel('loading');
   setProgress(0);
