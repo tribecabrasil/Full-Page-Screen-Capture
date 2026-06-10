@@ -12,6 +12,8 @@
   <img src="https://img.shields.io/badge/Chrome-MV3-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Chrome MV3" />
   <img src="https://img.shields.io/badge/License-MIT-22C55E?style=for-the-badge" alt="MIT License" />
   <img src="https://img.shields.io/badge/Languages-9-F59E0B?style=for-the-badge" alt="9 Languages" />
+  <img src="https://img.shields.io/badge/Theme-Light%20%2F%20Dark-111111?style=for-the-badge" alt="Light and Dark theme" />
+  <img src="https://img.shields.io/badge/Font-Inter-000000?style=for-the-badge" alt="Inter font" />
   <img src="https://img.shields.io/badge/Permissions-Minimal-8B5CF6?style=for-the-badge" alt="Minimal Permissions" />
 </p>
 
@@ -50,10 +52,58 @@ This extension was implemented using **Grok Build** and **Composer 2.5** as AI-a
 | 🎯 | **Advanced page handling** for fixed headers, inner scroll regions, and same-origin iframes |
 | ✂️ | **Automatic image splitting** when a page exceeds Chrome canvas limits |
 | 🖼️ | **Result tab** with download, PDF export, edit, delete, copy, and issue reporting |
-| 🎨 | **Built-in editor** with crop, shapes, highlight, text, emojis, browser frame overlays, undo/redo, and drag-to-move |
+| 🎨 | **Built-in editor** with crop, shapes, highlight, text, emojis, live formatting, undo/redo, and drag-to-move |
 | 📤 | **Configurable exports** — PNG, JPEG, PDF (A4, Letter, Legal, A3), auto-download, smart PDF splitting |
+| 🌓 | **Light / dark theme** with system preference support |
+| 🌍 | **9 languages** with manual language picker in options |
 | 🔒 | **Minimal permissions** — no `host_permissions`; uses `activeTab` only when you invoke the extension |
-| 🌍 | **Internationalization** — 9 languages supported |
+
+---
+
+## 🎨 UI & UX
+
+Modern, consistent interface across every screen — popup, result tab, editor, options, and welcome page.
+
+### Design system
+
+| | Detail |
+|:---:|:---|
+| 🔤 | **Inter** font across all extension pages |
+| ⬛ | **Monochrome palette** — pure black (`#000000`) and near-black grays |
+| 🌓 | **Themes** — System, Light, or Dark (saved in options, synced live across tabs) |
+| 🧱 | **Shared components** — toolbars, cards, buttons, forms via `src/shared/theme.css` |
+| 📐 | **Consistent spacing** — rounded corners, subtle shadows, clear visual hierarchy |
+
+### Popup & result tab
+
+- Gradient header with capture progress bar
+- Sticky toolbar on the result tab with primary actions
+- Status messages for PDF generation and errors
+- Drag image to desktop or `Cmd/Ctrl+S` to save
+
+### Options page
+
+- Card-based layout with elevated surfaces
+- **Theme** selector — System / Light / Dark *(auto-saves)*
+- **Language** selector — Auto or any of the 9 supported locales *(auto-saves)*
+- Grouped settings for image, PDF, editor defaults, and general preferences
+
+### Editor UX highlights
+
+The editor was redesigned for clarity — tools, shapes, and formatting are **always visible** in one sidebar (no hidden tabs).
+
+| | Improvement |
+|:---:|:---|
+| 🧰 | **Unified sidebar** — Tools, Shapes, Formatting, Export options, and Emojis in a single scrollable panel |
+| 🎯 | **Tool cards** — icon + label grid for Select, Crop, Highlight, Text, and all shapes |
+| 🖌️ | **Live format panel** — color swatches, color picker, thickness slider, and live preview |
+| 💡 | **Contextual hints** — toolbar shows what the active tool does |
+| ✅ | **"Active" badge** — format panel highlights when a drawable tool or shape is selected |
+| 🖱️ | **Smart drag** — click any existing item to drag it, from any tool except Crop |
+| 🧲 | **Auto-select** — newly placed emojis, text, and shapes are selected immediately |
+| ↩️ | **Full undo for crop** — history stores canvas image + annotations, so crop is fully reversible |
+| ✏️ | **Edit selected shapes** — change color and thickness on an existing annotation in real time |
+| 📦 | **Collapsible sections** — URL/browser frame and date stamp tucked in expandable panels |
 
 ---
 
@@ -83,7 +133,7 @@ This extension was implemented using **Grok Build** and **Composer 2.5** as AI-a
 | `ja` | 🇯🇵 日本語 | `_locales/ja/` |
 | `zh_CN` | 🇨🇳 简体中文 | `_locales/zh_CN/` |
 
-> 💡 Chrome picks the language automatically from your browser settings. UI strings live in [`_locales/`](_locales/).
+> 💡 **Auto** follows Chrome's browser language. Pick a language manually in **Options → General → Language**. Changes apply instantly and persist across sessions.
 
 ---
 
@@ -124,20 +174,28 @@ This extension was implemented using **Grok Build** and **Composer 2.5** as AI-a
 | 🐛 | **Report** | Send issue report via email |
 | ⚙️ | **Settings** | Open extension options |
 
-> 💡 You can also **drag** the image to your desktop, or press `Cmd/Ctrl+S` to save.
+### 🎨 Editor workflow
 
-### 🎨 Editor
+| Step | Action |
+|:---:|:---|
+| 1️⃣ | Pick a **tool** or **shape** from the sidebar grid |
+| 2️⃣ | Set **color** and **thickness** in the format panel *(visible right below shapes)* |
+| 3️⃣ | Click and drag on the image to draw, or click to place text/emojis |
+| 4️⃣ | **Drag** any item immediately — click it and move *(auto-selects after insert)* |
+| 5️⃣ | **Undo / Redo** for annotations and crops |
+| 6️⃣ | **Export** with optional browser frame, URL bar, and date stamp |
 
 | Tool | How to use |
 |:---|:---|
-| 🖱️ **Select** | Click and drag emojis, shapes, or text to reposition |
-| ✂️ **Crop** | Click and drag a region to crop |
-| 🖍️ **Highlight** | Drag a yellow highlight box |
-| 🔤 **Text** | Click to add text |
-| ⬜ **Shapes** | Choose Rectangle, Arrow, Circle, or Freehand, then drag on the image |
-| 😀 **Emojis** | Pick an emoji, then click on the image to place it |
-| ❌ **Delete** | Right-click an element → **Delete** *(or press `Delete` / `Backspace` when selected)* |
-| 💾 **Export** | Download the edited screenshot with optional browser frame and URL overlay |
+| 🖱️ **Select** | Click and drag items to reposition; click empty area to deselect |
+| ✂️ **Crop** | Click and drag a region; **Undo** restores the full image |
+| 🖍️ **Highlight** | Click and drag a highlight box |
+| 🔤 **Text** | Click on the image, enter text, then drag to reposition |
+| ⬜ **Shapes** | Pick Rectangle, Arrow, Circle, or Freehand, then drag on the image |
+| 🎨 **Format** | Use swatches or picker; applies to new shapes or the selected item |
+| 😀 **Emojis** | Pick an emoji, click to place, then drag to move |
+| ❌ **Delete** | Right-click an element → **Delete** *(or `Delete` / `Backspace` when selected)* |
+| 💾 **Export** | Download edited screenshot with optional frame and URL overlay |
 
 ---
 
@@ -150,7 +208,9 @@ Open via the gear icon on the result tab, or `chrome://extensions` → **Extensi
 | 🖼️ **Image export** | PNG/JPEG format, JPEG quality, auto-download, Save As dialog |
 | 📄 **PDF export** | Paper size, orientation, smart page splitting |
 | 🎨 **Editor defaults** | Browser frame style, URL placement, date stamp |
-| 🔧 **General** | Show welcome page on install |
+| 🔧 **General** | **Theme** (System / Light / Dark), **Language** (Auto or manual), welcome page on install |
+
+> 💡 Theme and language changes **save automatically** and update open extension tabs in real time.
 
 ---
 
@@ -160,7 +220,7 @@ Open via the gear icon on the result tab, or `chrome://extensions` → **Extensi
 |:---|:---|
 | `activeTab` | 🔑 Temporary access to the current tab when you click the icon or use the shortcut |
 | `scripting` | 💉 Inject scroll-and-capture scripts on demand |
-| `storage` / `unlimitedStorage` | 💾 Save options and capture metadata |
+| `storage` / `unlimitedStorage` | 💾 Save options, theme, locale, and capture metadata |
 | `offscreen` | 🧵 Stitch large images off the main UI thread |
 | `downloads` *(optional)* | ⬇️ Native download dialog when enabled |
 
@@ -200,11 +260,11 @@ full-page-screen-capture/
 │   ├── offscreen/     # Offscreen stitch worker
 │   ├── popup/         # Capture progress UI
 │   ├── result/        # Result tab
-│   ├── editor/        # Annotation editor
-│   ├── options/       # Settings page
+│   ├── editor/        # Annotation editor (tools, shapes, format panel)
+│   ├── options/       # Settings page (theme, language, exports)
 │   ├── export/        # PNG, JPEG, PDF export
 │   ├── welcome/       # First-install welcome page
-│   └── shared/        # i18n, storage, messaging, constants
+│   └── shared/        # i18n, theme, locales, storage, messaging
 └── 📖 README.md
 ```
 
@@ -229,8 +289,11 @@ The extension **cannot** capture:
 | "Something went wrong" on capture | Reload the page, then try again. Check the error detail in the popup. |
 | Quota / rate limit errors | The extension throttles captures to respect Chrome limits. Wait and retry. |
 | PDF fails on very long pages | Use PNG export; PDF is limited to 200 pages. |
-| Editor shapes not visible | Make sure to **click and drag** on the image after selecting a shape. |
-| Language not changing | Set Chrome's preferred language in `chrome://settings/languages` and reload the extension. |
+| Editor shapes not visible | **Click and drag** on the image after selecting a shape. |
+| Can't drag an item after placing it | Click the item and drag — it auto-selects after insert. Works from any tool except Crop. |
+| Crop can't be undone | Reload the extension to get the latest version; undo now restores the full canvas image. |
+| Language not changing | Set language in **Options → General → Language**, or configure Chrome at `chrome://settings/languages`. |
+| Theme not updating | Choose **System / Light / Dark** in **Options → General → Theme** and reload open tabs. |
 
 ---
 
@@ -277,6 +340,16 @@ This project builds upon concepts from the MIT-licensed [full-page-screen-captur
 ---
 
 ## 📋 Changelog
+
+### 1.1.0
+
+- 🎨 **UI overhaul** — Inter font, shared design system, light/dark/system themes
+- ⬛ **Monochrome palette** — pure black and near-black grays across all pages
+- 🌍 **Manual language picker** in options with live sync across tabs
+- ✏️ **Editor UX redesign** — unified sidebar, always-visible format panel, color swatches, live preview, contextual hints
+- 🖱️ **Drag improvements** — auto-select after insert, drag from any tool, larger hit targets
+- ↩️ **Crop undo fix** — history stores full canvas state (image + annotations)
+- ✏️ **Live format editing** — change color/thickness on selected shapes
 
 ### 1.0.2
 
