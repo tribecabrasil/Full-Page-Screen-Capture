@@ -360,16 +360,55 @@ function redrawOverlay() {
   });
 }
 
+function serializeEditorState() {
+  return JSON.stringify({
+    v: 2,
+    annotations,
+    baseDataUrl: baseCanvas.toDataURL('image/png'),
+    width: baseCanvas.width,
+    height: baseCanvas.height,
+  });
+}
+
 function commitState() {
-  history.push(JSON.stringify(annotations));
+  history.push(serializeEditorState());
   document.getElementById('undo').disabled = !history.canUndo();
   document.getElementById('redo').disabled = !history.canRedo();
 }
 
 function restoreState(serialized) {
-  annotations = JSON.parse(serialized);
+  const parsed = JSON.parse(serialized);
+
+  if (Array.isArray(parsed)) {
+    annotations = parsed;
+    selectedId = null;
+    redrawOverlay();
+    updateFormatPanelHighlight();
+    return;
+  }
+
+  annotations = parsed.annotations || [];
   selectedId = null;
-  redrawOverlay();
+
+  if (!parsed.baseDataUrl) {
+    redrawOverlay();
+    updateFormatPanelHighlight();
+    return;
+  }
+
+  const image = new Image();
+  image.onload = () => {
+    const width = parsed.width || image.width;
+    const height = parsed.height || image.height;
+    baseCanvas.width = width;
+    baseCanvas.height = height;
+    overlayCanvas.width = width;
+    overlayCanvas.height = height;
+    baseCtx.drawImage(image, 0, 0);
+    redrawOverlay();
+    updateFormatPanelHighlight();
+  };
+  image.src = parsed.baseDataUrl;
 }
 
 function moveAnnotation(annotation, dx, dy) {
