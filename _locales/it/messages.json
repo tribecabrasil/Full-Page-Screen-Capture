@@ -6,6 +6,12 @@
   "extActionTitle": { "message": "Full Page Screen Capture" },
   "commandCapture": { "message": "Cattura screenshot pagina intera" },
 
+  "popupChooseMode": { "message": "Cosa vuoi catturare?" },
+  "popupCaptureFull": { "message": "Pagina intera" },
+  "popupCaptureVisible": { "message": "Area visibile" },
+  "popupVisibleHint": {
+    "message": "L'area visibile cattura solo ciò che è sullo schermo ora — senza scorrimento."
+  },
   "popupCaptureInProgress": { "message": "Acquisizione schermo in corso..." },
   "popupHint": {
     "message": "L'immagine finita si aprirà in una nuova scheda al termine."
@@ -82,6 +88,10 @@
 
   "optionsTitle": { "message": "Full Page Screen Capture" },
   "optionsSubtitle": { "message": "Niente bloat, niente pubblicità, niente permessi inutili." },
+  "optionsCapture": { "message": "Acquisizione" },
+  "optionsCaptureMode": { "message": "Modalità predefinita (scorciatoia da tastiera)" },
+  "optionsCaptureFull": { "message": "Pagina intera" },
+  "optionsCaptureVisible": { "message": "Area visibile" },
   "optionsImageExport": { "message": "Esportazione immagine" },
   "optionsFormat": { "message": "Formato" },
   "optionsJpegQuality": { "message": "Qualità JPEG" },
@@ -166,6 +176,8 @@
   },
   "editorDelete": { "message": "Elimina" },
   "editorTextPrompt": { "message": "Inserisci testo" },
+  "editorTextDialogTitle": { "message": "Aggiungi testo" },
+  "editorTextAdd": { "message": "Aggiungi" },
 
   "welcomeTitle": { "message": "Full Page Screen Capture" },
   "welcomeTagline": {

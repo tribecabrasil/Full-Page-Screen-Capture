@@ -13,7 +13,16 @@
     </header>
 
     <div id="wrap">
-      <div id="loading" class="panel active">
+      <div id="choose" class="panel active">
+        <p class="status" data-i18n="popupChooseMode"></p>
+        <div class="mode-buttons">
+          <button id="capture-full" type="button" class="mode-btn" data-i18n="popupCaptureFull"></button>
+          <button id="capture-visible" type="button" class="mode-btn mode-btn-secondary" data-i18n="popupCaptureVisible"></button>
+        </div>
+        <p class="hint" data-i18n="popupVisibleHint"></p>
+      </div>
+
+      <div id="loading" class="panel">
         <p class="status" data-i18n="popupCaptureInProgress"></p>
         <div class="progress-track">
           <div class="progress-bar" id="bar"></div>

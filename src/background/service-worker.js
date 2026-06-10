@@ -18,7 +18,8 @@ chrome.commands.onCommand.addListener(async (command) => {
   }
 
   try {
-    await startCapture(tab);
+    const options = await getOptions();
+    await startCapture(tab, { mode: options.defaultCaptureMode || 'full' });
   } catch (error) {
     console.error('[FPSC] shortcut capture failed:', error);
   }
@@ -37,7 +38,9 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
         const tab = message.tabId
           ? await chrome.tabs.get(message.tabId)
           : await getActiveTab();
-        await startCapture(tab);
+        const options = await getOptions();
+        const mode = message.mode || options.defaultCaptureMode || 'full';
+        await startCapture(tab, { mode });
       } catch (error) {
         console.error('[FPSC] background capture failed:', error);
       }

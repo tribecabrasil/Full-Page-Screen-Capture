@@ -1,5 +1,5 @@
 export class HistoryStack {
-  constructor(limit = 50) {
+  constructor(limit = 40) {
     this.limit = limit;
     this.stack = [];
     this.position = -1;

@@ -6,6 +6,9 @@ import { validateCaptureUrl } from '../shared/url-validator.js';
 
 const $ = (id) => document.getElementById(id);
 
+let activeTab = null;
+let captureStarted = false;
+
 function showPanel(id) {
   document.querySelectorAll('.panel').forEach((panel) => {
     panel.classList.toggle('active', panel.id === id);
@@ -30,24 +33,9 @@ function showError(message) {
   showPanel('uh-oh');
 }
 
-async function init() {
-  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  if (!tab?.id) {
-    showError(t('popupNoActiveTab'));
-    return;
-  }
-
-  const validation = validateCaptureUrl(tab.url);
-  if (!validation.valid) {
-    showPanel('invalid');
-    return;
-  }
-
-  showPanel('loading');
-  setProgress(0);
-
+function setupMessageListener() {
   chrome.runtime.onMessage.addListener((message) => {
-    if (message.tabId !== tab.id) {
+    if (!activeTab || message.tabId !== activeTab.id) {
       return;
     }
 
@@ -68,15 +56,48 @@ async function init() {
       showError(message.error);
     }
   });
+}
+
+async function runCapture(mode) {
+  if (captureStarted || !activeTab) {
+    return;
+  }
+  captureStarted = true;
+
+  showPanel('loading');
+  setProgress(0);
+  $('split-image').classList.remove('active');
 
   try {
-    await startCapture(tab, {
+    await startCapture(activeTab, {
+      mode,
       captureVisibleTab: (windowId) =>
         chrome.tabs.captureVisibleTab(windowId, { format: 'png' }),
     });
   } catch (error) {
     showError(error?.message || t('popupUnknownError'));
   }
+}
+
+async function init() {
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  if (!tab?.id) {
+    showError(t('popupNoActiveTab'));
+    return;
+  }
+
+  const validation = validateCaptureUrl(tab.url);
+  if (!validation.valid) {
+    showPanel('invalid');
+    return;
+  }
+
+  activeTab = tab;
+  setupMessageListener();
+  showPanel('choose');
+
+  $('capture-full').addEventListener('click', () => runCapture('full'));
+  $('capture-visible').addEventListener('click', () => runCapture('visible'));
 }
 
 (async () => {

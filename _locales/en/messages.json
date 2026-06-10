@@ -6,6 +6,12 @@
   "extActionTitle": { "message": "Full Page Screen Capture" },
   "commandCapture": { "message": "Capture full page screenshot" },
 
+  "popupChooseMode": { "message": "What would you like to capture?" },
+  "popupCaptureFull": { "message": "Full page" },
+  "popupCaptureVisible": { "message": "Visible area" },
+  "popupVisibleHint": {
+    "message": "Visible area captures only what is on screen right now — no scrolling."
+  },
   "popupCaptureInProgress": { "message": "Screen capture in progress..." },
   "popupHint": {
     "message": "Your finished image will open in a new tab once completed."
@@ -82,6 +88,10 @@
 
   "optionsTitle": { "message": "Full Page Screen Capture" },
   "optionsSubtitle": { "message": "No bloat, no ads, no unnecessary permissions." },
+  "optionsCapture": { "message": "Capture" },
+  "optionsCaptureMode": { "message": "Default mode (keyboard shortcut)" },
+  "optionsCaptureFull": { "message": "Full page" },
+  "optionsCaptureVisible": { "message": "Visible area" },
   "optionsImageExport": { "message": "Image export" },
   "optionsFormat": { "message": "Format" },
   "optionsJpegQuality": { "message": "JPEG quality" },
@@ -166,6 +176,8 @@
   },
   "editorDelete": { "message": "Delete" },
   "editorTextPrompt": { "message": "Enter text" },
+  "editorTextDialogTitle": { "message": "Add text" },
+  "editorTextAdd": { "message": "Add" },
 
   "welcomeTitle": { "message": "Full Page Screen Capture" },
   "welcomeTagline": {

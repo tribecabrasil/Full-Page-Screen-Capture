@@ -104,11 +104,84 @@ async function maybeAutoDownload(captureId, filename, options) {
   }
 }
 
+async function imageDimensions(dataUrl) {
+  const response = await fetch(dataUrl);
+  const blob = await response.blob();
+  const bitmap = await createImageBitmap(blob);
+  const { width, height } = bitmap;
+  bitmap.close();
+  return { width, height };
+}
+
+async function convertDataUrl(dataUrl, format, quality) {
+  const mime = mimeForFormat(format);
+  if (format !== 'jpeg') {
+    return dataUrl;
+  }
+
+  const response = await fetch(dataUrl);
+  const blob = await response.blob();
+  const bitmap = await createImageBitmap(blob);
+  const canvas = new OffscreenCanvas(bitmap.width, bitmap.height);
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(bitmap, 0, 0);
+  bitmap.close();
+  const outBlob = await canvas.convertToBlob({ type: mime, quality });
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = () => reject(reader.error);
+    reader.readAsDataURL(outBlob);
+  });
+}
+
+async function captureVisibleArea(tab, captureVisibleTab, options) {
+  broadcastProgress(tab.id, 0.25);
+
+  const pngDataUrl = await captureWithRateLimit(() =>
+    captureVisibleTab(tab.windowId)
+  );
+
+  broadcastProgress(tab.id, 0.75);
+
+  const format = options.imageFormat || 'png';
+  const quality = qualityForFormat(format, options);
+  const dataUrl = await convertDataUrl(pngDataUrl, format, quality);
+  const { width, height } = await imageDimensions(dataUrl);
+
+  const filename = getFilename(tab.url, format === 'jpeg' ? 'jpg' : 'png');
+  const id = await saveCapture({
+    pageUrl: tab.url,
+    pageTitle: tab.title,
+    filename,
+    split: false,
+    partIndex: 0,
+    partCount: 1,
+    totalWidth: width,
+    totalHeight: height,
+    captureMode: 'visible',
+    parts: [{ index: 0, dataUrl, width, height }],
+    options,
+  });
+
+  await maybeAutoDownload(id, filename, options);
+  await openResultTabs([id], tab, false);
+
+  chrome.runtime.sendMessage({
+    msg: MSG.CAPTURE_COMPLETE,
+    tabId: tab.id,
+    captureIds: [id],
+  }).catch(() => {});
+
+  return [id];
+}
+
 /**
- * Run a full-page capture.
+ * Run a page capture (full scroll-stitch or visible viewport).
  * Must be called from a context that still holds activeTab (popup or command handler).
  * @param {chrome.tabs.Tab} tab
  * @param {object} [hooks]
+ * @param {'full'|'visible'} [hooks.mode]
  * @param {Function} [hooks.captureVisibleTab]
  */
 export async function startCapture(tab, hooks = {}) {
@@ -129,8 +202,10 @@ export async function startCapture(tab, hooks = {}) {
     hooks.captureVisibleTab ||
     ((windowId) => chrome.tabs.captureVisibleTab(windowId, { format: 'png' }));
 
+  const mode = hooks.mode || 'full';
   const state = {
     tab,
+    mode,
     split: false,
     splitCount: 1,
     pageUrl: tab.url,
@@ -141,6 +216,11 @@ export async function startCapture(tab, hooks = {}) {
 
   try {
     const options = await getOptions();
+
+    if (mode === 'visible') {
+      return await captureVisibleArea(tab, captureVisibleTab, options);
+    }
+
     await initStitcher();
     await injectCaptureScripts(tab.id);
 
@@ -227,6 +307,7 @@ export async function startCapture(tab, hooks = {}) {
         partCount: stitchResult.parts.length,
         totalWidth: stitchResult.totalWidth,
         totalHeight: stitchResult.totalHeight,
+        captureMode: 'full',
         parts: [part],
         options,
       });

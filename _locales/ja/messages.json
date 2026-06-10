@@ -6,6 +6,12 @@
   "extActionTitle": { "message": "Full Page Screen Capture" },
   "commandCapture": { "message": "ページ全体のスクリーンショットをキャプチャ" },
 
+  "popupChooseMode": { "message": "何をキャプチャしますか？" },
+  "popupCaptureFull": { "message": "ページ全体" },
+  "popupCaptureVisible": { "message": "表示領域" },
+  "popupVisibleHint": {
+    "message": "表示領域は現在画面に見えている部分のみをキャプチャします（スクロールなし）。"
+  },
   "popupCaptureInProgress": { "message": "画面キャプチャ中..." },
   "popupHint": {
     "message": "完了すると、新しいタブで完成した画像が開きます。"
@@ -82,6 +88,10 @@
 
   "optionsTitle": { "message": "Full Page Screen Capture" },
   "optionsSubtitle": { "message": "余計な機能なし、広告なし、不要な権限なし。" },
+  "optionsCapture": { "message": "キャプチャ" },
+  "optionsCaptureMode": { "message": "デフォルトモード（キーボードショートカット）" },
+  "optionsCaptureFull": { "message": "ページ全体" },
+  "optionsCaptureVisible": { "message": "表示領域" },
   "optionsImageExport": { "message": "画像エクスポート" },
   "optionsFormat": { "message": "形式" },
   "optionsJpegQuality": { "message": "JPEG品質" },
@@ -166,6 +176,8 @@
   },
   "editorDelete": { "message": "削除" },
   "editorTextPrompt": { "message": "テキストを入力" },
+  "editorTextDialogTitle": { "message": "テキストを追加" },
+  "editorTextAdd": { "message": "追加" },
 
   "welcomeTitle": { "message": "Full Page Screen Capture" },
   "welcomeTagline": {

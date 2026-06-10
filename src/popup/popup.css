@@ -139,3 +139,43 @@ body {
   display: block;
   margin-top: 12px;
 }
+
+.mode-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.mode-btn {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--black);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.mode-btn:hover {
+  opacity: 0.9;
+}
+
+.mode-btn-secondary {
+  background: var(--bg-inset);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+[data-theme='dark'] .mode-btn {
+  background: var(--white);
+  color: var(--black);
+}
+
+[data-theme='dark'] .mode-btn-secondary {
+  background: var(--bg-inset);
+  color: var(--text);
+}

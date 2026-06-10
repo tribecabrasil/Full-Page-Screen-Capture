@@ -141,6 +141,17 @@
       <button id="menu-delete" type="button" data-i18n="editorDelete"></button>
     </menu>
 
+    <dialog id="text-dialog">
+      <form method="dialog" id="text-dialog-form">
+        <h2 data-i18n="editorTextDialogTitle"></h2>
+        <input id="text-dialog-input" type="text" data-i18n-placeholder="editorTextPrompt" />
+        <div class="dialog-actions">
+          <button value="cancel" type="submit" data-i18n="resultCancel"></button>
+          <button id="text-dialog-add" value="add" type="submit" data-i18n="editorTextAdd"></button>
+        </div>
+      </form>
+    </dialog>
+
     <script type="module" src="editor.js"></script>
   </body>
 </html>

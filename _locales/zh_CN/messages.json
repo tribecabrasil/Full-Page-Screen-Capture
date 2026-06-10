@@ -6,6 +6,12 @@
   "extActionTitle": { "message": "Full Page Screen Capture" },
   "commandCapture": { "message": "捕获整页截图" },
 
+  "popupChooseMode": { "message": "您想捕获什么？" },
+  "popupCaptureFull": { "message": "整页" },
+  "popupCaptureVisible": { "message": "可见区域" },
+  "popupVisibleHint": {
+    "message": "可见区域仅捕获当前屏幕上的内容，不会滚动页面。"
+  },
   "popupCaptureInProgress": { "message": "正在截屏..." },
   "popupHint": {
     "message": "完成后，成品图片将在新标签页中打开。"
@@ -82,6 +88,10 @@
 
   "optionsTitle": { "message": "Full Page Screen Capture" },
   "optionsSubtitle": { "message": "无冗余、无广告、无不必要的权限。" },
+  "optionsCapture": { "message": "捕获" },
+  "optionsCaptureMode": { "message": "默认模式（键盘快捷键）" },
+  "optionsCaptureFull": { "message": "整页" },
+  "optionsCaptureVisible": { "message": "可见区域" },
   "optionsImageExport": { "message": "图片导出" },
   "optionsFormat": { "message": "格式" },
   "optionsJpegQuality": { "message": "JPEG 质量" },
@@ -166,6 +176,8 @@
   },
   "editorDelete": { "message": "删除" },
   "editorTextPrompt": { "message": "输入文本" },
+  "editorTextDialogTitle": { "message": "添加文本" },
+  "editorTextAdd": { "message": "添加" },
 
   "welcomeTitle": { "message": "Full Page Screen Capture" },
   "welcomeTagline": {

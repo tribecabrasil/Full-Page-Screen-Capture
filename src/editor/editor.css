@@ -325,6 +325,17 @@
   cursor: crosshair;
 }
 
+#text-dialog input[type='text'] {
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-inset);
+  color: var(--text);
+  font-size: 14px;
+}
+
 .annotation-menu {
   position: fixed;
   z-index: 100;

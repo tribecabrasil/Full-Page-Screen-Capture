@@ -6,6 +6,12 @@
   "extActionTitle": { "message": "Full Page Screen Capture" },
   "commandCapture": { "message": "पूर्ण पेज स्क्रीनशॉट कैप्चर करें" },
 
+  "popupChooseMode": { "message": "आप क्या कैप्चर करना चाहते हैं?" },
+  "popupCaptureFull": { "message": "पूर्ण पृष्ठ" },
+  "popupCaptureVisible": { "message": "दृश्य क्षेत्र" },
+  "popupVisibleHint": {
+    "message": "दृश्य क्षेत्र केवल वही कैप्चर करता है जो अभी स्क्रीन पर है — बिना स्क्रॉल किए।"
+  },
   "popupCaptureInProgress": { "message": "स्क्रीन कैप्चर प्रगति में है..." },
   "popupHint": {
     "message": "पूर्ण होने पर आपकी तैयार छवि एक नए टैब में खुलेगी।"
@@ -82,6 +88,10 @@
 
   "optionsTitle": { "message": "Full Page Screen Capture" },
   "optionsSubtitle": { "message": "कोई बloat नहीं, कोई विज्ञापन नहीं, कोई अनावश्यक अनुमति नहीं।" },
+  "optionsCapture": { "message": "कैप्चर" },
+  "optionsCaptureMode": { "message": "डिफ़ॉल्ट मोड (कीबोर्ड शॉर्टकट)" },
+  "optionsCaptureFull": { "message": "पूर्ण पृष्ठ" },
+  "optionsCaptureVisible": { "message": "दृश्य क्षेत्र" },
   "optionsImageExport": { "message": "छवि निर्यात" },
   "optionsFormat": { "message": "प्रारूप" },
   "optionsJpegQuality": { "message": "JPEG गुणवत्ता" },
@@ -166,6 +176,8 @@
   },
   "editorDelete": { "message": "हटाएँ" },
   "editorTextPrompt": { "message": "टेक्स्ट दर्ज करें" },
+  "editorTextDialogTitle": { "message": "टेक्स्ट जोड़ें" },
+  "editorTextAdd": { "message": "जोड़ें" },
 
   "welcomeTitle": { "message": "Full Page Screen Capture" },
   "welcomeTagline": {

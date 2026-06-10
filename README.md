@@ -341,6 +341,15 @@ This project builds upon concepts from the MIT-licensed [full-page-screen-captur
 
 ## 📋 Changelog
 
+### 1.2.0
+
+- 📐 **Visible area capture** — capture only the current viewport without scrolling
+- 🎯 **Capture mode chooser** in the popup (full page vs visible area)
+- ⚙️ **Default capture mode** option for the keyboard shortcut (Alt+Shift+P)
+- 💬 **Text dialog** in the editor — replaces the browser `prompt()`
+- ⌨️ **Editor keyboard shortcuts** — undo/redo, tool switching (V/C/H/T), Escape
+- 🧠 **Optimized undo history** — canvas PNG stored only on load and crop, not every annotation
+
 ### 1.1.0
 
 - 🎨 **UI overhaul** — Inter font, shared design system, light/dark/system themes

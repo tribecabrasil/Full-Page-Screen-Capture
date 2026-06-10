@@ -6,6 +6,7 @@ import { DEFAULT_OPTIONS, getOptions, saveOptions } from '../shared/storage.js';
 const fields = [
   'theme',
   'locale',
+  'defaultCaptureMode',
   'imageFormat',
   'jpegQuality',
   'autoDownload',

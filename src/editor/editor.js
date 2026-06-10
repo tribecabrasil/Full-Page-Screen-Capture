@@ -23,6 +23,10 @@ let annotations = [];
 let selectedId = null;
 let dragSnapshot = null;
 let interaction = null;
+let pendingTextPoint = null;
+
+const textDialog = document.getElementById('text-dialog');
+const textDialogInput = document.getElementById('text-dialog-input');
 
 const EMOJIS = ['😀', '😎', '👍', '🔥', '✅', '❤️', '🎉', '📌', '⭐', '💡', '🚀', '📷'];
 const SHAPE_TOOLS = new Set(['rect', 'arrow', 'ellipse', 'freehand', 'highlight', 'text']);
@@ -406,20 +410,40 @@ function redrawOverlay() {
   });
 }
 
-function serializeEditorState() {
-  return JSON.stringify({
-    v: 2,
+function serializeEditorState(includeCanvas = false) {
+  const state = {
+    v: 3,
     annotations,
-    baseDataUrl: baseCanvas.toDataURL('image/png'),
     width: baseCanvas.width,
     height: baseCanvas.height,
-  });
+  };
+  if (includeCanvas) {
+    state.hasCanvas = true;
+    state.baseDataUrl = baseCanvas.toDataURL('image/png');
+  }
+  return JSON.stringify(state);
 }
 
-function commitState() {
-  history.push(serializeEditorState());
+function commitState(options = {}) {
+  history.push(serializeEditorState(Boolean(options.includeCanvas)));
   document.getElementById('undo').disabled = !history.canUndo();
   document.getElementById('redo').disabled = !history.canRedo();
+}
+
+function restoreCanvasFromDataUrl(baseDataUrl, width, height) {
+  const image = new Image();
+  image.onload = () => {
+    const nextWidth = width || image.width;
+    const nextHeight = height || image.height;
+    baseCanvas.width = nextWidth;
+    baseCanvas.height = nextHeight;
+    overlayCanvas.width = nextWidth;
+    overlayCanvas.height = nextHeight;
+    baseCtx.drawImage(image, 0, 0);
+    redrawOverlay();
+    updateFormatPanelHighlight();
+  };
+  image.src = baseDataUrl;
 }
 
 function restoreState(serialized) {
@@ -436,25 +460,22 @@ function restoreState(serialized) {
   annotations = parsed.annotations || [];
   selectedId = null;
 
-  if (!parsed.baseDataUrl) {
+  const baseDataUrl = parsed.baseDataUrl;
+  const needsCanvas = Boolean(baseDataUrl) || parsed.hasCanvas;
+
+  if (!needsCanvas) {
     redrawOverlay();
     updateFormatPanelHighlight();
     return;
   }
 
-  const image = new Image();
-  image.onload = () => {
-    const width = parsed.width || image.width;
-    const height = parsed.height || image.height;
-    baseCanvas.width = width;
-    baseCanvas.height = height;
-    overlayCanvas.width = width;
-    overlayCanvas.height = height;
-    baseCtx.drawImage(image, 0, 0);
+  if (!baseDataUrl) {
     redrawOverlay();
     updateFormatPanelHighlight();
-  };
-  image.src = parsed.baseDataUrl;
+    return;
+  }
+
+  restoreCanvasFromDataUrl(baseDataUrl, parsed.width, parsed.height);
 }
 
 function moveAnnotation(annotation, dx, dy) {
@@ -487,7 +508,7 @@ function renderBaseImage(dataUrl) {
     overlayCanvas.height = image.height;
     baseCtx.drawImage(image, 0, 0);
     annotations = [];
-    commitState();
+    commitState({ includeCanvas: true });
     redrawOverlay();
   };
   image.src = dataUrl;
@@ -511,6 +532,36 @@ function applyCrop(rect) {
       const bounds = boundsFor(annotation);
       return bounds.x + bounds.width > 0 && bounds.y + bounds.height > 0;
     });
+  commitState({ includeCanvas: true });
+}
+
+function isTypingTarget(element) {
+  if (!element) {
+    return false;
+  }
+  const tag = element.tagName;
+  return tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || element.isContentEditable;
+}
+
+function openTextDialog(point) {
+  pendingTextPoint = point;
+  textDialogInput.value = '';
+  textDialog.showModal();
+  textDialogInput.focus();
+}
+
+function addTextAnnotation(text, point) {
+  const annotation = {
+    id: uid(),
+    type: 'text',
+    text,
+    x: point.x,
+    y: point.y,
+    color: getStrokeColor(),
+    fontSize: getStrokeSize() * 4,
+  };
+  annotations.push(annotation);
+  focusAnnotation(annotation.id);
   commitState();
 }
 
@@ -621,21 +672,7 @@ overlayCanvas.addEventListener('mousedown', (event) => {
   }
 
   if (tool === 'text') {
-    const text = prompt(t('editorTextPrompt'));
-    if (text) {
-      const annotation = {
-        id: uid(),
-        type: 'text',
-        text,
-        x: point.x,
-        y: point.y,
-        color: getStrokeColor(),
-        fontSize: getStrokeSize() * 4,
-      };
-      annotations.push(annotation);
-      focusAnnotation(annotation.id);
-      commitState();
-    }
+    openTextDialog(point);
     return;
   }
 
@@ -810,10 +847,84 @@ document.addEventListener('click', (event) => {
   }
 });
 
+function performUndo() {
+  const state = history.undo();
+  if (state) {
+    restoreState(state);
+  }
+  document.getElementById('undo').disabled = !history.canUndo();
+  document.getElementById('redo').disabled = !history.canRedo();
+}
+
+function performRedo() {
+  const state = history.redo();
+  if (state) {
+    restoreState(state);
+  }
+  document.getElementById('undo').disabled = !history.canUndo();
+  document.getElementById('redo').disabled = !history.canRedo();
+}
+
+document.getElementById('text-dialog-form').addEventListener('close', () => {
+  if (textDialog.returnValue !== 'add' || !pendingTextPoint) {
+    pendingTextPoint = null;
+    return;
+  }
+  const text = textDialogInput.value.trim();
+  if (text) {
+    addTextAnnotation(text, pendingTextPoint);
+  }
+  pendingTextPoint = null;
+});
+
 document.addEventListener('keydown', (event) => {
+  if (textDialog.open) {
+    return;
+  }
+
+  const mod = event.metaKey || event.ctrlKey;
+
   if (event.key === 'Escape') {
     hideAnnotationMenu();
+    if (textDialog.open) {
+      textDialog.close('cancel');
+    }
+    return;
   }
+
+  if (isTypingTarget(document.activeElement)) {
+    return;
+  }
+
+  if (mod && !event.shiftKey && event.key.toLowerCase() === 'z') {
+    event.preventDefault();
+    performUndo();
+    return;
+  }
+
+  if (
+    (mod && event.shiftKey && event.key.toLowerCase() === 'z') ||
+    (mod && event.key.toLowerCase() === 'y')
+  ) {
+    event.preventDefault();
+    performRedo();
+    return;
+  }
+
+  if (!mod && !event.altKey) {
+    const toolKeys = {
+      v: 'select',
+      c: 'crop',
+      h: 'highlight',
+      t: 'text',
+    };
+    const nextTool = toolKeys[event.key.toLowerCase()];
+    if (nextTool) {
+      setTool(nextTool);
+      return;
+    }
+  }
+
   if ((event.key === 'Delete' || event.key === 'Backspace') && selectedId) {
     deleteAnnotation(selectedId);
     hideAnnotationMenu();
@@ -868,23 +979,8 @@ document.querySelectorAll('.swatch').forEach((swatch) => {
   });
 });
 
-document.getElementById('undo').addEventListener('click', () => {
-  const state = history.undo();
-  if (state) {
-    restoreState(state);
-  }
-  document.getElementById('undo').disabled = !history.canUndo();
-  document.getElementById('redo').disabled = !history.canRedo();
-});
-
-document.getElementById('redo').addEventListener('click', () => {
-  const state = history.redo();
-  if (state) {
-    restoreState(state);
-  }
-  document.getElementById('undo').disabled = !history.canUndo();
-  document.getElementById('redo').disabled = !history.canRedo();
-});
+document.getElementById('undo').addEventListener('click', performUndo);
+document.getElementById('redo').addEventListener('click', performRedo);
 
 document.getElementById('zoom-in').addEventListener('click', () => setZoom(zoom + 0.25));
 document.getElementById('zoom-out').addEventListener('click', () => setZoom(zoom - 0.25));
