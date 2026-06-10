@@ -349,6 +349,11 @@ This project builds upon concepts from the MIT-licensed [full-page-screen-captur
 
 ## 📋 Changelog
 
+### 1.3.2
+
+- 🐛 **Editor stability** — avoid full-canvas `getImageData` on large screenshots (blur/crop/draw preview)
+- ✂️ **Safer crop** — uses `drawImage` instead of pixel buffers; clamps crop bounds to the canvas
+
 ### 1.3.1
 
 - 💬 **Tooltips** across editor, popup, result, and options (9 languages, shortcuts included)

@@ -172,10 +172,45 @@ function setZoom(value) {
 
 function canvasPoint(event) {
   const rect = overlayCanvas.getBoundingClientRect();
+  if (!rect.width || !rect.height || !overlayCanvas.width || !overlayCanvas.height) {
+    return { x: 0, y: 0 };
+  }
   return {
     x: ((event.clientX - rect.left) / rect.width) * overlayCanvas.width,
     y: ((event.clientY - rect.top) / rect.height) * overlayCanvas.height,
   };
+}
+
+function clampCropRect(rect) {
+  const x = Math.max(0, Math.floor(rect.x));
+  const y = Math.max(0, Math.floor(rect.y));
+  const width = Math.min(
+    baseCanvas.width - x,
+    Math.max(1, Math.ceil(rect.width))
+  );
+  const height = Math.min(
+    baseCanvas.height - y,
+    Math.max(1, Math.ceil(rect.height))
+  );
+  return { x, y, width, height };
+}
+
+function copyCanvasRegion(sourceCanvas, rect) {
+  const target = document.createElement('canvas');
+  target.width = rect.width;
+  target.height = rect.height;
+  target.getContext('2d').drawImage(
+    sourceCanvas,
+    rect.x,
+    rect.y,
+    rect.width,
+    rect.height,
+    0,
+    0,
+    rect.width,
+    rect.height
+  );
+  return target;
 }
 
 function setTool(nextTool, options = {}) {
@@ -417,6 +452,7 @@ function drawAnnotation(ctx, annotation, isSelected = false) {
       }
     });
     ctx.stroke();
+    return;
   }
 
   if (isSelected) {
@@ -458,8 +494,12 @@ function serializeEditorState(includeCanvas = false) {
     height: baseCanvas.height,
   };
   if (includeCanvas) {
-    state.hasCanvas = true;
-    state.baseDataUrl = baseCanvas.toDataURL('image/png');
+    try {
+      state.hasCanvas = true;
+      state.baseDataUrl = baseCanvas.toDataURL('image/png');
+    } catch (error) {
+      console.warn('[FPSC editor] canvas snapshot failed:', error);
+    }
   }
   return JSON.stringify(state);
 }
@@ -555,23 +595,26 @@ function renderBaseImage(dataUrl) {
 }
 
 function applyCrop(rect) {
-  const baseData = baseCtx.getImageData(rect.x, rect.y, rect.width, rect.height);
-  const overlayData = overlayCtx.getImageData(rect.x, rect.y, rect.width, rect.height);
-  baseCanvas.width = rect.width;
-  baseCanvas.height = rect.height;
-  overlayCanvas.width = rect.width;
-  overlayCanvas.height = rect.height;
-  baseCtx.putImageData(baseData, 0, 0);
-  overlayCtx.putImageData(overlayData, 0, 0);
+  const crop = clampCropRect(rect);
+  const croppedBase = copyCanvasRegion(baseCanvas, crop);
+  const croppedOverlay = copyCanvasRegion(overlayCanvas, crop);
+
+  baseCanvas.width = crop.width;
+  baseCanvas.height = crop.height;
+  overlayCanvas.width = crop.width;
+  overlayCanvas.height = crop.height;
+  baseCtx.drawImage(croppedBase, 0, 0);
+  overlayCtx.drawImage(croppedOverlay, 0, 0);
   annotations = annotations
     .map((annotation) => {
-      moveAnnotation(annotation, -rect.x, -rect.y);
+      moveAnnotation(annotation, -crop.x, -crop.y);
       return annotation;
     })
     .filter((annotation) => {
       const bounds = boundsFor(annotation);
       return bounds.x + bounds.width > 0 && bounds.y + bounds.height > 0;
     });
+  redrawOverlay();
   commitState({ includeCanvas: true });
 }
 
@@ -720,7 +763,6 @@ overlayCanvas.addEventListener('mousedown', (event) => {
 
   if (MASK_TOOLS.has(tool)) {
     interaction = { kind: 'mask', start: point, effectTool: tool };
-    dragSnapshot = overlayCtx.getImageData(0, 0, overlayCanvas.width, overlayCanvas.height);
     return;
   }
 
@@ -746,13 +788,11 @@ overlayCanvas.addEventListener('mousedown', (event) => {
 
   if (tool === 'crop') {
     interaction = { kind: 'crop', start: point };
-    dragSnapshot = overlayCtx.getImageData(0, 0, overlayCanvas.width, overlayCanvas.height);
     return;
   }
 
   if (SHAPE_TOOLS.has(tool)) {
     interaction = { kind: 'draw', start: point, points: [point] };
-    dragSnapshot = overlayCtx.getImageData(0, 0, overlayCanvas.width, overlayCanvas.height);
   }
 });
 
@@ -777,7 +817,7 @@ function handlePointerMove(event) {
   }
 
   if (interaction.kind === 'mask' || interaction.kind === 'crop') {
-    overlayCtx.putImageData(dragSnapshot, 0, 0);
+    redrawOverlay();
     const rect = {
       x: Math.min(interaction.start.x, point.x),
       y: Math.min(interaction.start.y, point.y),
@@ -794,7 +834,7 @@ function handlePointerMove(event) {
   }
 
   if (interaction.kind === 'draw') {
-    overlayCtx.putImageData(dragSnapshot, 0, 0);
+    redrawOverlay();
     if (tool === 'freehand') {
       interaction.points.push(point);
       drawAnnotation(overlayCtx, {
@@ -812,7 +852,7 @@ function handlePointerMove(event) {
 }
 
 function handlePointerUp(event) {
-  if (!interaction) {
+  if (!interaction || event.button !== 0) {
     return;
   }
 
