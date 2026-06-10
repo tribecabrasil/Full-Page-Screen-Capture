@@ -756,7 +756,7 @@ overlayCanvas.addEventListener('mousedown', (event) => {
   }
 });
 
-overlayCanvas.addEventListener('mousemove', (event) => {
+function handlePointerMove(event) {
   if (!interaction) {
     return;
   }
@@ -809,9 +809,9 @@ overlayCanvas.addEventListener('mousemove', (event) => {
     const previewPoint = snapPoint(interaction.start, point, event.shiftKey && tool === 'arrow');
     drawPreviewShape(interaction.start, previewPoint);
   }
-});
+}
 
-overlayCanvas.addEventListener('mouseup', (event) => {
+function handlePointerUp(event) {
   if (!interaction) {
     return;
   }
@@ -892,15 +892,10 @@ overlayCanvas.addEventListener('mouseup', (event) => {
 
   interaction = null;
   dragSnapshot = null;
-});
+}
 
-overlayCanvas.addEventListener('mouseleave', () => {
-  if (interaction?.kind === 'draw' || interaction?.kind === 'crop' || interaction?.kind === 'mask') {
-    redrawOverlay();
-    interaction = null;
-    dragSnapshot = null;
-  }
-});
+document.addEventListener('mousemove', handlePointerMove);
+document.addEventListener('mouseup', handlePointerUp);
 
 overlayCanvas.addEventListener('contextmenu', (event) => {
   event.preventDefault();
@@ -1091,6 +1086,7 @@ EMOJIS.forEach((emoji) => {
   const button = document.createElement('button');
   button.type = 'button';
   button.textContent = emoji;
+  button.dataset.i18nTooltip = 'tooltipEditorEmoji';
   button.addEventListener('click', () => {
     pendingEmoji = emoji;
     tool = 'select';
@@ -1127,6 +1123,6 @@ async function init() {
 
 (async () => {
   await Promise.all([initI18n(), initTheme()]);
-  applyI18n();
+  applyI18n(document);
   await init();
 })();

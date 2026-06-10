@@ -502,5 +502,74 @@
   },
   "editorCopy": {
     "message": "Kopieren"
+  },
+  "tooltipEditorUndo": {
+    "message": "Letzte Aktion rückgängig (Strg+Z)"
+  },
+  "tooltipEditorRedo": {
+    "message": "Wiederholen (Strg+Umschalt+Z)"
+  },
+  "tooltipEditorZoomIn": {
+    "message": "Vergrößern (+)"
+  },
+  "tooltipEditorZoomOut": {
+    "message": "Verkleinern (−)"
+  },
+  "tooltipEditorCopy": {
+    "message": "Bild in Zwischenablage kopieren"
+  },
+  "tooltipEditorExport": {
+    "message": "Bearbeitetes Bild herunterladen"
+  },
+  "tooltipEditorSelect": {
+    "message": "Anmerkungen auswählen und verschieben (V)"
+  },
+  "tooltipEditorCrop": {
+    "message": "Bild zuschneiden (C)"
+  },
+  "tooltipEditorHighlight": {
+    "message": "Hervorhebungsbox zeichnen (H)"
+  },
+  "tooltipEditorText": {
+    "message": "Text hinzufügen (T)"
+  },
+  "tooltipEditorBlur": {
+    "message": "Bereich verwischen, um sensible Inhalte zu verbergen (B)"
+  },
+  "tooltipEditorPixelate": {
+    "message": "Bereich verpixeln, um sensible Inhalte zu verbergen (P)"
+  },
+  "tooltipEditorRectangle": {
+    "message": "Rechteck zeichnen"
+  },
+  "tooltipEditorArrow": {
+    "message": "Pfeil zeichnen (Umschalt für Winkelraster)"
+  },
+  "tooltipEditorCircle": {
+    "message": "Kreis oder Ellipse zeichnen"
+  },
+  "tooltipEditorFreehand": {
+    "message": "Freihandlinien zeichnen"
+  },
+  "tooltipEditorEmoji": {
+    "message": "Emoji wählen, dann auf das Bild klicken zum Platzieren"
+  },
+  "tooltipPopupCaptureFull": {
+    "message": "Gesamte Seite scrollen und erfassen"
+  },
+  "tooltipPopupCaptureVisible": {
+    "message": "Nur den aktuell sichtbaren Bereich erfassen"
+  },
+  "tooltipResultEdit": {
+    "message": "Diese Aufnahme im Editor öffnen"
+  },
+  "tooltipResultPdf": {
+    "message": "Aufnahme als PDF exportieren"
+  },
+  "tooltipResultCopyClipboard": {
+    "message": "Bild in Zwischenablage kopieren"
+  },
+  "tooltipOptionsSave": {
+    "message": "Alle Einstellungen speichern"
   }
 }

@@ -213,5 +213,29 @@
   },
   "welcomeCredit": {
     "message": "Based on the open source project:"
-  }
+  },
+
+  "tooltipEditorUndo": { "message": "Undo last action (Ctrl+Z)" },
+  "tooltipEditorRedo": { "message": "Redo (Ctrl+Shift+Z)" },
+  "tooltipEditorZoomIn": { "message": "Zoom in (+)" },
+  "tooltipEditorZoomOut": { "message": "Zoom out (−)" },
+  "tooltipEditorCopy": { "message": "Copy image to clipboard" },
+  "tooltipEditorExport": { "message": "Download edited image" },
+  "tooltipEditorSelect": { "message": "Select and move annotations (V)" },
+  "tooltipEditorCrop": { "message": "Crop the image (C)" },
+  "tooltipEditorHighlight": { "message": "Draw a highlight box (H)" },
+  "tooltipEditorText": { "message": "Add text annotation (T)" },
+  "tooltipEditorBlur": { "message": "Blur a region to hide sensitive content (B)" },
+  "tooltipEditorPixelate": { "message": "Pixelate a region to hide sensitive content (P)" },
+  "tooltipEditorRectangle": { "message": "Draw a rectangle" },
+  "tooltipEditorArrow": { "message": "Draw an arrow (hold Shift to snap angles)" },
+  "tooltipEditorCircle": { "message": "Draw a circle or ellipse" },
+  "tooltipEditorFreehand": { "message": "Draw freehand lines" },
+  "tooltipEditorEmoji": { "message": "Pick an emoji, then click on the image to place it" },
+  "tooltipPopupCaptureFull": { "message": "Scroll through and capture the entire page" },
+  "tooltipPopupCaptureVisible": { "message": "Capture only what is visible on screen now" },
+  "tooltipResultEdit": { "message": "Open this capture in the editor" },
+  "tooltipResultPdf": { "message": "Export capture as PDF" },
+  "tooltipResultCopyClipboard": { "message": "Copy image to clipboard" },
+  "tooltipOptionsSave": { "message": "Save all settings" }
 }

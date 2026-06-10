@@ -502,5 +502,74 @@
   },
   "editorCopy": {
     "message": "复制"
+  },
+  "tooltipEditorUndo": {
+    "message": "撤销上一步 (Ctrl+Z)"
+  },
+  "tooltipEditorRedo": {
+    "message": "重做 (Ctrl+Shift+Z)"
+  },
+  "tooltipEditorZoomIn": {
+    "message": "放大 (+)"
+  },
+  "tooltipEditorZoomOut": {
+    "message": "缩小 (−)"
+  },
+  "tooltipEditorCopy": {
+    "message": "复制图片到剪贴板"
+  },
+  "tooltipEditorExport": {
+    "message": "下载编辑后的图片"
+  },
+  "tooltipEditorSelect": {
+    "message": "选择并移动标注 (V)"
+  },
+  "tooltipEditorCrop": {
+    "message": "裁剪图片 (C)"
+  },
+  "tooltipEditorHighlight": {
+    "message": "绘制高亮框 (H)"
+  },
+  "tooltipEditorText": {
+    "message": "添加文字 (T)"
+  },
+  "tooltipEditorBlur": {
+    "message": "模糊区域以隐藏敏感内容 (B)"
+  },
+  "tooltipEditorPixelate": {
+    "message": "像素化区域以隐藏敏感内容 (P)"
+  },
+  "tooltipEditorRectangle": {
+    "message": "绘制矩形"
+  },
+  "tooltipEditorArrow": {
+    "message": "绘制箭头（按住 Shift 对齐角度）"
+  },
+  "tooltipEditorCircle": {
+    "message": "绘制圆形或椭圆"
+  },
+  "tooltipEditorFreehand": {
+    "message": "自由绘制线条"
+  },
+  "tooltipEditorEmoji": {
+    "message": "选择表情符号，然后点击图片放置"
+  },
+  "tooltipPopupCaptureFull": {
+    "message": "滚动并捕获整个页面"
+  },
+  "tooltipPopupCaptureVisible": {
+    "message": "仅捕获当前屏幕可见区域"
+  },
+  "tooltipResultEdit": {
+    "message": "在编辑器中打开此截图"
+  },
+  "tooltipResultPdf": {
+    "message": "导出为 PDF"
+  },
+  "tooltipResultCopyClipboard": {
+    "message": "复制图片到剪贴板"
+  },
+  "tooltipOptionsSave": {
+    "message": "保存所有设置"
   }
 }

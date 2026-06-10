@@ -14,13 +14,13 @@
       </div>
       <div class="right">
         <button id="theme-toggle" class="btn-icon" type="button" data-i18n="themeToggle" data-i18n-attr="title">◐</button>
-        <button id="undo" type="button" data-i18n="editorUndo"></button>
-        <button id="redo" type="button" data-i18n="editorRedo"></button>
-        <button id="zoom-out" type="button" aria-label="Zoom out">−</button>
+        <button id="undo" type="button" data-i18n="editorUndo" data-i18n-tooltip="tooltipEditorUndo"></button>
+        <button id="redo" type="button" data-i18n="editorRedo" data-i18n-tooltip="tooltipEditorRedo"></button>
+        <button id="zoom-out" type="button" data-i18n-tooltip="tooltipEditorZoomOut" data-i18n-tooltip-aria="true">−</button>
         <span id="zoom-label">100%</span>
-        <button id="zoom-in" type="button" aria-label="Zoom in">+</button>
-        <button id="copy" type="button" data-i18n="editorCopy"></button>
-        <button id="export" class="btn-primary" type="button" data-i18n="editorExport"></button>
+        <button id="zoom-in" type="button" data-i18n-tooltip="tooltipEditorZoomIn" data-i18n-tooltip-aria="true">+</button>
+        <button id="copy" type="button" data-i18n="editorCopy" data-i18n-tooltip="tooltipEditorCopy"></button>
+        <button id="export" class="btn-primary" type="button" data-i18n="editorExport" data-i18n-tooltip="tooltipEditorExport"></button>
       </div>
     </header>
 
@@ -29,27 +29,27 @@
         <section class="sidebar-block">
           <h3 data-i18n="editorTools"></h3>
           <div class="tool-grid">
-            <button class="tool-card active" data-tool="select" type="button">
+            <button class="tool-card active" data-tool="select" type="button" data-i18n-tooltip="tooltipEditorSelect">
               <span class="tool-icon" aria-hidden="true">↖</span>
               <span class="tool-label" data-i18n="editorSelect"></span>
             </button>
-            <button class="tool-card" data-tool="crop" type="button">
+            <button class="tool-card" data-tool="crop" type="button" data-i18n-tooltip="tooltipEditorCrop">
               <span class="tool-icon" aria-hidden="true">✂</span>
               <span class="tool-label" data-i18n="editorCrop"></span>
             </button>
-            <button class="tool-card" data-tool="highlight" type="button">
+            <button class="tool-card" data-tool="highlight" type="button" data-i18n-tooltip="tooltipEditorHighlight">
               <span class="tool-icon" aria-hidden="true">🖍</span>
               <span class="tool-label" data-i18n="editorHighlight"></span>
             </button>
-            <button class="tool-card" data-tool="text" type="button">
+            <button class="tool-card" data-tool="text" type="button" data-i18n-tooltip="tooltipEditorText">
               <span class="tool-icon" aria-hidden="true">T</span>
               <span class="tool-label" data-i18n="editorText"></span>
             </button>
-            <button class="tool-card" data-tool="blur" type="button">
+            <button class="tool-card" data-tool="blur" type="button" data-i18n-tooltip="tooltipEditorBlur">
               <span class="tool-icon" aria-hidden="true">▦</span>
               <span class="tool-label" data-i18n="editorBlur"></span>
             </button>
-            <button class="tool-card" data-tool="pixelate" type="button">
+            <button class="tool-card" data-tool="pixelate" type="button" data-i18n-tooltip="tooltipEditorPixelate">
               <span class="tool-icon" aria-hidden="true">▩</span>
               <span class="tool-label" data-i18n="editorPixelate"></span>
             </button>
@@ -60,19 +60,19 @@
           <h3 data-i18n="editorShapes"></h3>
           <p class="tool-hint" data-i18n="editorShapesHint"></p>
           <div class="tool-grid">
-            <button class="tool-card" data-tool="rect" type="button">
+            <button class="tool-card" data-tool="rect" type="button" data-i18n-tooltip="tooltipEditorRectangle">
               <span class="tool-icon" aria-hidden="true">▢</span>
               <span class="tool-label" data-i18n="editorRectangle"></span>
             </button>
-            <button class="tool-card" data-tool="arrow" type="button">
+            <button class="tool-card" data-tool="arrow" type="button" data-i18n-tooltip="tooltipEditorArrow">
               <span class="tool-icon" aria-hidden="true">→</span>
               <span class="tool-label" data-i18n="editorArrow"></span>
             </button>
-            <button class="tool-card" data-tool="ellipse" type="button">
+            <button class="tool-card" data-tool="ellipse" type="button" data-i18n-tooltip="tooltipEditorCircle">
               <span class="tool-icon" aria-hidden="true">○</span>
               <span class="tool-label" data-i18n="editorCircle"></span>
             </button>
-            <button class="tool-card" data-tool="freehand" type="button">
+            <button class="tool-card" data-tool="freehand" type="button" data-i18n-tooltip="tooltipEditorFreehand">
               <span class="tool-icon" aria-hidden="true">✎</span>
               <span class="tool-label" data-i18n="editorFreehand"></span>
             </button>

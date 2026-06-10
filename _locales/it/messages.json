@@ -502,5 +502,74 @@
   },
   "editorCopy": {
     "message": "Copia"
+  },
+  "tooltipEditorUndo": {
+    "message": "Annulla ultima azione (Ctrl+Z)"
+  },
+  "tooltipEditorRedo": {
+    "message": "Ripeti (Ctrl+Maiusc+Z)"
+  },
+  "tooltipEditorZoomIn": {
+    "message": "Ingrandisci (+)"
+  },
+  "tooltipEditorZoomOut": {
+    "message": "Riduci (−)"
+  },
+  "tooltipEditorCopy": {
+    "message": "Copia immagine negli appunti"
+  },
+  "tooltipEditorExport": {
+    "message": "Scarica immagine modificata"
+  },
+  "tooltipEditorSelect": {
+    "message": "Seleziona e sposta annotazioni (V)"
+  },
+  "tooltipEditorCrop": {
+    "message": "Ritaglia immagine (C)"
+  },
+  "tooltipEditorHighlight": {
+    "message": "Disegna evidenziazione (H)"
+  },
+  "tooltipEditorText": {
+    "message": "Aggiungi testo (T)"
+  },
+  "tooltipEditorBlur": {
+    "message": "Sfoca un'area per nascondere contenuti sensibili (B)"
+  },
+  "tooltipEditorPixelate": {
+    "message": "Pixela un'area per nascondere contenuti sensibili (P)"
+  },
+  "tooltipEditorRectangle": {
+    "message": "Disegna un rettangolo"
+  },
+  "tooltipEditorArrow": {
+    "message": "Disegna una freccia (tieni Maiusc per allineare gli angoli)"
+  },
+  "tooltipEditorCircle": {
+    "message": "Disegna un cerchio o ellisse"
+  },
+  "tooltipEditorFreehand": {
+    "message": "Disegna a mano libera"
+  },
+  "tooltipEditorEmoji": {
+    "message": "Scegli un emoji e clicca sull'immagine per posizionarlo"
+  },
+  "tooltipPopupCaptureFull": {
+    "message": "Scorri e cattura l'intera pagina"
+  },
+  "tooltipPopupCaptureVisible": {
+    "message": "Cattura solo ciò che è visibile ora"
+  },
+  "tooltipResultEdit": {
+    "message": "Apri questa cattura nell'editor"
+  },
+  "tooltipResultPdf": {
+    "message": "Esporta cattura come PDF"
+  },
+  "tooltipResultCopyClipboard": {
+    "message": "Copia immagine negli appunti"
+  },
+  "tooltipOptionsSave": {
+    "message": "Salva tutte le impostazioni"
   }
 }

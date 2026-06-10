@@ -502,5 +502,74 @@
   },
   "editorCopy": {
     "message": "Copier"
+  },
+  "tooltipEditorUndo": {
+    "message": "Annuler la dernière action (Ctrl+Z)"
+  },
+  "tooltipEditorRedo": {
+    "message": "Rétablir (Ctrl+Maj+Z)"
+  },
+  "tooltipEditorZoomIn": {
+    "message": "Zoom avant (+)"
+  },
+  "tooltipEditorZoomOut": {
+    "message": "Zoom arrière (−)"
+  },
+  "tooltipEditorCopy": {
+    "message": "Copier l'image dans le presse-papiers"
+  },
+  "tooltipEditorExport": {
+    "message": "Télécharger l'image modifiée"
+  },
+  "tooltipEditorSelect": {
+    "message": "Sélectionner et déplacer les annotations (V)"
+  },
+  "tooltipEditorCrop": {
+    "message": "Recadrer l'image (C)"
+  },
+  "tooltipEditorHighlight": {
+    "message": "Dessiner un surlignage (H)"
+  },
+  "tooltipEditorText": {
+    "message": "Ajouter du texte (T)"
+  },
+  "tooltipEditorBlur": {
+    "message": "Flouter une zone pour masquer du contenu sensible (B)"
+  },
+  "tooltipEditorPixelate": {
+    "message": "Pixelliser une zone pour masquer du contenu sensible (P)"
+  },
+  "tooltipEditorRectangle": {
+    "message": "Dessiner un rectangle"
+  },
+  "tooltipEditorArrow": {
+    "message": "Dessiner une flèche (maintenir Maj pour aligner les angles)"
+  },
+  "tooltipEditorCircle": {
+    "message": "Dessiner un cercle ou une ellipse"
+  },
+  "tooltipEditorFreehand": {
+    "message": "Dessiner à main levée"
+  },
+  "tooltipEditorEmoji": {
+    "message": "Choisissez un emoji puis cliquez sur l'image pour le placer"
+  },
+  "tooltipPopupCaptureFull": {
+    "message": "Faire défiler et capturer toute la page"
+  },
+  "tooltipPopupCaptureVisible": {
+    "message": "Capturer uniquement ce qui est visible à l'écran"
+  },
+  "tooltipResultEdit": {
+    "message": "Ouvrir cette capture dans l'éditeur"
+  },
+  "tooltipResultPdf": {
+    "message": "Exporter la capture en PDF"
+  },
+  "tooltipResultCopyClipboard": {
+    "message": "Copier l'image dans le presse-papiers"
+  },
+  "tooltipOptionsSave": {
+    "message": "Enregistrer tous les paramètres"
   }
 }

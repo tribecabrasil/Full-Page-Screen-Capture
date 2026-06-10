@@ -502,5 +502,74 @@
   },
   "editorCopy": {
     "message": "कॉपी"
+  },
+  "tooltipEditorUndo": {
+    "message": "पिछली क्रिया पूर्ववत करें (Ctrl+Z)"
+  },
+  "tooltipEditorRedo": {
+    "message": "फिर से करें (Ctrl+Shift+Z)"
+  },
+  "tooltipEditorZoomIn": {
+    "message": "ज़ूम इन (+)"
+  },
+  "tooltipEditorZoomOut": {
+    "message": "ज़ूम आउट (−)"
+  },
+  "tooltipEditorCopy": {
+    "message": "छवि क्लिपबोर्ड पर कॉपी करें"
+  },
+  "tooltipEditorExport": {
+    "message": "संपादित छवि डाउनलोड करें"
+  },
+  "tooltipEditorSelect": {
+    "message": "एनोटेशन चुनें और खिसकाएँ (V)"
+  },
+  "tooltipEditorCrop": {
+    "message": "छवि क्रॉप करें (C)"
+  },
+  "tooltipEditorHighlight": {
+    "message": "हाइलाइट बॉक्स बनाएँ (H)"
+  },
+  "tooltipEditorText": {
+    "message": "टेक्स्ट जोड़ें (T)"
+  },
+  "tooltipEditorBlur": {
+    "message": "संवेदनशील सामग्री छिपाने के लिए क्षेत्र ब्लर करें (B)"
+  },
+  "tooltipEditorPixelate": {
+    "message": "संवेदनशील सामग्री छिपाने के लिए क्षेत्र पिक्सेलेट करें (P)"
+  },
+  "tooltipEditorRectangle": {
+    "message": "आयत बनाएँ"
+  },
+  "tooltipEditorArrow": {
+    "message": "तीर बनाएँ (कोण स्नैप के लिए Shift दबाए रखें)"
+  },
+  "tooltipEditorCircle": {
+    "message": "वृत्त या दीर्घवृत्त बनाएँ"
+  },
+  "tooltipEditorFreehand": {
+    "message": "फ्रीहैंड लाइन बनाएँ"
+  },
+  "tooltipEditorEmoji": {
+    "message": "इमोजी चुनें, फिर छवि पर क्लिक करके रखें"
+  },
+  "tooltipPopupCaptureFull": {
+    "message": "स्क्रॉल करके पूरा पेज कैप्चर करें"
+  },
+  "tooltipPopupCaptureVisible": {
+    "message": "केवल अभी स्क्रीन पर दिख रहा हिस्सा कैप्चर करें"
+  },
+  "tooltipResultEdit": {
+    "message": "इस कैप्चर को एडिटर में खोलें"
+  },
+  "tooltipResultPdf": {
+    "message": "PDF के रूप में निर्यात करें"
+  },
+  "tooltipResultCopyClipboard": {
+    "message": "छवि क्लिपबोर्ड पर कॉपी करें"
+  },
+  "tooltipOptionsSave": {
+    "message": "सभी सेटिंग्स सहेजें"
   }
 }

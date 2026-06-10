@@ -502,5 +502,74 @@
   },
   "editorCopy": {
     "message": "Copiar"
+  },
+  "tooltipEditorUndo": {
+    "message": "Desfazer última ação (Ctrl+Z)"
+  },
+  "tooltipEditorRedo": {
+    "message": "Refazer (Ctrl+Shift+Z)"
+  },
+  "tooltipEditorZoomIn": {
+    "message": "Aumentar zoom (+)"
+  },
+  "tooltipEditorZoomOut": {
+    "message": "Diminuir zoom (−)"
+  },
+  "tooltipEditorCopy": {
+    "message": "Copiar imagem para a área de transferência"
+  },
+  "tooltipEditorExport": {
+    "message": "Baixar imagem editada"
+  },
+  "tooltipEditorSelect": {
+    "message": "Selecionar e mover anotações (V)"
+  },
+  "tooltipEditorCrop": {
+    "message": "Recortar a imagem (C)"
+  },
+  "tooltipEditorHighlight": {
+    "message": "Desenhar caixa de destaque (H)"
+  },
+  "tooltipEditorText": {
+    "message": "Adicionar texto (T)"
+  },
+  "tooltipEditorBlur": {
+    "message": "Desfocar região para ocultar conteúdo sensível (B)"
+  },
+  "tooltipEditorPixelate": {
+    "message": "Pixelizar região para ocultar conteúdo sensível (P)"
+  },
+  "tooltipEditorRectangle": {
+    "message": "Desenhar um retângulo"
+  },
+  "tooltipEditorArrow": {
+    "message": "Desenhar uma seta (segure Shift para alinhar ângulos)"
+  },
+  "tooltipEditorCircle": {
+    "message": "Desenhar um círculo ou elipse"
+  },
+  "tooltipEditorFreehand": {
+    "message": "Desenhar linhas à mão livre"
+  },
+  "tooltipEditorEmoji": {
+    "message": "Escolha um emoji e clique na imagem para posicionar"
+  },
+  "tooltipPopupCaptureFull": {
+    "message": "Rolar e capturar a página inteira"
+  },
+  "tooltipPopupCaptureVisible": {
+    "message": "Capturar apenas o que está visível na tela agora"
+  },
+  "tooltipResultEdit": {
+    "message": "Abrir esta captura no editor"
+  },
+  "tooltipResultPdf": {
+    "message": "Exportar captura como PDF"
+  },
+  "tooltipResultCopyClipboard": {
+    "message": "Copiar imagem para a área de transferência"
+  },
+  "tooltipOptionsSave": {
+    "message": "Salvar todas as configurações"
   }
 }

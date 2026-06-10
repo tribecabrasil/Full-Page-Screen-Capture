@@ -502,5 +502,74 @@
   },
   "editorCopy": {
     "message": "コピー"
+  },
+  "tooltipEditorUndo": {
+    "message": "元に戻す (Ctrl+Z)"
+  },
+  "tooltipEditorRedo": {
+    "message": "やり直す (Ctrl+Shift+Z)"
+  },
+  "tooltipEditorZoomIn": {
+    "message": "拡大 (+)"
+  },
+  "tooltipEditorZoomOut": {
+    "message": "縮小 (−)"
+  },
+  "tooltipEditorCopy": {
+    "message": "画像をクリップボードにコピー"
+  },
+  "tooltipEditorExport": {
+    "message": "編集した画像をダウンロード"
+  },
+  "tooltipEditorSelect": {
+    "message": "注釈を選択して移動 (V)"
+  },
+  "tooltipEditorCrop": {
+    "message": "画像を切り抜き (C)"
+  },
+  "tooltipEditorHighlight": {
+    "message": "ハイライトボックスを描画 (H)"
+  },
+  "tooltipEditorText": {
+    "message": "テキストを追加 (T)"
+  },
+  "tooltipEditorBlur": {
+    "message": "機密部分をぼかす (B)"
+  },
+  "tooltipEditorPixelate": {
+    "message": "機密部分をモザイク (P)"
+  },
+  "tooltipEditorRectangle": {
+    "message": "長方形を描画"
+  },
+  "tooltipEditorArrow": {
+    "message": "矢印を描画 (Shiftで角度をスナップ)"
+  },
+  "tooltipEditorCircle": {
+    "message": "円または楕円を描画"
+  },
+  "tooltipEditorFreehand": {
+    "message": "フリーハンドで描画"
+  },
+  "tooltipEditorEmoji": {
+    "message": "絵文字を選び、画像をクリックして配置"
+  },
+  "tooltipPopupCaptureFull": {
+    "message": "スクロールしてページ全体をキャプチャ"
+  },
+  "tooltipPopupCaptureVisible": {
+    "message": "現在画面に表示されている部分のみキャプチャ"
+  },
+  "tooltipResultEdit": {
+    "message": "このキャプチャをエディターで開く"
+  },
+  "tooltipResultPdf": {
+    "message": "PDFとしてエクスポート"
+  },
+  "tooltipResultCopyClipboard": {
+    "message": "画像をクリップボードにコピー"
+  },
+  "tooltipOptionsSave": {
+    "message": "すべての設定を保存"
   }
 }

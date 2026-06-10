@@ -148,6 +148,14 @@ The editor was redesigned for clarity — tools, shapes, and formatting are **al
 
 ✅ **No build step required.**
 
+### 🧪 Tests
+
+```bash
+npm test
+```
+
+Runs unit tests for URL validation, i18n placeholder formatting, and mask pixelation.
+
 ---
 
 ## 🚀 Usage
@@ -340,6 +348,12 @@ This project builds upon concepts from the MIT-licensed [full-page-screen-captur
 ---
 
 ## 📋 Changelog
+
+### 1.3.1
+
+- 💬 **Tooltips** across editor, popup, result, and options (9 languages, shortcuts included)
+- 🖱️ **Smoother drag** — pointer release outside the canvas now finishes move/crop/draw correctly
+- 🧪 **Unit tests** for `url-validator`, `format-message`, and pixelate mask effects
 
 ### 1.3.0
 
